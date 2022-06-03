@@ -59,7 +59,8 @@ body{
 }
 #login_cliente #acess_login_barbearia{
     background: darkred;
-    padding: 15px 15px;
+    width: 50px;
+    padding: 10px;
     color: white;
     font-size: larger;
     border-radius: 50%;
