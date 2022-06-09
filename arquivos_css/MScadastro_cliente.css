@@ -80,6 +80,9 @@ body{
     border: none;
     color: white;
 }
+.area_cards h1{
+    color: white;
+}
 #card_foto_barberia{
     border: none;
     width: 1000px;
@@ -97,6 +100,38 @@ footer .nav{
 .nav li img{
     border-radius: 50%;
 }
+.modal-body{
+    background: black;
+}
+
+.modal-header{
+    background: black;
+    color: white;
+}
+.modal-header button{
+    color: white;
+}
+.modal-body input{
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: solid 2px orange;
+    color: white;
+}
+.modal-body label{
+    color: white;
+}
+.modal-body button{
+    background: darkred;
+    color: white;
+    padding: 10px 150px;
+    border: none;
+    font-size: larger;
+}
+.modal-body button:hover{
+    background: rgb(187, 3, 3);
+}
+
 @media only screen and (max-width: 600px) {
     .titulo{
         display: flex;
