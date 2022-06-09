@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 body{
     background-image: url(/imagens/inside-3315725_1920.jpg);
@@ -51,9 +51,7 @@ body{
     margin: auto;
 }
 .frases #comece{
-    position: absolute;
-    left: 42%;
-    top: 245%;
+    margin: auto;
     padding: 10px 50px;
     background: orange;
     border: none;
@@ -64,6 +62,11 @@ body{
     color: white;
     background: orange;
     box-shadow: 0 0 50px orange;
+}
+.frases .card{
+    margin: auto;
+    background: transparent;
+    border: none;
 }
 
 .area_cards{
@@ -91,3 +94,22 @@ footer .nav{
     padding: 20px;
     color: white;
 }
+.nav li img{
+    border-radius: 50%;
+}
+@media only screen and (max-width: 600px) {
+    .titulo{
+        display: flex;
+    }
+    .titulo img{
+        margin: auto;
+        margin-left: -190px;
+    }
+    footer{
+        display: flex;
+    }
+    footer .nav img{
+        margin-left: 110px;
+    }
+  }
+    

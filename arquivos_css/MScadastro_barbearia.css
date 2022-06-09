@@ -1,7 +1,7 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    
 }
 body{
     background-image: url(/imagens/inside-3315725_1920.jpg);
@@ -19,11 +19,11 @@ body{
     width: 100%;
     margin-bottom: 400px;
     padding-bottom: 1px;
+    box-sizing: border-box;
 }
 .recebimento{
     color: white;
     display: flex;
-   
 }
 .recebimento h1{
     margin: 30px auto;
@@ -50,11 +50,10 @@ body{
 }
 .frases h1{
     margin: auto;
+    
 }
 .frases #comece{
-    position: absolute;
-    left: 42%;
-    top: 245%;
+    margin: auto;
     padding: 10px 50px;
     background: orange;
     border: none;
@@ -65,6 +64,11 @@ body{
     color: white;
     background: orange;
     box-shadow: 0 0 50px orange;
+}
+.frases .card{
+    margin: auto;
+    background: transparent;
+    border: none;
 }
 
 .area_cards{
@@ -92,3 +96,25 @@ footer .nav{
     padding: 20px;
     color: white;
 }
+.nav li img{
+    border-radius: 50%;
+}
+@media only screen and (max-width: 600px) {
+    .titulo{
+        display: flex;
+    }
+    .titulo img{
+        margin: auto;
+        margin-left: -190px;
+    }
+    .frases #comece{
+        margin-left: -50px;
+        
+    }
+    footer{
+        display: flex;
+    }
+    footer .nav img{
+        margin-left: 110px;
+    }
+  }
