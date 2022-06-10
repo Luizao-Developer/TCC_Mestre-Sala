@@ -102,6 +102,7 @@ footer .nav{
 }
 .modal-body{
     background: black;
+
 }
 
 .modal-header{
@@ -121,14 +122,15 @@ footer .nav{
 .modal-body label{
     color: white;
 }
-.modal-body button{
+.modal-body #cadastrar{
     background: darkred;
     color: white;
     padding: 10px 150px;
     border: none;
     font-size: larger;
+    border-radius: 0;
 }
-.modal-body button:hover{
+.modal-body #cadastrar:hover{
     background: rgb(187, 3, 3);
 }
 
