@@ -78,7 +78,19 @@
     </div>
   </div>
   <div class="frases">
-  
+   <!--
+     Status
+     Nome
+     Endereco
+     CNPJ
+     CEP
+     Email
+     Telefone/Comercial
+     Telefone/pessoal
+     Cidade
+     Foto
+     Senha_de_acesso
+   -->
     <div class="card">
       
       <div class="card-body">
@@ -96,7 +108,60 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  
+                  <!--CADASTRO DE BARBEARIA-->
+                  <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">First name</label>
+                      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip02" class="form-label">Last name</label>
+                      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltipUsername" class="form-label">Username</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                        <div class="invalid-tooltip">
+                          Please choose a unique and valid username.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                      <label for="validationTooltip03" class="form-label">City</label>
+                      <input type="text" class="form-control" id="validationTooltip03" required>
+                      <div class="invalid-tooltip">
+                        Please provide a valid city.
+                      </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                      <label for="validationTooltip04" class="form-label">State</label>
+                      <select class="form-select" id="validationTooltip04" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>...</option>
+                      </select>
+                      <div class="invalid-tooltip">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-3 position-relative">
+                      <label for="validationTooltip05" class="form-label">Zip</label>
+                      <input type="text" class="form-control" id="validationTooltip05" required>
+                      <div class="invalid-tooltip">
+                        Please provide a valid zip.
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit">Submit form</button>
+                    </div>
+                  </form>
                   
                 </div>
                 
@@ -114,7 +179,7 @@
   </div> 
 </div>
 
-
+     <script src="/arquivos_js/MScadastro_barbearia.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>

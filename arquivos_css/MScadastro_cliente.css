@@ -50,6 +50,7 @@ body{
 .frases h1{
     margin: auto;
 }
+
 .frases #comece{
     margin: auto;
     padding: 10px 50px;
@@ -148,5 +149,6 @@ footer .nav{
     footer .nav img{
         margin-left: 110px;
     }
+    
   }
     
