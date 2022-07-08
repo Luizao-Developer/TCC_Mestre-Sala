@@ -83,14 +83,14 @@
   <div class="frases">
     
     <div class="card">
-      <!--Nome
-      Endereco
-      Data/nascimento
-      Cep
-      Cidade
-      UF
-      Telefone
-      Email
+      <!--Nome -
+      Endereco -
+      Data/nascimento -
+      Cep -
+      Cidade -
+      UF -
+      Telefone -
+      Email -
       foto
       Nome_de_usuario
       Senha_de_acesso-->
@@ -112,23 +112,48 @@
                   <!--CADASTRO DE CLIENTE-->
                   <form class="row g-5 needs-validation" novalidate>
                     <div class="col-md-4 position-relative">
-                      <label for="validationTooltip01" class="form-label">First name</label>
+                      <label for="validationTooltip01" class="form-label">Nome</label>
                       <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
                       <div class="valid-tooltip">
                         Looks good!
                       </div>
                     </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Nome de usuário</label>
+                      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Email</label>
+                      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="validationTooltip01" class="form-label">Telefone</label>
+                      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+
                     <div class="col-md-15 position-relative">
-                      <label for="validationTooltip02" class="form-label">Last name</label>
-                      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                      <label for="validationTooltip02" class="form-label">Data/nascimento</label>
+                      <input type="date" class="form-control" id="validationTooltip02" value="Otto" required>
                       <div class="valid-tooltip">
                         Looks good!
                       </div>
                     </div>
                     <div class="col-md-4 position-relative">
-                      <label for="validationTooltipUsername" class="form-label">Username</label>
+                      <label for="validationTooltipUsername" class="form-label">Endereço</label>
                       <div class="input-group has-validation">
-                        <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                        
                         <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
                         <div class="invalid-tooltip">
                           Please choose a unique and valid username.
@@ -136,14 +161,22 @@
                       </div>
                     </div>
                     <div class="col-md-6 position-relative">
-                      <label for="validationTooltip03" class="form-label">City</label>
+                      <label for="validationTooltip03" class="form-label">CEP</label>
                       <input type="text" class="form-control" id="validationTooltip03" required>
                       <div class="invalid-tooltip">
                         Please provide a valid city.
                       </div>
+
+                      <div class="col-md-6 position-relative">
+                        <label for="validationTooltip03" class="form-label">Cidade</label>
+                        <input type="text" class="form-control" id="validationTooltip03" required>
+                        <div class="invalid-tooltip">
+                          Please provide a valid city.
+                        </div>
+
                     </div>
                     <div class="col-md-3 position-relative">
-                      <label for="validationTooltip04" class="form-label">State</label>
+                      <label for="validationTooltip04" class="form-label">UF</label>
                       <select class="form-select" id="validationTooltip04" required>
                         <option selected disabled value="">Choose...</option>
                         <option>...</option>
@@ -152,13 +185,9 @@
                         Please select a valid state.
                       </div>
                     </div>
-                    <div class="col-md-3 position-relative">
-                      <label for="validationTooltip05" class="form-label">Zip</label>
-                      <input type="text" class="form-control" id="validationTooltip05" required>
-                      <div class="invalid-tooltip">
-                        Please provide a valid zip.
-                      </div>
-                    </div>
+                    
+                    
+
                     <div class="col-12">
                       <button class="btn btn-primary" type="submit">Submit form</button>
                     </div>
