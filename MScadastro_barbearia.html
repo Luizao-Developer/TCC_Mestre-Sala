@@ -78,7 +78,9 @@
     </div>
   </div>
   <div class="frases">
-   <!--
+
+    <div class="card">
+         <!--
      Status
      Nome
      Endereco
@@ -92,8 +94,6 @@
      Foto
      Senha_de_acesso
    -->
-    <div class="card">
-      
       <div class="card-body">
           <!-- Button trigger modal -->
           <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal" id="comece">
@@ -106,24 +106,30 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Cadastre sua barbearia</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <button type="button" class="btn-close btn-close-white"  data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <!--CADASTRO DE BARBEARIA-->
                   <form class="row g-3 needs-validation" novalidate>
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="validationTooltip01" value="Mark" required>
+                      <input type="text" class="form-control" id="validationTooltip01" name="nome"  required>
                       <div class="valid-tooltip">
-                        Looks good!
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o nome da barbearia
                       </div>
                     </div>
 
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip02" class="form-label">Endereço</label>
-                      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                      <input type="text" class="form-control" id="validationTooltip02" name="endereco"  required>
                       <div class="valid-tooltip">
-                        Looks good!
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o endereço de sua barbearia
                       </div>
                     </div>
 
@@ -131,80 +137,104 @@
                       <label for="validationTooltipUsername" class="form-label">CEP</label>
                       <div class="input-group has-validation">
                         
-                        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" required>
+                        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" name="cep" required>
+                        <div class="valid-tooltip">
+                          Certo!
+                        </div>
                         <div class="invalid-tooltip">
-                          Please choose a unique and valid username.
+                          Insira o CEP de sua barbearia
                         </div>
                       </div>
 
                     </div>
 
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip02" class="form-label">Cidade</label>
-                      <input type="text" class="form-control" id="validationTooltip02" value="Otto" required>
+                      <input type="text" class="form-control" id="validationTooltip02" name="cidade" required>
                       <div class="valid-tooltip">
-                        Looks good!
+                        Certo!
                       </div>
-
-                      <div class="col-md-3 position-relative">
+                      <div class="invalid-tooltip">
+                        Insira a cidade de sua barbearia
+                      </div>
+                    </div>
+                      <div class="col-md-20 position-relative">
                         <label for="validationTooltip04" class="form-label">UF</label>
-                        <select class="form-select" id="validationTooltip04" required>
+                        <select class="form-select" id="validationTooltip04" name="uf" required>
                           <option selected disabled value="">Choose...</option>
                           <option>...</option>
                         </select>
+                        <div class="valid-tooltip">
+                          Certo!
+                        </div>
                         <div class="invalid-tooltip">
-                          Please select a valid state.
+                          Selecione a UF(estado) de sua barbearia
                         </div>
                       </div>
 
                       
 
-                    <div class="col-md-6 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">CNPJ</label>
-                      <input type="text" class="form-control" id="validationTooltip03" required>
+                      <input type="text" class="form-control" id="validationTooltip03" name="cnpj" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
                       <div class="invalid-tooltip">
-                        Please provide a valid city.
+                        Insira um CNPJ de preferencia valido
                       </div>
                     </div>
 
-                    <div class="col-md-6 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">Telefone/Comercial</label>
-                      <input type="text" class="form-control" id="validationTooltip03" required>
+                      <input type="text" class="form-control" id="validationTooltip03" name="telefoneComercial" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
                       <div class="invalid-tooltip">
-                        Please provide a valid city.
+                        Insira o telefone comercial
                       </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip04" class="form-label">Status</label>
-                      <select class="form-select" id="validationTooltip04" required>
+                      <select class="form-select" id="validationTooltip04" name="status" required>
                         <option selected disabled value="">Choose...</option>
                         <option>...</option>
                       </select>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
                       <div class="invalid-tooltip">
-                        Please select a valid state.
+                        Selecione o status de sua barbearia
                       </div>
                     </div>
                       
                     <!--ADMIN-->
 
-                    <div class="col-md-6 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">Telefone/Pessoal</label>
-                      <input type="text" class="form-control" id="validationTooltip03" required>
+                      <input type="text" class="form-control" id="validationTooltip03" name="telefonePessoal" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
                       <div class="invalid-tooltip">
-                        Please provide a valid city.
+                        Por favor insira o Telefone pessoal.
                       </div>
                     </div>
                     
-                    <div class="col-md-6 position-relative">
+                    <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">Senha de acesso</label>
-                      <input type="password" class="form-control" id="validationTooltip03" required>
+                      <input type="password" class="form-control" id="validationTooltip03" name="senhaAcesso" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
                       <div class="invalid-tooltip">
-                        Please provide a valid city.
+                        Por favor insira uma senha de acesso.
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary" type="submit">Submit form</button>
+                      <button class="btn btn-primary" type="submit" id="cadastrar" name="cadastrar">Cadastrar</button>
                     </div>
                   </form>
                   
@@ -240,6 +270,7 @@
     
   </ul>
 </footer>
+
 <script>
   (() => {
     'use strict'

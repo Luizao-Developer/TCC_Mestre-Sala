@@ -110,6 +110,9 @@ footer .nav{
     background: black;
     color: white;
 }
+.modal-header .btn-close{
+    color: white;
+}
 .modal-header button{
     color: white;
 }
@@ -124,6 +127,8 @@ footer .nav{
     color: white;
 }
 .modal-body #cadastrar{
+    margin-top: 15px;
+    margin-left: 50px;
     background: darkred;
     color: white;
     padding: 10px 150px;
