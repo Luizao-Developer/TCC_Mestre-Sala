@@ -110,10 +110,10 @@
                 </div>
                 <div class="modal-body">
                   <!--CADASTRO DE BARBEARIA-->
-                  <form class="row g-3 needs-validation" novalidate>
+                  <form class="row g-3 needs-validation"  novalidate>
                     <div class="col-md-4 position-relative">
-                      <label for="validationTooltip01" class="form-label">Nome</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="nome"  required>
+                      <label for="nome" class="form-label">Nome</label>
+                      <input type="text" class="form-control" id="nome" name="nome"  required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -123,8 +123,8 @@
                     </div>
 
                     <div class="col-md-4 position-relative">
-                      <label for="validationTooltip02" class="form-label">Endereço</label>
-                      <input type="text" class="form-control" id="validationTooltip02" name="endereco"  required>
+                      <label for="endereco" class="form-label">Endereço</label>
+                      <input type="text" class="form-control" id="endereco" name="endereco"  required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -134,10 +134,10 @@
                     </div>
 
                     <div class="col-md-4 position-relative">
-                      <label for="validationTooltipUsername" class="form-label">CEP</label>
+                      <label for="cep" class="form-label">CEP</label>
                       <div class="input-group has-validation">
                         
-                        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" name="cep" required>
+                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep" required>
                         <div class="valid-tooltip">
                           Certo!
                         </div>
@@ -149,8 +149,8 @@
                     </div>
 
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip02" class="form-label">Cidade</label>
-                      <input type="text" class="form-control" id="validationTooltip02" name="cidade" required>
+                      <label for="cidade" class="form-label">Cidade</label>
+                      <input type="text" class="form-control" id="cidade" name="cidade" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -159,8 +159,8 @@
                       </div>
                     </div>
                       <div class="col-md-20 position-relative">
-                        <label for="validationTooltip04" class="form-label">UF</label>
-                        <select class="form-select" id="validationTooltip04" name="uf" required>
+                        <label for="uf" class="form-label">UF</label>
+                        <select class="form-select" id="uf" name="uf" required>
                           <option selected disabled value="">Choose...</option>
                           <option>...</option>
                         </select>
@@ -175,8 +175,8 @@
                       
 
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip03" class="form-label">CNPJ</label>
-                      <input type="text" class="form-control" id="validationTooltip03" name="cnpj" required>
+                      <label for="cnpj" class="form-label">CNPJ</label>
+                      <input type="text" class="form-control" id="cnpj" name="cnpj" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -186,8 +186,8 @@
                     </div>
 
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip03" class="form-label">Telefone/Comercial</label>
-                      <input type="text" class="form-control" id="validationTooltip03" name="telefoneComercial" required>
+                      <label for="telefoneComercial" class="form-label">Telefone/Comercial</label>
+                      <input type="text" class="form-control" id="telefoneComercial" name="telefoneComercial" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -197,8 +197,8 @@
                     </div>
 
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip04" class="form-label">Status</label>
-                      <select class="form-select" id="validationTooltip04" name="status" required>
+                      <label for="status" class="form-label">Status</label>
+                      <select class="form-select" id="status" name="status" required>
                         <option selected disabled value="">Choose...</option>
                         <option>...</option>
                       </select>
@@ -213,8 +213,8 @@
                     <!--ADMIN-->
 
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip03" class="form-label">Telefone/Pessoal</label>
-                      <input type="text" class="form-control" id="validationTooltip03" name="telefonePessoal" required>
+                      <label for="telefonePessoal" class="form-label">Telefone/Pessoal</label>
+                      <input type="text" class="form-control" id="telefonePessoal" name="telefonePessoal" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -224,8 +224,8 @@
                     </div>
                     
                     <div class="col-md-20 position-relative">
-                      <label for="validationTooltip03" class="form-label">Senha de acesso</label>
-                      <input type="password" class="form-control" id="validationTooltip03" name="senhaAcesso" required>
+                      <label for="senhaAcesso" class="form-label">Senha de acesso</label>
+                      <input type="password" class="form-control" id="senhaAcesso" name="senhaAcesso" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -234,7 +234,7 @@
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary" type="submit" id="cadastrar" name="cadastrar">Cadastrar</button>
+                      <button class="btn btn-primary" type="submit" onclick="cadastrar()" id="cadastrar" name="cadastrar">Cadastrar</button>
                     </div>
                   </form>
                   
