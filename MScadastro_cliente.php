@@ -11,6 +11,167 @@
     <link rel="stylesheet" href="arquivos_css/MScadastro_cliente.css">
     <title>Cadastre-se</title>
 </head>
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+    
+}
+body{
+    background-image: url(imagens/inside-3315725_1920.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    width: 100%;
+    height: 180vh;
+    
+}
+.body2{
+    margin-top: 400px;
+    background: rgba(0, 0, 0, 0.514);
+    width: 100%;
+    margin-bottom: 400px;
+    padding-bottom: 1px;
+}
+.recebimento{
+    color: white;
+    display: flex;
+}
+.recebimento h1{
+    margin: 30px auto;
+}
+.titulo{
+    padding: 200px;
+    width: 70%;
+    margin: auto;
+   display: flex;
+}
+.titulo #logo{
+    margin: auto;
+}
+.titulo #logo img{
+    width: 400px;
+    padding: 10px;
+    border-radius: 50%;
+}
+.frases{
+    display: flex;
+    width: 100%;
+    padding: 200px;
+    color: white;
+}
+.frases h1{
+    margin: auto;
+}
+
+.frases #comece{
+    margin: auto;
+    padding: 10px 50px;
+    background: orange;
+    border: none;
+    font-size: larger;
+    color: white;
+}
+.frases #comece:hover{
+    color: white;
+    background: orange;
+    box-shadow: 0 0 50px orange;
+}
+.frases .card{
+    margin: auto;
+    background: transparent;
+    border: none;
+}
+
+.area_cards{
+    width: 100%;
+    background: rgba(255, 166, 0, 0.301);
+    padding: 3em;
+    margin-bottom: 100px;
+}
+.area_cards #cards{
+    background: transparent;
+    border: none;
+    color: white;
+}
+.area_cards h1{
+    color: white;
+}
+#card_foto_barberia{
+    border: none;
+    width: 1000px;
+    margin-bottom: 250px;
+    display: flex;
+    margin: auto;
+    margin-bottom: 300px;
+    padding-top: 110px;
+}
+footer .nav{
+    background: black;
+    padding: 20px;
+    color: white;
+}
+.nav li img{
+    border-radius: 50%;
+}
+.modal-body{
+    background: black;
+
+}
+
+.modal-header{
+    background: black;
+    color: white;
+}
+.modal-header .btn-close{
+    color: white;
+}
+.modal-header button{
+    color: white;
+}
+.modal-body input{
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: solid 2px orange;
+    color: white;
+}
+.modal-body label{
+    color: white;
+}
+.modal-body #cadastrar{
+    margin-top: 15px;
+    margin-left: 50px;
+    background: darkred;
+    color: white;
+    padding: 10px 150px;
+    border: none;
+    font-size: larger;
+    border-radius: 0;
+}
+.modal-body #cadastrar:hover{
+    background: rgb(187, 3, 3);
+}
+
+@media only screen and (max-width: 600px) {
+    .titulo{
+        display: flex;
+    }
+    .titulo img{
+        margin: auto;
+        margin-left: -190px;
+    }
+    footer{
+        display: flex;
+    }
+    footer .nav img{
+        margin-left: 110px;
+    }
+    
+  }
+    
+</style>
 <body>
   <div class="body2">
   <div class="recebimento">
