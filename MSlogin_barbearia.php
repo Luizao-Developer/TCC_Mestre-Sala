@@ -10,6 +10,85 @@
     <link rel="stylesheet" href="arquivos_css/MSlogin_barbearia.css">
     <title>Sua barbearia</title>
 </head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(220deg, darkblue, rgb(70, 2, 7));
+    background-position: center;
+}
+#logo img{
+    border-radius: 50%;
+}
+#login_barbearia{
+    width: 400px;
+    padding: 30px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    right: 50%;
+    transform: translate(-50%,-50%);
+    background: black;
+}
+#login_barbearia h1{
+    border-bottom: solid orange;
+    width: 180px;
+    
+}
+#login_barbearia #receber{
+    margin: 20px 30px;
+    
+}
+#login_barbearia input{
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: solid 2px orange;
+    color: white;
+}
+#login_barbearia label{
+    color: white;
+}
+#login_barbearia h1, p{
+    color: white;
+    text-align: center; 
+}
+#login_barbearia ,p a{
+    text-decoration: none;
+    color: orange;
+}
+#login_barbearia a:hover{
+    color: yellow;
+}
+#login_barbearia #entrar{
+    background: darkred;
+    color: white;
+    padding: 10px 150px;
+    border: none;
+    font-size: larger;
+    border-radius: 2px;
+}
+#login_barbearia #entrar:hover{
+    background: rgb(187, 3, 3);
+}
+#login_barbearia #acess_login_cliente{
+    background: darkred;
+    width: 50px;
+    padding: 10px;
+    color: white;
+    font-size: larger;
+    border-radius: 50%;
+    border: none;
+}
+#login_barbearia  #acess_login_cliente:hover{
+    background: rgb(187, 3, 3);
+    
+}
+</style>
 <body>
     <div class="container-fluid">
         <div id="logo">
