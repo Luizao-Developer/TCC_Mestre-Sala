@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="arquivos_css/MSlogin_cliente.css">
@@ -15,15 +15,20 @@
     <div id="logo">
         <img src="imagens/logo_com_fundo.png" alt="" srcset="">
     </div>
-        <form action="" method="post" id="login_cliente">
+        <form action="controladores/MSvalidaLogin_cliente.php" method="post" id="login_cliente">
             <h1>L O G I N</h1>
             <p id="receber">Seja bem vindo!</p>
+
+            <?php if(isset($_GET['mensagem'])){ ?>
+                    <p style="color: orange;"><?php echo $_GET['mensagem'] ?></p>
+                    <?php  } ?>
+                
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Email" required>
+                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
                 <label for="floatingInput"><i class="fas fa-envelope"></i> Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Senha" required>
+                <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Senha" required>
                 <label for="floatingPassword"><i class="fas fa-key"></i> Senha</label>
             </div>
             <div class="links">
@@ -33,13 +38,11 @@
                 <p>
                     <button type="submit" name="entrar" id="entrar">Entre </button>
                 </p>
-                <p>
-                    <a href="MSlogin_barbearia.html" class="btn" id="acess_login_barbearia"><i class="fas fa-store-alt"></i></a>
-                </p>
+                
   
             </div>
             <div class="links2">
-                <p>Não tem conta <a href="MScadastro_cliente.html">cadastre-se</a></p>
+                <p>Não tem conta <a href="MScadastro_cliente.php">cadastre-se</a></p>
             </div>
         </form>
     </div>
