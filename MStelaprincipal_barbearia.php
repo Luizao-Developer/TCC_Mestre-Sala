@@ -73,75 +73,27 @@ ul a:hover{
     margin-left: 35%;
     border-radius: 50%;
 }
+footer .nav{
+    background: black;
+    padding: 20px;
+    color: white;
+}
+.nav li img{
+    border-radius: 50%;
+}
+#contaBotao{
+    background: darkred;
+    border: none;
+    border-radius: 5px;
+    font-size: larger;
+
+}
 </style>
 <body>
 
     <!--Menu do barbeiro--->
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="imagens/logo_com_fundo.png" alt="" width="70" height="64" class="d-inline-block align-text-top" style="border-radius:50%;">
-           
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                
-                <a class="nav-link" href="#">Links</a>
-
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link ">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                
-                                   <!-- Informações da conta -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                   <i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?>
-                    </button>
-
-                    <!-- Modal -->
-                    <form action="controladores/MSencerraSessao_barbearia.php" method="post">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Conta</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <h1><?=  $_SESSION['NomeBarbearia'] ?></h1>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger" style="background:red; border:none; border-radius:5px; padding:10px 30px; font-size:larger;"><i class="fas fa-door-open"></i> Sair </button>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
-                    </form>
-            </form>
-            </div>
-        </div>
-        </nav>
+    <?php  require_once("componentes/menuBarbearia.php"); ?>
 
 <!--Continuação do site-->
 <div class="espacamento">
@@ -243,6 +195,17 @@ ul a:hover{
                     </div>
                     <div class="row g-3">
                         <div class="col">
+                            <label for="">Facebook</label>
+                            <input type="text" class="form-control" name="facebook" value="<?= $_SESSION['Facebook'] ?>"  >
+                        </div>
+                        <div class="col">
+                            <label for="">Instagram</label>
+                            <input type="text" class="form-control" name="instagram" value="<?= $_SESSION['Instagram'] ?>"  >
+                        </div>
+                       
+                    </div>
+                    <div class="row g-3">
+                        <div class="col">
                             <label for="">Status da barbearia</label>
                             <select class="form-select" aria-label="Default select example" name="status">
                                 <option selected><?= $_SESSION['Status']?></option>
@@ -282,4 +245,5 @@ ul a:hover{
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
+<?php require_once("componentes/rodape.php") ?>
 </html>

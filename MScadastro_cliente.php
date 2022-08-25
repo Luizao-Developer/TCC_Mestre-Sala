@@ -414,18 +414,7 @@ footer .nav{
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     
   </body>
-<footer>
-  <ul class="nav">
-    <li class="nav-item">
-      <img src="imagens/logo_fundo_transparente.png" alt="" srcset="">
-    </li>
-    <li class="nav-item">
-      <p>© Copyright 2022 Luiz Antonio O.C.Teodoro <p>
-      <p>Desenvolvedor: Luiz Teodoro</p>
-    </li>
-    
-  </ul>
-</footer>
+  <?php require_once("componentes/rodape.php") ?>
 <script>
   (() => {
     'use strict'
