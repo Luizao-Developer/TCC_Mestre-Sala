@@ -22,6 +22,7 @@
 
 }
 body{
+    width:100%;
     background: darkred;
 }
 .card{
@@ -91,6 +92,67 @@ footer .nav{
     font-size: larger;
 
 }
+#tabela #opcoes{
+    color: black;
+    background:white;
+    border:none;
+}
+#tabela table{
+    border-radius: 20px;
+}
+#comece{
+    
+    background: darkred;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    font-size: larger;
+    border-radius: 10px;
+}
+#comece:hover{
+    
+    background: red;
+    
+}
+.modal-body{
+    background: black;
+    display: flex;
+}
+.modal-body label{
+    color: white;
+}
+.modal-header{
+    background: black;
+    color: white;
+}
+
+.modal-header button{
+    color: white;
+}
+.modal-body input{
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    border-bottom: solid 2px orange;
+    color: white;
+}
+.modal-body label{
+    color: white;
+}
+.modal-body #cadastrar{
+    margin-top: 15px;
+    margin-left: 50px;
+    background: darkred;
+    color: white;
+    padding: 10px 150px;
+    border: none;
+    font-size: larger;
+    border-radius: 0;
+}
+.modal-body #cadastrar:hover{
+    background: rgb(187, 3, 3);
+}
+
 </style>
 <body>
 
@@ -106,7 +168,222 @@ footer .nav{
 <div class="pg_principal container">
 
     <h1>Funcionários da barbearia: </h1>
-   
+    <!--Tabela de funcionarios-->
+     <div id="tabela">
+                <!--Cadastro de funcionários-->
+                <div class="alert alert-success" role="alert" id="opcoes">
+                    <h4 class="alert-heading">Faça aqui o cadastro de novos funcionários</h4>
+                    
+                    <hr>
+                    <p class="mb-0">O botão abaixo acessa o forms para o cadastro.</p>
+                    
+
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModa2" id="comece">
+                    <i class="fas fa-edit"></i>
+          </button>
+  
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Cadastre seu funcionário</h5>
+                  <button type="button" class="btn-close btn-close-white"  data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                
+                
+                <div class="modal-body">
+                  <!--CADASTRO DE BARBEARIA-->
+                  <form class="row g-3 needs-validation" name="cadFuncionario_barbearia" method="post" action="controladores/MScadFuncionário_barbearia.php"  novalidate >
+                      
+                  <div class="col-md-4 position-relative">
+                      <label for="nome" class="form-label">Nome</label>
+                      <input type="text" class="form-control" id="nome" name="nome"  required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o nome do funcionário
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="endereco" class="form-label">Endereço</label>
+                      <input type="text" class="form-control" id="endereco" name="endereco"  required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o endereço de seu funcionário
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="endereco" class="form-label">Email</label>
+                      <input type="text" class="form-control" id="email" name="email" >
+                      <div class="valid-tooltip">
+                        Email não é obrigatório
+                      </div>
+                      
+                    </div>
+
+                    <div class="col-md-4 position-relative">
+                      <label for="cep" class="form-label">CEP</label>
+                      <div class="input-group has-validation">
+                        
+                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep">
+                        <div class="valid-tooltip">
+                          Cep não é obrigatório
+                        </div>
+                        
+                      </div>
+
+                    </div>
+
+                    <div class="col-md-20 position-relative">
+                      <label for="cidade" class="form-label">Cidade</label>
+                      <input type="text" class="form-control" id="cidade" name="cidade" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira a cidade de seu funcionário
+                      </div>
+                    </div>
+                      <div class="col-md-20 position-relative">
+                        <label for="uf" class="form-label">UF</label>
+                        <select class="form-select" id="uf" name="uf" required>
+                          <option selected disabled value="">Choose...</option>
+                          <option>...</option>
+                        </select>
+                        <div class="valid-tooltip">
+                          Certo!
+                        </div>
+                        <div class="invalid-tooltip">
+                          Selecione a UF(estado) de seu funcionário
+                        </div>
+                      </div>
+
+                      
+
+                    <div class="col-md-20 position-relative">
+                      <label for="cnpj" class="form-label">PIS-PASEP</label>
+                      <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o PIS-PASEP de seu funcionário
+                      </div>
+                    </div>
+
+                    <div class="col-md-20 position-relative">
+                      <label for="telefoneComercial" class="form-label">Data de nascimento</label>
+                      <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira a data de nascimento do funcionário
+                      </div>
+                    </div>
+
+ 
+                    <div class="col-md-20 position-relative">
+                      <label for="nomeAdmin" class="form-label">Data de contratação</label>
+                      <input type="date" class="form-control" id="nomeAdmin" name="nomeAdmin" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Por favor insira a data de contratação de seu funcionário
+                      </div>
+                    </div>
+                    
+                    <div class="col-md-20 position-relative">
+                      <label for="status" class="form-label">Status</label>
+                      <select class="form-select" id="status" name="status" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>Trabalhando</option>
+                        <option>Sob liçenca</option>
+                        <option>Demitido</option>
+                      </select>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Selecione o status de seu funcionário
+                      </div>
+                    </div>
+                    
+                    
+                    
+                    <div class="col-12">
+                      <button class="btn btn-primary" type="submit" id="cadastrar" name="cadastrar">Cadastrar</button>
+                    </div>
+                    
+                  </form>
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+                
+                <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Endereço</th>
+                <th scope="col">Data/nasçimento</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">CEP</th>
+                <th scope="col">UF</th>
+                <th scope="col">Email</th>
+                <th scope="col">PIS-PASEP</th>
+                <th scope="col">Data de contratação</th>
+                <th scope="col">Data de demissão</th>
+                <th scope="col">Status</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                
+                
+            </tbody>
+            </table>
+     </div>
 </div>
     
 
@@ -115,4 +392,25 @@ footer .nav{
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
 <?php require_once("componentes/rodape.php") ?>
+
+    <script>
+  (() => {
+    'use strict'
+  
+   
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
+
 </html>
