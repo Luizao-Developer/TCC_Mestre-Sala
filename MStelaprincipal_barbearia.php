@@ -95,7 +95,7 @@ footer .nav{
     
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="MStelaprincipal_barbearia.php">
             <img src="imagens/logo_com_fundo.png" alt="" width="70" height="64" class="d-inline-block align-text-top" style="border-radius:50%;">
            
             </a>
@@ -106,7 +106,7 @@ footer .nav{
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                 
-                <a class="nav-link" href="#"><i class="fas fa-user-friends"></i> Meus clientes</a>
+                <a class="nav-link" href="MSlistaclientes_barbearia.php"><i class="fas fa-user-friends"></i> Meus clientes</a>
 
                 </li>
                 <li class="nav-item">
