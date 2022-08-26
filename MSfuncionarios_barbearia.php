@@ -1,6 +1,17 @@
 <?php
     require_once("controladores/MSsessao_barbearia.php");
+ 
+    $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+    $sql  = "select * from tbfuncionarios 
+    left join tbbarbearia on tbbarbearia.Codigo = tbfuncionarios.Codigo
+    where 1 = 1";
+
+
+
+$result = mysqli_query($conexao,$sql);
+$linha = mysqli_fetch_array($result);
+$qtd = mysqli_num_rows($result);
   
 ?>
 <!DOCTYPE html>
@@ -15,6 +26,7 @@
     <link rel="stylesheet" href="arquivos_css/MStelaprincipal_barbearia.css">
     <title>Mestre-Sala</title>
 </head>
+
 <style>
 *{
     margin: 0;
@@ -209,6 +221,17 @@ footer .nav{
                     </div>
 
                     <div class="col-md-4 position-relative">
+                      <label for="nome" class="form-label">Telefone</label>
+                      <input type="text" class="form-control" id="telefone" name="telefone"  required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Insira o telefone do funcionário
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 position-relative">
                       <label for="endereco" class="form-label">Endereço</label>
                       <input type="text" class="form-control" id="endereco" name="endereco"  required>
                       <div class="valid-tooltip">
@@ -292,7 +315,7 @@ footer .nav{
  
                     <div class="col-md-20 position-relative">
                       <label for="nomeAdmin" class="form-label">Data de contratação</label>
-                      <input type="date" class="form-control" id="nomeAdmin" name="nomeAdmin" required>
+                      <input type="date" class="form-control" id="data_contratacao" name="data_contratacao" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -300,14 +323,28 @@ footer .nav{
                         Por favor insira a data de contratação de seu funcionário
                       </div>
                     </div>
-                    
+
+                    <div class="col-md-20 position-relative">
+                      <label for="status" class="form-label">Barbearia</label>
+                      <select class="form-select" id="barbearia" name="barbearia" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="1">1</option>
+                      </select>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Selecione o status de seu funcionário
+                      </div>
+                    </div>
+
                     <div class="col-md-20 position-relative">
                       <label for="status" class="form-label">Status</label>
                       <select class="form-select" id="status" name="status" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Trabalhando</option>
                         <option>Sob liçenca</option>
-                        <option>Demitido</option>
+                        
                       </select>
                       <div class="valid-tooltip">
                         Certo!
@@ -362,26 +399,30 @@ footer .nav{
                 <th scope="col">Excluir</th>
                 </tr>
             </thead>
+           
             <tbody>
+            <?php
+            while($linha =mysqli_fetch_array($result)) {  ?>
                 <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th scope="row"><?= $linha['Codigo'] ?></th>
+                <td><?= $linha['Nome'] ?></td>
+                <td><?= $linha['Endereco'] ?></td>
+                <td><?= $linha['Data_nascimento'] ?></td>
+                <td><?= $linha['Cidade'] ?></td>
+                <td><?= $linha['CEP'] ?></td>
+                <td><?= $linha['UF']  ?></td>
+                <td><?= $linha['Email']  ?></td>
+                <td><?= $linha['PIS_PASEP'] ?></td>
+                <td><?= $linha['Data_contratacao']  ?></td>
+                <td><?= ($linha['Data_demissao'] == 'NULL' ? '...' : '...') ?></td>
+                <td><?= $linha['Status'] ?></td>
+                <td><button type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button></td>
+                <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
                 </tr>
                 
-                
+                <?php } ?>   
             </tbody>
+            
             </table>
      </div>
 </div>
