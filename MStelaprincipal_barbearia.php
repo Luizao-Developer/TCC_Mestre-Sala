@@ -106,26 +106,18 @@ footer .nav{
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                 
-                <a class="nav-link" href="#">Links</a>
+                <a class="nav-link" href="#"><i class="fas fa-user-friends"></i> Meus clientes</a>
 
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+                <a class="nav-link" href="#"><i class="far fa-calendar-alt"></i> Agendamentos</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link ">Disabled</a>
+                    <a class="nav-link" href="#">...</a>
+                </li><li class="nav-item">
+                    <a class="nav-link" href="#">...</a>
                 </li>
+                
             </ul>
             <form class="d-flex" role="search">
                 
@@ -171,6 +163,8 @@ footer .nav{
     <img src="imagens/barber-1453064_1920.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_barberia"><i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?></h5>
+        <h5 class="card-title" name="nome_barberia"> <?= $_SESSION['NomeAdmin'] ?></h5>
+
         <p class="card-text" name="endereco"><?= $_SESSION['Endereco'] ?></p>
         <p class="card-text" name="cidade"><?= $_SESSION['Cidade'] ?></p>
         <p class="card-text" name="estado"><? $_SESSION['Estado'] ?></p>

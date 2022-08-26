@@ -40,6 +40,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
             $_SESSION['Endereco'] = $nome['Endereco'];
             $_SESSION['Email'] = $nome['Email'];
             $_SESSION['Telefone_comercial'] = $nome['Telefone_comercial'];
+            $_SESSION['NomeAdmin'] = $nome['NomeAdmin'];
             $_SESSION['Telefone_pessoal'] = $nome['Telefone_pessoal'];
             $_SESSION['CEP'] = $nome['CEP'];
             $_SESSION['Cidade'] = $nome['Cidade'];

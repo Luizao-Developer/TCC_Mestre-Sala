@@ -1,6 +1,8 @@
 <?php
 
-require_once("controladores/MSsessao_cliente.php");
+    require_once("controladores/MSsessao_cliente.php");
+
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +104,7 @@ footer .nav{
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 
                 <li class="nav-item">
-                <a class="nav-link" href="#"><i class="far fa-calendar-alt"></i> Meus agendamentos</a>
+                <a class="nav-link" href="MSagendamentos_cliente.php"><i class="far fa-calendar-alt"></i> Meus agendamentos</a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="MSlistabarbearia_cliente.php"><i class="fas fa-search"></i> Pesquisar uma barbearia</a>
