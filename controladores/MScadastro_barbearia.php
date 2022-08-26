@@ -14,18 +14,18 @@ if(isset($_POST["cadastrar"])){
     $cnpj = $_POST["cnpj"];
     $telefoneComercial = $_POST["telefoneComercial"];
     $status = $_POST["status"];
-
+    
 
     #Admin
-
+    $nomeAdmin = $_POST["nomeAdmin"];
     $telefonePessoal = $_POST["telefonePessoal"];
     //$senhaAcesso = password_hash($_POST['senhaAcesso'] ,PASSWORD_DEFAULT);
     $senhaAcesso = $_POST['senhaAcesso'];
     
 
     $sql = "insert into 
-    tbbarbearia(CNPJ,NomeBarbearia,Endereco,Email,Telefone_comercial,Telefone_pessoal,Senha_de_acesso,CEP,Cidade,Estado,Status) values
-    ('{$cnpj}','{$nome}','{$endereco}','{$email}','{$telefoneComercial}','{$telefonePessoal}','{$senhaAcesso}','{$cep}','{$cidade}','{$uf}','{$status}')";
+    tbbarbearia(CNPJ,NomeBarbearia,Endereco,Email,Telefone_comercial,NomeAdmin, Telefone_pessoal,Senha_de_acesso,CEP,Cidade,Estado,Status) values
+    ('{$cnpj}','{$nome}','{$endereco}','{$email}','{$telefoneComercial}','{$nomeAdmin}','{$telefonePessoal}','{$senhaAcesso}','{$cep}','{$cidade}','{$uf}','{$status}')";
    
 
     mysqli_query($conexao,$sql);

@@ -379,7 +379,16 @@ footer .nav{
                     </div>
                       
                     <!--ADMIN-->
-
+                    <div class="col-md-20 position-relative">
+                      <label for="nomeAdmin" class="form-label">Nome do admin</label>
+                      <input type="text" class="form-control" id="nomeAdmin" name="nomeAdmin" required>
+                      <div class="valid-tooltip">
+                        Certo!
+                      </div>
+                      <div class="invalid-tooltip">
+                        Por favor insira o nome do administrado.
+                      </div>
+                    </div>
                     <div class="col-md-20 position-relative">
                       <label for="telefonePessoal" class="form-label">Telefone/Pessoal</label>
                       <input type="text" class="form-control" id="telefonePessoal" name="telefonePessoal" required>
