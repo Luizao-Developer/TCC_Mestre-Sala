@@ -194,8 +194,8 @@ footer .nav{
 
                     <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModa2" id="comece">
                     <i class="fas fa-edit"></i>
-          </button>
-  
+                  </button>
+                
           <!-- Modal -->
           <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -380,7 +380,9 @@ footer .nav{
 
 
 
-
+            <div class="alert alert-success" role="alert">
+              <h4>A <?=  $_SESSION['NomeBarbearia']?> possui <?= $qtd ?> funcionários</h4>
+            </div>
                 
                 <table class="table table-dark table-hover">
             <thead>
