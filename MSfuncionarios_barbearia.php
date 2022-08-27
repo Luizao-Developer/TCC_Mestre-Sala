@@ -1,5 +1,8 @@
+<?php 
+require_once("controladores/MSsessao_barbearia.php");
+?>
 <?php
-    require_once("controladores/MSsessao_barbearia.php");
+    
  
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
