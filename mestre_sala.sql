@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Ago-2022 às 03:05
+-- Tempo de geração: 27-Ago-2022 às 01:25
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -161,18 +161,24 @@ CREATE TABLE `tbfuncionarios` (
   `Telefone` varchar(45) NOT NULL,
   `Nome` varchar(45) NOT NULL,
   `Endereco` varchar(45) NOT NULL,
-  `Data/nascimento` varchar(45) NOT NULL,
+  `Data_nascimento` date NOT NULL,
   `Cidade` varchar(45) NOT NULL,
   `CEP` varchar(45) DEFAULT NULL,
   `UF` varchar(45) NOT NULL,
   `Email` varchar(45) NOT NULL,
-  `Foto` mediumblob DEFAULT NULL,
   `Status` varchar(45) NOT NULL,
-  `PIS-PASEP` varchar(45) NOT NULL,
-  `Data_contratacao` varchar(45) NOT NULL,
+  `PIS_PASEP` varchar(45) NOT NULL,
+  `Data_contratacao` date NOT NULL,
   `Data_demissao` varchar(45) DEFAULT NULL,
   `tbBarbearia_Codigo` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbfuncionarios`
+--
+
+INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
+(1, 'rgwerg', 'rgewrg', 'ergw', '2022-08-10', 'ergwerg', 'werg', '...', 'ergw', 'Trabalhando', 'ewrgwe', '2022-08-26', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -289,7 +295,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`

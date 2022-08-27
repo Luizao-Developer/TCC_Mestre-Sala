@@ -4,7 +4,6 @@
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
     $sql  = "select * from tbfuncionarios 
-    left join tbbarbearia on tbbarbearia.Codigo = tbfuncionarios.Codigo
     where 1 = 1";
 
 
@@ -187,7 +186,7 @@ footer .nav{
                     <h4 class="alert-heading">Faça aqui o cadastro de novos funcionários</h4>
                     
                     <hr>
-                    <p class="mb-0">O botão abaixo acessa o forms para o cadastro.</p>
+                    <p class="mb-0">O botão abaixo acessa o forms de cadastro.</p>
                     
 
                     <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModa2" id="comece">
@@ -414,7 +413,7 @@ footer .nav{
                 <td><?= $linha['Email']  ?></td>
                 <td><?= $linha['PIS_PASEP'] ?></td>
                 <td><?= $linha['Data_contratacao']  ?></td>
-                <td><?= ($linha['Data_demissao'] == 'NULL' ? '...' : '...') ?></td>
+                <td><?= $linha['Data_demissao']  ?></td>
                 <td><?= $linha['Status'] ?></td>
                 <td><button type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button></td>
                 <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
@@ -453,5 +452,7 @@ footer .nav{
     })
   })()
 </script>
-
+<?php 
+mysqli_close($conexao);
+?>
 </html>
