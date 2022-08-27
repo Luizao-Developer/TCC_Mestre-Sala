@@ -420,6 +420,7 @@ footer .nav{
                 <td><?= $linha['Data_contratacao']  ?></td>
                 <td><?= $linha['Data_demissao']  ?></td>
                 <td><?= $linha['Status'] ?></td>
+                <!--Alteração e Exclusão de dados-->
                 <td><button type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button></td>
                 <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
                 </tr>
