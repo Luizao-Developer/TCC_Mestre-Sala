@@ -379,11 +379,11 @@ footer .nav{
 
 
 
-
+<!---
             <div class="alert alert-success" role="alert">
               <h4>A <?=  $_SESSION['NomeBarbearia']?> possui <?= $qtd ?> funcionários</h4>
             </div>
-                
+                --->
                 <table class="table table-dark table-hover">
             <thead>
                 <tr>
