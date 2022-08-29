@@ -8,13 +8,25 @@
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1";
+    where 1 = 1 ";
 
 
 
 $result = mysqli_query($conexao,$sql);
 $linha = mysqli_fetch_array($result);
-$qtd = mysqli_num_rows($result);
+$qtdFuncionarios = mysqli_num_rows($result);
+
+
+$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Sob licença%'";
+$result2 = mysqli_query($conexao, $sqlLicenca);
+$linha2 = mysqli_fetch_array($result2);
+$qtdFuncionariosLicenca = mysqli_num_rows($result2);
+if($qtdFuncionariosLicenca == 0){
+    $mensagemLicenca = 'Nenhum';
+}else{
+    $mensagemLicenca = $qtdFuncionariosLicenca;
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -124,10 +136,13 @@ footer .nav{
             <div class="card" style="width: 48rem;">
             <div class="card-body">
                 <div class="alert alert-info" role="alert">
-                        <h2>Informações</h2>
+                        <h2>Minha barbearia: </h2>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
+                    <p>
+                    <i class="fas fa-file-signature"></i>  <?= $mensagemLicenca ?> funcionário(s) permanece(m) sob licença
+                    </p></li>
                     <li class="list-group-item">A second item</li>
                     <li class="list-group-item">A third item</li>
                 </ul>

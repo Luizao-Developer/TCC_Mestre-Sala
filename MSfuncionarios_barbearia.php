@@ -345,7 +345,7 @@ footer .nav{
                       <select class="form-select" id="status" name="status" required>
                         <option selected disabled value="">Choose...</option>
                         <option>Trabalhando</option>
-                        <option>Sob liçenca</option>
+                        <option>Sob licença</option>
                         
                       </select>
                       <div class="valid-tooltip">
