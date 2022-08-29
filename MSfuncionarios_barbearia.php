@@ -14,7 +14,24 @@ require_once("controladores/MSsessao_barbearia.php");
 $result = mysqli_query($conexao,$sql);
 $linha = mysqli_fetch_array($result);
 $qtd = mysqli_num_rows($result);
+ 
+
+if(isset($_POST['excluir'])){
+
+  //Excluir arquivo
+  //$imagem = getImagemUsuario($_POST['id'],$conexao);
+  //excluiArquivo('arquivos\\'.$imagem);
   
+  $Codigo = $_POST['id'];
+  $sql = "delete from tbfuncionarios where Codigo = {$Codigo}";
+  
+  /*$resulta =*/
+  mysqli_query($conexao, $sql);
+  
+  
+  //$mensagem =  "Registro excluido com sucesso";
+  
+  }
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -421,8 +438,42 @@ footer .nav{
                 <td><?= $linha['Data_demissao']  ?></td>
                 <td><?= $linha['Status'] ?></td>
                 <!--Alteração e Exclusão de dados-->
-                <td><button type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button></td>
-                <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i></button></td>
+                <td>
+                    <!--Modal para a alteração dos dados-->
+                    <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa3">
+                                  <i class="fas fa-pen"></i>
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="exampleModa3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  ...
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                </td>
+                <td>
+                  <!--Excluir usuario-->
+                  <form action="MSfuncionarios_barbearia.php" method="post" onsubmit="return confirm('Deseja excluir este funcionário?')">
+                       <input type="hidden" name="id" value="<?= $linha['Codigo'] ?>">
+                        <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash"></i></button>
+                  </form>
+                
+              
+              
+                </td>
                 </tr>
                 
                 <?php } ?>   
