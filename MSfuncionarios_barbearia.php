@@ -209,12 +209,12 @@ footer .nav{
                     <p class="mb-0">O botão abaixo acessa o forms de cadastro.</p>
                     
 
-                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModa2" id="comece">
+                    <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModa3" id="comece">
                     <i class="fas fa-edit"></i>
                   </button>
                 
           <!-- Modal -->
-          <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="exampleModa3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -441,40 +441,191 @@ footer .nav{
                 <td>
                     <!--Modal para a alteração dos dados-->
                     <!-- Button trigger modal -->
-                          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa3">
-                                  <i class="fas fa-pen"></i>
-                          </button>
-
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+                    <i class="fas fa-pen"></i>
+                  </button>
+                
                           <!-- Modal -->
-                          <div class="modal fade" id="exampleModa3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                  <h5 class="modal-title" id="exampleModalLabel">Alterar informações</h5>
+                                  <button type="button" class="btn-close btn-close-white"  data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
-                                <div class="modal-body">
-                                  ...
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                  <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                </td>
-                <td>
-                  <!--Excluir usuario-->
-                  <form action="MSfuncionarios_barbearia.php" method="post" onsubmit="return confirm('Deseja excluir este funcionário?')">
-                       <input type="hidden" name="id" value="<?= $linha['Codigo'] ?>">
-                        <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash"></i></button>
-                  </form>
+
                 
-              
-              
-                </td>
-                </tr>
+                
+                                <div class="modal-body">
+                                  <!--Alterar funcionario da barbearia-->
+                                  <form class="row g-3 needs-validation" name="cadFuncionario_barbearia" method="post" action="controladores/MSatualizainfo_funcionarioBarbearia.php"  novalidate >
+                                      
+                                  <div class="col-md-4 position-relative">
+                                      <label for="nome" class="form-label">Nome</label>
+                                      <input type="text" class="form-control" id="nome" name="nome"  required>
+                                      <div class="valid-tooltip">
+                                        Certo!
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        Insira o nome do funcionário
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                      <label for="nome" class="form-label">Telefone</label>
+                                      <input type="text" class="form-control" id="telefone" name="telefone"  required>
+                                      <div class="valid-tooltip">
+                                        Certo!
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        Insira o telefone do funcionário
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                      <label for="endereco" class="form-label">Endereço</label>
+                                      <input type="text" class="form-control" id="endereco" name="endereco"  required>
+                                      <div class="valid-tooltip">
+                                        Certo!
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        Insira o endereço de seu funcionário
+                                      </div>
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                      <label for="endereco" class="form-label">Email</label>
+                                      <input type="text" class="form-control" id="email" name="email" >
+                                      <div class="valid-tooltip">
+                                        Email não é obrigatório
+                                      </div>
+                                      
+                                    </div>
+
+                                    <div class="col-md-4 position-relative">
+                                      <label for="cep" class="form-label">CEP</label>
+                                      <div class="input-group has-validation">
+                                        
+                                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep">
+                                        <div class="valid-tooltip">
+                                          Cep não é obrigatório
+                                        </div>
+                                        
+                                      </div>
+
+                                    </div>
+
+                                    <div class="col-md-20 position-relative">
+                                      <label for="cidade" class="form-label">Cidade</label>
+                                      <input type="text" class="form-control" id="cidade" name="cidade" required>
+                                      <div class="valid-tooltip">
+                                        Certo!
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        Insira a cidade de seu funcionário
+                                      </div>
+                                    </div>
+                                    <div class="col-md-20 position-relative">
+                                      <label for="uf" class="form-label">UF</label>
+                                      <select class="form-select" id="uf" name="uf" required>
+                                        <option selected disabled value="">Choose...</option>
+                                        <option>...</option>
+                                      </select>
+                                      <div class="valid-tooltip">
+                                        Certo!
+                                      </div>
+                                      <div class="invalid-tooltip">
+                                        Selecione a UF(estado) de seu funcionário
+                                      </div>
+                                    </div>
+
+                      
+
+                                      <div class="col-md-20 position-relative">
+                                        <label for="cnpj" class="form-label">PIS-PASEP</label>
+                                        <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" required>
+                                        <div class="valid-tooltip">
+                                          Certo!
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                          Insira o PIS-PASEP de seu funcionário
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-20 position-relative">
+                                        <label for="telefoneComercial" class="form-label">Data de nascimento</label>
+                                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
+                                        <div class="valid-tooltip">
+                                          Certo!
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                          Insira a data de nascimento do funcionário
+                                        </div>
+                                      </div>
+
+                  
+                                      <div class="col-md-20 position-relative">
+                                        <label for="nomeAdmin" class="form-label">Data de contratação</label>
+                                        <input type="date" class="form-control" id="data_contratacao" name="data_contratacao" required>
+                                        <div class="valid-tooltip">
+                                          Certo!
+                                        </div>
+                                        <div class="invalid-tooltip">
+                                          Por favor insira a data de contratação de seu funcionário
+                                        </div>
+                                      </div>
+
+                                        <div class="col-md-20 position-relative">
+                                          <label for="status" class="form-label">Barbearia</label>
+                                          <select class="form-select" id="barbearia" name="barbearia" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="1">1</option>
+                                          </select>
+                                          <div class="valid-tooltip">
+                                            Certo!
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            Selecione o status de seu funcionário
+                                          </div>
+                                        </div>
+
+                                        <div class="col-md-20 position-relative">
+                                          <label for="status" class="form-label">Status</label>
+                                          <select class="form-select" id="status" name="status" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option>Trabalhando</option>
+                                            <option>Sob licença</option>
+                                            
+                                          </select>
+                                          <div class="valid-tooltip">
+                                            Certo!
+                                          </div>
+                                          <div class="invalid-tooltip">
+                                            Selecione o status de seu funcionário
+                                          </div>
+                                        </div>
+                    
+                    
+                    
+                                          <div class="col-12">
+                                            <button class="btn btn-primary" type="submit" id="cadastrar" name="cadastrar">Cadastrar</button>
+                                          </div>
+                                          
+                                        </form>
+                                        
+                                      </div>
+                              </td>
+                              <td>
+                                <!--Excluir usuario-->
+                                <form action="MSfuncionarios_barbearia.php" method="post" onsubmit="return confirm('Deseja excluir este funcionário?')">
+                                    <input type="hidden" name="id" value="<?= $linha['Codigo'] ?>">
+                                      <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash"></i></button>
+                                </form>
+                              
+                            
+                            
+                              </td>
+                              </tr>
                 
                 <?php } ?>   
             </tbody>
