@@ -8,7 +8,7 @@ require_once("controladores/MSsessao_barbearia.php");
 
     //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1 and tbBarbearia_Codigo = '{$_SESSION['Codigo']}'";
+    where 1 = 1 ";
 
 
 

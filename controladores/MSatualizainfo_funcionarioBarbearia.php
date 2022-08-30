@@ -1,4 +1,7 @@
 <?php
+require_once("MSsessao_barbearia.php");
+?>
+<?php
 
 $conect = mysqli_connect("127.0.0.1","root","","mestre_sala");
 

@@ -8,7 +8,7 @@
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1 and tbBarbearia_Codigo = '{$_SESSION['Codigo']}' order by Nome ";
+    where 1 = 1  order by Nome ";
 
 
 
@@ -27,6 +27,7 @@ if($qtdFuncionariosLicenca == 0){
 }else{
     $mensagemLicenca = $qtdFuncionariosLicenca;
 }
+
 
 
 ?>
