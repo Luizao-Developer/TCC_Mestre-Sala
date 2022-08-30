@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Ago-2022 às 01:25
+-- Tempo de geração: 27-Ago-2022 às 03:18
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -102,7 +102,8 @@ INSERT INTO `tbbarbearia` (`Codigo`, `CNPJ`, `NomeBarbearia`, `Endereco`, `Email
 (15, '24r5345345', 'Barbearia seu Bufalo', 'Rua tarde da noite', 'bufalo@email.com', '2423452345', '', '4r235435345', 'bufalo', '2435235345', 'Bufalo city', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
 (16, '21541544235', 'Barbearia zezinho', 'Rua 13 de Abril', 'ze@email.com', '4523452345', '', '4352435235', 'ze', '2154215423', 'Luciana', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:12:34'),
 (17, 'rewgewrg', 'erferf', 'revtrtve', '1@email.com', 'regwergwergw', '', 'ergwergwerg', '1', '23234', 'regregtertg', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:50:27'),
-(18, '544352', 'Barbearia herculers', 'Rua 7 de Setembro', 'he@email.com', '345234523', 'Luiz Antonio Teodoro', '345235', 'he', '233442', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-25 21:36:49');
+(18, '544352', 'Barbearia herculers', 'Rua 7 de Setembro', 'he@email.com', '345234523', 'Luiz Antonio Teodoro', '345235', 'he', '233442', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-25 21:36:49'),
+(19, 'trgeg', 'rf', 'tgtg', 'au@email.com', 'ertge', 'rtegertg', 'ertgertg', 'au', 'gterge', 'ertger', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-26 21:55:09');
 
 -- --------------------------------------------------------
 
@@ -178,7 +179,10 @@ CREATE TABLE `tbfuncionarios` (
 --
 
 INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
-(1, 'rgwerg', 'rgewrg', 'ergw', '2022-08-10', 'ergwerg', 'werg', '...', 'ergw', 'Trabalhando', 'ewrgwe', '2022-08-26', NULL, 1);
+(1, 'rgwerg', 'rgewrg', 'ergw', '2022-08-10', 'ergwerg', 'werg', '...', 'ergw', 'Trabalhando', 'ewrgwe', '2022-08-26', NULL, 1),
+(2, 'tryt', 'rf', 'tgtg@email.com', '2022-08-11', 'retherth', 'etheh', '...', 'retgert', 'Trabalhando', 'rtherth', '2022-08-29', NULL, 1),
+(3, '35334564', 'Simao cananita', 'Rua videira', '1714-02-14', 'Canaã', '45235', '...', 'er@email.com', 'Trabalhando', '234524355', '2022-08-17', NULL, 1),
+(4, '53563454563', 'Thiago filho de zebedeu', 'Rua Senador Alvaro Fernandez', '2022-08-02', 'Porto Camargo', '2355435', '...', 'tfz@gmail.com', 'Trabalhando', '24354536', '2022-08-24', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -283,7 +287,7 @@ ALTER TABLE `tbagendamento`
 -- AUTO_INCREMENT de tabela `tbbarbearia`
 --
 ALTER TABLE `tbbarbearia`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `tbcliente`
@@ -295,7 +299,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`

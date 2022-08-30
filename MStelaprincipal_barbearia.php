@@ -3,6 +3,33 @@
 
   
 ?>
+<?php 
+
+    $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+    $sql  = "select * from tbfuncionarios 
+    where 1 = 1 order by Nome ";
+
+
+
+$result = mysqli_query($conexao,$sql);
+$linha = mysqli_fetch_array($result);
+$qtdFuncionarios = mysqli_num_rows($result);
+
+
+$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Sob licença%'";
+$result2 = mysqli_query($conexao, $sqlLicenca);
+$linha2 = mysqli_fetch_array($result2);
+$qtdFuncionariosLicenca = mysqli_num_rows($result2);
+
+if($qtdFuncionariosLicenca == 0){
+    $mensagemLicenca = 'Nenhum';
+}else{
+    $mensagemLicenca = $qtdFuncionariosLicenca;
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,7 +55,7 @@ body{
     border: none;
     margin-top: 50px;
     margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+    box-shadow: 1px 1px 30px 6px black;
 }
 .espacamento{
     width: 100%;
@@ -88,6 +115,10 @@ footer .nav{
     font-size: larger;
 
 }
+#tabela_informacoes{
+    left:30%;
+    
+}
 </style>
 <body>
 
@@ -100,11 +131,27 @@ footer .nav{
 <div class="espacamento">
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
-<div class="pg_principal">
+<div class="pg_principal ">
 
-    
+    <div class="position-absolute" id="tabela_informacoes">
+            <div class="card" style="width: 48rem;">
+            <div class="card-body">
+                <div class="alert alert-info" role="alert">
+                        <h2>Minha barbearia: </h2>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
+                    <p>
+                    <i class="fas fa-file-signature"></i>  <?= $mensagemLicenca ?> funcionário(s) permanece(m) sob licença
+                    </p></li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+    </div>
+    </div>
     <!--Card de informações-->
-    <div class="card" style="width: 18rem;">
+    <div class="card position-absolute top-20 start-0" style="width: 18rem;">
     <img src="imagens/barber-1453064_1920.jpg" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_barberia"><i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?></h5>
@@ -242,7 +289,8 @@ footer .nav{
             </form>
     </div>
     </div>
-    
+
+   
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>

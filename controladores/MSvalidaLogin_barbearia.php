@@ -52,11 +52,11 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
             $_SESSION['Instagram'] = $nome['Instagram'];
     
     
-            header("location: \TCC_Mestre-Sala\MStelaprincipal_barbearia.php"); 
+            header("Location: \TCC_Mestre-Sala\MStelaprincipal_barbearia.php"); 
             die();
 
     }else{
-        echo "Deu errado";
+      
         $mensagem = "Email ou senha inválidos";
         header("Location: \TCC_Mestre-Sala\MSlogin_barbearia.php?mensagem={$mensagem}");
         
