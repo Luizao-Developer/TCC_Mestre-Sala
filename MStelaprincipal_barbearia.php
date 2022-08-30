@@ -8,7 +8,7 @@
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1 ";
+    where 1 = 1 order by Nome ";
 
 
 
@@ -21,6 +21,7 @@ $sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Sob lic
 $result2 = mysqli_query($conexao, $sqlLicenca);
 $linha2 = mysqli_fetch_array($result2);
 $qtdFuncionariosLicenca = mysqli_num_rows($result2);
+
 if($qtdFuncionariosLicenca == 0){
     $mensagemLicenca = 'Nenhum';
 }else{

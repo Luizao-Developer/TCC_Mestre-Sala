@@ -183,7 +183,16 @@ footer .nav{
 .modal-body #cadastrar:hover{
     background: rgb(187, 3, 3);
 }
-
+#alterar{
+  margin-top: 15px;
+    margin-left: 50px;
+    background: darkred;
+    color: white;
+    padding: 10px 150px;
+    border: none;
+    font-size: larger;
+    border-radius: 0;
+}
 </style>
 <body>
 
@@ -406,6 +415,7 @@ footer .nav{
                 <tr>
                 <th scope="col">Codigo</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Telefone</th>
                 <th scope="col">Endereço</th>
                 <th scope="col">Data/nasçimento</th>
                 <th scope="col">Cidade</th>
@@ -427,6 +437,7 @@ footer .nav{
                 <tr>
                 <th scope="row"><?= $linha['Codigo'] ?></th>
                 <td><?= $linha['Nome'] ?></td>
+                <td><?= $linha['Telefone'] ?></td>
                 <td><?= $linha['Endereco'] ?></td>
                 <td><?= $linha['Data_nascimento'] ?></td>
                 <td><?= $linha['Cidade'] ?></td>
@@ -462,43 +473,26 @@ footer .nav{
                                       
                                   <div class="col-md-4 position-relative">
                                       <label for="nome" class="form-label">Nome</label>
-                                      <input type="text" class="form-control" id="nome" name="nome"  required>
-                                      <div class="valid-tooltip">
-                                        Certo!
-                                      </div>
-                                      <div class="invalid-tooltip">
-                                        Insira o nome do funcionário
-                                      </div>
+                                      <input type="text" class="form-control" id="nome" name="nome" value="<?= $linha['Nome'] ?>" >
+                                      
                                     </div>
 
                                     <div class="col-md-4 position-relative">
                                       <label for="nome" class="form-label">Telefone</label>
-                                      <input type="text" class="form-control" id="telefone" name="telefone"  required>
-                                      <div class="valid-tooltip">
-                                        Certo!
-                                      </div>
-                                      <div class="invalid-tooltip">
-                                        Insira o telefone do funcionário
-                                      </div>
+                                      <input type="text" class="form-control" id="telefone" name="telefone" value="<?= $linha['Telefone']?>">
+                                     
                                     </div>
 
                                     <div class="col-md-4 position-relative">
                                       <label for="endereco" class="form-label">Endereço</label>
-                                      <input type="text" class="form-control" id="endereco" name="endereco"  required>
-                                      <div class="valid-tooltip">
-                                        Certo!
-                                      </div>
-                                      <div class="invalid-tooltip">
-                                        Insira o endereço de seu funcionário
-                                      </div>
+                                      <input type="text" class="form-control" id="endereco" name="endereco" value="<?= $linha['Endereco']?>">
+                                      
                                     </div>
 
                                     <div class="col-md-4 position-relative">
                                       <label for="endereco" class="form-label">Email</label>
-                                      <input type="text" class="form-control" id="email" name="email" >
-                                      <div class="valid-tooltip">
-                                        Email não é obrigatório
-                                      </div>
+                                      <input type="text" class="form-control" id="email" name="email" value="<?= $linha['Email']?>" >
+                                      
                                       
                                     </div>
 
@@ -506,10 +500,8 @@ footer .nav{
                                       <label for="cep" class="form-label">CEP</label>
                                       <div class="input-group has-validation">
                                         
-                                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep">
-                                        <div class="valid-tooltip">
-                                          Cep não é obrigatório
-                                        </div>
+                                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep" value="<?= $linha['CEP']?>">
+                                        
                                         
                                       </div>
 
@@ -517,98 +509,44 @@ footer .nav{
 
                                     <div class="col-md-20 position-relative">
                                       <label for="cidade" class="form-label">Cidade</label>
-                                      <input type="text" class="form-control" id="cidade" name="cidade" required>
-                                      <div class="valid-tooltip">
-                                        Certo!
-                                      </div>
-                                      <div class="invalid-tooltip">
-                                        Insira a cidade de seu funcionário
-                                      </div>
+                                      <input type="text" class="form-control" id="cidade" name="cidade" value="<?= $linha['Cidade']?>" >
+                                      
                                     </div>
                                     <div class="col-md-20 position-relative">
                                       <label for="uf" class="form-label">UF</label>
-                                      <select class="form-select" id="uf" name="uf" required>
-                                        <option selected disabled value="">Choose...</option>
+                                      <select class="form-select" id="uf" name="uf" >
+                                        <option selected disabled value="<?= $linha['UF']?>"><?= $linha['UF']?></option>
                                         <option>...</option>
                                       </select>
-                                      <div class="valid-tooltip">
-                                        Certo!
-                                      </div>
-                                      <div class="invalid-tooltip">
-                                        Selecione a UF(estado) de seu funcionário
-                                      </div>
+                                      
                                     </div>
 
                       
 
                                       <div class="col-md-20 position-relative">
                                         <label for="cnpj" class="form-label">PIS-PASEP</label>
-                                        <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" required>
-                                        <div class="valid-tooltip">
-                                          Certo!
-                                        </div>
-                                        <div class="invalid-tooltip">
-                                          Insira o PIS-PASEP de seu funcionário
-                                        </div>
+                                        <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" value="<?= $linha['PIS_PASEP']?>">
+                                        
                                       </div>
 
-                                      <div class="col-md-20 position-relative">
-                                        <label for="telefoneComercial" class="form-label">Data de nascimento</label>
-                                        <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" required>
-                                        <div class="valid-tooltip">
-                                          Certo!
-                                        </div>
-                                        <div class="invalid-tooltip">
-                                          Insira a data de nascimento do funcionário
-                                        </div>
-                                      </div>
-
-                  
-                                      <div class="col-md-20 position-relative">
-                                        <label for="nomeAdmin" class="form-label">Data de contratação</label>
-                                        <input type="date" class="form-control" id="data_contratacao" name="data_contratacao" required>
-                                        <div class="valid-tooltip">
-                                          Certo!
-                                        </div>
-                                        <div class="invalid-tooltip">
-                                          Por favor insira a data de contratação de seu funcionário
-                                        </div>
-                                      </div>
-
-                                        <div class="col-md-20 position-relative">
-                                          <label for="status" class="form-label">Barbearia</label>
-                                          <select class="form-select" id="barbearia" name="barbearia" required>
-                                            <option selected disabled value="">Choose...</option>
-                                            <option value="1">1</option>
-                                          </select>
-                                          <div class="valid-tooltip">
-                                            Certo!
-                                          </div>
-                                          <div class="invalid-tooltip">
-                                            Selecione o status de seu funcionário
-                                          </div>
-                                        </div>
+                            
+                                       
 
                                         <div class="col-md-20 position-relative">
                                           <label for="status" class="form-label">Status</label>
-                                          <select class="form-select" id="status" name="status" required>
-                                            <option selected disabled value="">Choose...</option>
+                                          <select class="form-select" id="status" name="status" >
+                                            <option selected disabled value="<?= $linha['Status']?>"><?= $linha['Status']?></option>
                                             <option>Trabalhando</option>
                                             <option>Sob licença</option>
                                             
                                           </select>
-                                          <div class="valid-tooltip">
-                                            Certo!
-                                          </div>
-                                          <div class="invalid-tooltip">
-                                            Selecione o status de seu funcionário
-                                          </div>
+                                         
                                         </div>
                     
                     
                     
                                           <div class="col-12">
-                                            <button class="btn btn-primary" type="submit" id="cadastrar" name="cadastrar">Cadastrar</button>
+                                            <button class="btn btn-primary" type="submit" id="alterar" name="alterar">Alterar</button>
                                           </div>
                                           
                                         </form>
