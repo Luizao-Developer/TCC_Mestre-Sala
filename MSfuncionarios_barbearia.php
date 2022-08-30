@@ -6,8 +6,11 @@ require_once("controladores/MSsessao_barbearia.php");
  
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+    //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1";
+    where 1 = 1 and tbBarbearia_Codigo = '{$_SESSION['Codigo']}'";
+
+
 
 
 
@@ -363,19 +366,7 @@ footer .nav{
 
                     
 
-                    <div class="col-md-20 position-relative">
-                      <label for="status" class="form-label">Barbearia</label>
-                      <select class="form-select" id="barbearia" name="barbearia" required>
-                        <option selected disabled value="">Choose...</option>
-                        <option value="1">1</option>
-                      </select>
-                      <div class="valid-tooltip">
-                        Certo!
-                      </div>
-                      <div class="invalid-tooltip">
-                        Selecione o status de seu funcionário
-                      </div>
-                    </div>
+                  
 
                     <div class="col-md-20 position-relative">
                       <label for="status" class="form-label">Status</label>
