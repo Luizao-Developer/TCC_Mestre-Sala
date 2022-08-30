@@ -29,7 +29,7 @@ if(isset($_POST['excluir'])){
   mysqli_query($conexao, $sql);
   
   
-  //$mensagem =  "Registro excluido com sucesso";
+  $mensagemExclusao =  "Funcionário excluido!";
   
   }
 ?>
@@ -209,6 +209,15 @@ footer .nav{
 
     <h1>Funcionários da barbearia: </h1>
     <!--Tabela de funcionarios-->
+        
+            <?php if(isset($mensagemExclusao )){ ?>
+              <div class="alert alert-danger" role="alert">
+                  <h4><i class="fas fa-exclamation-triangle"></i> <?= $mensagemExclusao ?></h4>
+              </div>
+            <?php } ?>
+        
+    
+
      <div id="tabela">
                 <!--Cadastro de funcionários-->
                 <div class="alert alert-success" role="alert" id="opcoes">
@@ -352,6 +361,8 @@ footer .nav{
                       </div>
                     </div>
 
+                    
+
                     <div class="col-md-20 position-relative">
                       <label for="status" class="form-label">Barbearia</label>
                       <select class="form-select" id="barbearia" name="barbearia" required>
@@ -372,6 +383,7 @@ footer .nav{
                         <option selected disabled value="">Choose...</option>
                         <option>Trabalhando</option>
                         <option>Sob licença</option>
+                        
                         
                       </select>
                       <div class="valid-tooltip">
@@ -469,8 +481,8 @@ footer .nav{
                 
                                 <div class="modal-body">
                                   <!--Alterar funcionario da barbearia-->
-                                  <form class="row g-3 needs-validation" name="cadFuncionario_barbearia" method="post" action="controladores/MSatualizainfo_funcionarioBarbearia.php"  novalidate >
-                                      
+                                  <form class="row g-3 needs-validation" name="editFuncionario_barbearia" method="post" action="controladores/MSatualizainfo_funcionarioBarbearia.php" >
+                                  <input type="hidden" name="Codigo" id="Codigo" value="<?= $linha['Codigo'] ?>">
                                   <div class="col-md-4 position-relative">
                                       <label for="nome" class="form-label">Nome</label>
                                       <input type="text" class="form-control" id="nome" name="nome" value="<?= $linha['Nome'] ?>" >
@@ -515,7 +527,7 @@ footer .nav{
                                     <div class="col-md-20 position-relative">
                                       <label for="uf" class="form-label">UF</label>
                                       <select class="form-select" id="uf" name="uf" >
-                                        <option selected disabled value="<?= $linha['UF']?>"><?= $linha['UF']?></option>
+                                        <option selected><?= $linha['UF']?></option>
                                         <option>...</option>
                                       </select>
                                       
@@ -529,15 +541,20 @@ footer .nav{
                                         
                                       </div>
 
-                            
-                                       
+                                          <div class="col-md-20 position-relative">
+                                          <label for="telefoneComercial" class="form-label">Data de demissão</label>
+                                          <input type="date" class="form-control" id="data_demissao" name="data_demissao" value="<?= $linha['Data_demissao']?>">
+                                         
+                                        </div>
+                                                          
 
                                         <div class="col-md-20 position-relative">
                                           <label for="status" class="form-label">Status</label>
                                           <select class="form-select" id="status" name="status" >
-                                            <option selected disabled value="<?= $linha['Status']?>"><?= $linha['Status']?></option>
+                                            <option selected ><?= $linha['Status']?></option>
                                             <option>Trabalhando</option>
                                             <option>Sob licença</option>
+                                            <option>Demitido</option>
                                             
                                           </select>
                                          
@@ -546,7 +563,7 @@ footer .nav{
                     
                     
                                           <div class="col-12">
-                                            <button class="btn btn-primary" type="submit" id="alterar" name="alterar">Alterar</button>
+                                            <button class="btn btn-primary" type="submit" id="alterar" name="salvar">Salvar</button>
                                           </div>
                                           
                                         </form>
