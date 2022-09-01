@@ -28,7 +28,7 @@ if(isset($_POST["cadastrar"])){
     mysqli_close($conexao);
 
     $nomeDe = $nome;
-    header("location: \TCC_Mestre-Sala\MSposcadastro_cliente.php?");
+    header("location: ../view_cliente/MSposcadastro_cliente.php?");
 
 }
 

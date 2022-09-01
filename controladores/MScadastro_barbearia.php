@@ -33,7 +33,7 @@ if(isset($_POST["cadastrar"])){
     mysqli_close($conexao);
 
    
-    header("location: \TCC_Mestre-Sala\MSposcadastro_barbearia.php");
+    header("location: ../view_barbearia/MSposcadastro_barbearia.php");
 }
 
 ?>

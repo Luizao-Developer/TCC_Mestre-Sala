@@ -1,5 +1,5 @@
 <?php
- require_once("controladores/MSsessao_cliente.php");
+ require_once("../controladores/MSsessao_barbearia.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Realizado com sucesso!</title>
-    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagens/logo_com_fundo.png" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   
@@ -47,10 +47,10 @@
     <!--Mensagem de seja bem vindo-->
 
     <div id="mensagem">
-        
+       
         <h1>Parabéns cadastro realizado com sucesso! <i class="far fa-thumbs-up"></i> </h1>
-        <p><h5>Seja bem vindo ao mundo dos mestres, cuide de sua beleza de forma renomada</h5></p>
-        <p><h5>Entre agora mesmo e começe <a href="http:\TCC_Mestre-Sala\MSlogin_cliente.php">L O G I N</a></h5></p>
+        <p><h5>Seja bem vindo  ao mundo dos mestres, divulgue e de fama a seu negócio aqui na mestre-sala</h5></p>
+        <p><h5>Entre agora mesmo e começe <a href="MSlogin_barbearia.php">L O G I N</a></h5></p>
         
         
     </div>

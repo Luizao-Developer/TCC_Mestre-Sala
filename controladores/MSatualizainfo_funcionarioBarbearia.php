@@ -36,5 +36,5 @@ if(isset($_POST['salvar'])){
     mysqli_query($conect,$sql);
     $mensagemAtu = "Registro atualizado com sucesso";
 
-    header("Location: \TCC_Mestre-Sala\MSfuncionarios_barbearia.php?mensagem={$mensagemAtu}");
+    header("Location: ../view_barbearia/MSfuncionarios_barbearia.php?mensagem={$mensagemAtu}");
 }

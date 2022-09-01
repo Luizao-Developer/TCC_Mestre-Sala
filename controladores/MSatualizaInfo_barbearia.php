@@ -37,6 +37,6 @@ $sql = "update tbcliente
 
     mysqli_query($conexao, $sql);
     $mensagem = "Informações atualizadas com sucesso";
-    header("location: \TCC_Mestre-Sala\MStelaprincipal_barbearia.php?mensagem = {$mensagem}");
+    header("location: ../view_barbearia/MStelaprincipal_barbearia.php?mensagem = {$mensagem}");
     die();
 }

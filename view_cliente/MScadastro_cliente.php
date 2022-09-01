@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagens/logo_com_fundo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="arquivos_css/MScadastro_cliente.css">
+    <link rel="stylesheet" href="../arquivos_css/MScadastro_cliente.css">
     <title>Cadastre-se</title>
 </head>
 <style>
@@ -18,7 +18,7 @@
     
 }
 body{
-    background-image: url(imagens/inside-3315725_1920.jpg);
+    background-image: url(../imagens/inside-3315725_1920.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -184,7 +184,7 @@ footer .nav{
   </div>
   <div class="titulo">
       <div id="logo">
-        <img src="imagens/logo_com_fundo.png" alt="" srcset="">
+        <img src="../imagens/logo_com_fundo.png" alt="" srcset="">
         <p>
           
         </p>
@@ -203,7 +203,7 @@ footer .nav{
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100" id="cards">
-        <img src="imagens/animacao1.svg" class="card-img-top" alt="...">
+        <img src="../imagens/animacao1.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Defina a barbearia de sua preferencia</h5>
           <p class="card-text">Aqui na mestre-sala você pode escolher ser cliente de qualquer barbearia cadastrada, uma ou mais, levando em conta a que mais faz parte de se gosto.</p>
@@ -213,7 +213,7 @@ footer .nav{
     </div>
     <div class="col">
       <div class="card h-100"  id="cards">
-        <img src="imagens/animacao2.svg" class="card-img-top" alt="...">
+        <img src="../imagens/animacao2.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Faça sua agenda sem sair de casa</h5>
           <p class="card-text">Você pode marcar qualquer serviço no conforto de sua casa ,e também sem precisar de ligação telefonica, basta escolher a barbearia, realizar o agendamento definindo a data e hora disponivel e pronto!</p>
@@ -223,7 +223,7 @@ footer .nav{
     </div>
     <div class="col">
       <div class="card h-100"  id="cards">
-        <img src="imagens/animacao3.svg" class="card-img-top" alt="...">
+        <img src="../imagens/animacao3.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Cuide de sua beleza de forma fácil com a mestre-sala</h5>
           <p class="card-text">A mestre-sala está disponivel a qualquer hora, somente dependendo de ter acesso a internet, viu como é fácil ?</p>
@@ -234,7 +234,7 @@ footer .nav{
   </div>
   </div>
   <div class="card bg-dark text-white" id="card_foto_barberia">
-    <img src="imagens/place3.jpg" class="card-img" alt="...">
+    <img src="../imagens/place3.jpg" class="card-img" alt="...">
     <div class="card-img-overlay">
       <h1>Escolha sua barberia</h1>
       <p class="card-text">Seja cliente da barberia que possa combinar com você</p>
@@ -271,7 +271,7 @@ footer .nav{
                 </div>
                 <div class="modal-body ">
                   <!--CADASTRO DE CLIENTE-->
-                  <form class="row g-5 needs-validation" method="post" action="controladores/MScadastro_cliente.php" novalidate>
+                  <form class="row g-5 needs-validation" method="post" action="../controladores/MScadastro_cliente.php" novalidate>
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Nome</label>
                       <input type="text" class="form-control" id="validationTooltip01" name="nome" required>
@@ -409,12 +409,12 @@ footer .nav{
 
 </div>
   
-    <script src="/arquivos_js/MScadastro_cliente.js"></script>
+    <script src="../arquivos_js/MScadastro_cliente.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
     
   </body>
-  <?php require_once("componentes/rodape.php") ?>
+  <?php require_once("../componentes/rodape.php") ?>
 <script>
   (() => {
     'use strict'

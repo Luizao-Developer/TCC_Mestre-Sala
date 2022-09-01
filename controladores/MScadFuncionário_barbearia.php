@@ -32,7 +32,7 @@ if(isset($_POST['cadastrar'])){
 
     mysqli_close($conexao);
 
-    header("location: \TCC_Mestre-Sala\MSfuncionarios_barbearia.php");
+    header("location: ../view_barbearia/MSfuncionarios_barbearia.php");
     
 
 }

@@ -4,7 +4,7 @@ if(!isset($_SESSION)){
 }
 if(!isset($_SESSION['Codigo'])){
     $mensagem = "Sessão expirada. Faça o login novamente.";
-    header("location: \TCC_Mestre-Sala\MSlogin_barbearia.php");
+    header("location: ../view_barbearia/MSlogin_barbearia.php");
     die();
 }
 

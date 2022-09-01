@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="arquivos_css/MSlogin_cliente.css">
-    <title>Login</title>
+    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../arquivos_css/MSlogin_barbearia.css">
+    <title>Sua barbearia</title>
 </head>
 <style>
     *{
@@ -24,7 +24,7 @@ body{
 #logo img{
     border-radius: 50%;
 }
-#login_cliente{
+#login_barbearia{
     width: 400px;
     padding: 30px;
     position: absolute;
@@ -34,37 +34,37 @@ body{
     transform: translate(-50%,-50%);
     background: black;
 }
-#login_cliente h1{
+#login_barbearia h1{
     border-bottom: solid orange;
     width: 180px;
     
 }
-#login_cliente #receber{
+#login_barbearia #receber{
     margin: 20px 30px;
     
 }
-#login_cliente input{
+#login_barbearia input{
     border: none;
     border-radius: 0;
     background: transparent;
     border-bottom: solid 2px orange;
     color: white;
 }
-#login_cliente label{
+#login_barbearia label{
     color: white;
 }
-#login_cliente h1, p{
+#login_barbearia h1, p{
     color: white;
     text-align: center; 
 }
-#login_cliente ,p a{
+#login_barbearia ,p a{
     text-decoration: none;
     color: orange;
 }
-#login_cliente a:hover{
+#login_barbearia a:hover{
     color: yellow;
 }
-#login_cliente #entrar{
+#login_barbearia #entrar{
     background: darkred;
     color: white;
     padding: 10px 150px;
@@ -72,10 +72,10 @@ body{
     font-size: larger;
     border-radius: 2px;
 }
-#login_cliente #entrar:hover{
+#login_barbearia #entrar:hover{
     background: rgb(187, 3, 3);
 }
-#login_cliente #acess_login_barbearia{
+#login_barbearia #acess_login_cliente{
     background: darkred;
     width: 50px;
     padding: 10px;
@@ -84,48 +84,47 @@ body{
     border-radius: 50%;
     border: none;
 }
-#login_cliente  #acess_login_barbearia:hover{
+#login_barbearia  #acess_login_cliente:hover{
     background: rgb(187, 3, 3);
     
 }
-
 </style>
 <body>
     <div class="container-fluid">
-    <div id="logo">
-        <img src="imagens/logo_com_fundo.png" alt="" srcset="">
-    </div>
-        <form action="controladores/MSvalidaLogin_cliente.php" method="post" id="login_cliente">
-            <h1>L O G I N</h1>
-            <p id="receber">Seja bem vindo!</p>
+        <div id="logo">
+            <img src="../imagens/logo_com_fundo.png" alt="" srcset="">
+        </div>
+            <form action="../controladores/MSvalidaLogin_barbearia.php" method="post" id="login_barbearia">
+                <h1>L O G I N</h1>
+                <p id="receber">Seja bem vindo!</p>
 
-            <?php if(isset($_GET['mensagem'])){ ?>
+                <?php if(isset($_GET['mensagem'])){ ?>
                     <p style="color: orange;"><?php echo $_GET['mensagem'] ?></p>
-                    <?php  } ?>
-                
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
-                <label for="floatingInput"><i class="fas fa-envelope"></i> Email</label>
-            </div>
-            <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Senha" required>
-                <label for="floatingPassword"><i class="fas fa-key"></i> Senha</label>
-            </div>
-            <div class="links">
-                <p><a href="">Esqueceu sua senha ?</a></p>
-            </div>
-            <div class="botoes">
-                <p>
-                    <button type="submit" name="entrar" id="entrar">Entre </button>
-                </p>
-                
-  
-            </div>
-            <div class="links2">
-                <p>Não tem conta <a href="MScadastro_cliente.php">cadastre-se</a></p>
-            </div>
-        </form>
-    </div>
+                <?php  } ?>
+
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
+                    <label for="floatingInput"><i class="fas fa-envelope"></i> Email corporativo</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Senha" required>
+                    <label for="floatingPassword"><i class="fas fa-key"></i> Senha</label>
+                </div>
+                <div class="links">
+                    <p><a href="">Esqueceu sua senha ?</a></p>
+                </div>
+                <div class="botoes">
+                    <p>
+                        <button type="submit" name="entrar" id="entrar">Entre </button>
+                    </p>
+                  
+      
+                </div>
+                <div class="links2">
+                    <p>Cadastre sua barbearia <a href="MScadastro_barbearia.php">aqui</a></p>
+                </div>
+            </form>
+        </div>
 
 
     

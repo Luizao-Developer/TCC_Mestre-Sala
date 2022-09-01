@@ -39,14 +39,14 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
 
         
         
-        header("location: \TCC_Mestre-Sala\MStelaprincipal_cliente.php");
+        header("location: ../view_cliente/MStelaprincipal_cliente.php");
         die();
 
     }else{
         $_GET = "Usuario ou senha inválidos";
        echo "Deu ruim";
        $mensagem = "Email ou senha inválidos";
-        header("location: \TCC_Mestre-Sala\MSlogin_cliente.php?mensagem={$mensagem}");
+        header("location: ../view_cliente/MSlogin_cliente.php?mensagem={$mensagem}");
         die();
     }
 }

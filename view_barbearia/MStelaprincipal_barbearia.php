@@ -1,5 +1,5 @@
 <?php
-    require_once("controladores/MSsessao_barbearia.php");
+    require_once("../controladores/MSsessao_barbearia.php");
 
   
 ?>
@@ -39,8 +39,8 @@ if($qtdFuncionariosLicenca == 0){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
-    <link rel="stylesheet" href="arquivos_css/MStelaprincipal_barbearia.css">
+    <link rel="shortcut icon" href="../imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../arquivos_css/MStelaprincipal_barbearia.css">
     <title>Mestre-Sala</title>
 </head>
 <style>
@@ -61,7 +61,7 @@ body{
 .espacamento{
     width: 100%;
     height: 100px;
-    background-image: url(imagens/barber-1453064_1920.jpg);
+    background-image: url(../imagens/barber-1453064_1920.jpg);
 }
 .pg_principal{
     width: 100%;
@@ -125,7 +125,7 @@ footer .nav{
 
     <!--Menu do barbeiro--->
     
-    <?php require_once("componentes/menuBarbearia.php"); ?>
+    <?php require_once("../componentes/menuBarbearia.php"); ?>
 
 
 <!--Continuação do site-->
@@ -172,7 +172,7 @@ footer .nav{
         
 
                     <!-- Editar informações do card-->
-            <form action="controladores/MSatualizaInfo_barbearia.php" method="post" enctype="multipart/form-data">
+            <form action="../controladores/MSatualizaInfo_barbearia.php" method="post" enctype="multipart/form-data">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2">
             <i class="fas fa-pen"></i>
             </button>
@@ -189,7 +189,7 @@ footer .nav{
    
                 <div class="modal-body">
                     <p>
-                        <img src="/imagens/" alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="../imagens/" alt="" srcset="" id="fotoUsuarioSistema">
                         
                     </p>
                     <p>
@@ -297,5 +297,5 @@ footer .nav{
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
-<?php require_once("componentes/rodape.php") ?>
+<?php require_once("../componentes/rodape.php") ?>
 </html>

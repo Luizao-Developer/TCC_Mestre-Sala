@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Ago-2022 às 03:18
+-- Tempo de geração: 31-Ago-2022 às 00:59
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -179,10 +179,9 @@ CREATE TABLE `tbfuncionarios` (
 --
 
 INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
-(1, 'rgwerg', 'rgewrg', 'ergw', '2022-08-10', 'ergwerg', 'werg', '...', 'ergw', 'Trabalhando', 'ewrgwe', '2022-08-26', NULL, 1),
-(2, 'tryt', 'rf', 'tgtg@email.com', '2022-08-11', 'retherth', 'etheh', '...', 'retgert', 'Trabalhando', 'rtherth', '2022-08-29', NULL, 1),
-(3, '35334564', 'Simao cananita', 'Rua videira', '1714-02-14', 'Canaã', '45235', '...', 'er@email.com', 'Trabalhando', '234524355', '2022-08-17', NULL, 1),
-(4, '53563454563', 'Thiago filho de zebedeu', 'Rua Senador Alvaro Fernandez', '2022-08-02', 'Porto Camargo', '2355435', '...', 'tfz@gmail.com', 'Trabalhando', '24354536', '2022-08-24', NULL, 1);
+(5, '4532453', 'Leao Genival', 'Rua da savana', '2019-01-08', 'Nigeria', '42345234', '...', 'genival@email.com', 'Trabalhando', '42352345', '2022-08-31', NULL, 17),
+(6, 'rtg35', '3434t', '235t2345t', '3222-04-12', '5t2435t', '235t2435t', '...', '253t2435t@email.com', 'Sob licença', '2435t2435t', '0012-01-23', NULL, 17),
+(7, '45235', 'Sebaldo Policial', 'Rua seb2', '0000-00-00', 'Saltinho do Oeste', '243523', '...', 'seb@email.com', 'Trabalhando', '43252345', '2022-08-24', NULL, 17);
 
 -- --------------------------------------------------------
 
@@ -299,7 +298,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`

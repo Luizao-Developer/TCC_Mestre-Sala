@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/logo_com_fundo.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../imagens/logo_com_fundo.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="arquivos_css/MScadastro_barbearia.css">
+    <link rel="stylesheet" href="\arquivos_css\MScadastro_barbearia.css">
     <title>Cadastre sua barberia</title>
 </head>
 <style>
@@ -18,7 +18,7 @@
     
 }
 body{
-    background-image: url(imagens/inside-3315725_1920.jpg);
+    background-image: url(../imagens/inside-3315725_1920.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -204,7 +204,7 @@ footer .nav{
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100" id="cards">
-        <img src="imagens/barber_animation.svg" class="card-img-top" alt="...">
+        <img src="..\imagens\barber_animation.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Melhore seu atendimento</h5>
           <p class="card-text">Com o mestre-sala você pode gerenciar seus clientes de forma rápida e fácil</p>
@@ -214,7 +214,7 @@ footer .nav{
     </div>
     <div class="col">
       <div class="card h-100"  id="cards">
-        <img src="imagens/barbearia_animation.svg" class="card-img-top" alt="...">
+        <img src="..\imagens\barbearia_animation.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Melhore seu negócio</h5>
           <p class="card-text">Você deseja controle sistematizado, na mestre-sala você cria uma conta e começa agora mesmo a mudar seu negócio</p>
@@ -224,7 +224,7 @@ footer .nav{
     </div>
     <div class="col">
       <div class="card h-100"  id="cards">
-        <img src="imagens/barbearia_animacao_1.svg" class="card-img-top" alt="...">
+        <img src="..\imagens\barbearia_animacao_1.svg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Divulge seu trabalho</h5>
           <p class="card-text">Divulgue seus serviços para todos os cadastrados do site, desde clientes até mesmo a concorrencia.</p>
@@ -235,7 +235,7 @@ footer .nav{
   </div>
   </div>
   <div class="card bg-dark text-white" id="card_foto_barberia">
-    <img src="imagens/barbershop-4484300_1920.jpg" class="card-img" alt="...">
+    <img src="..\imagens\barbershop-4484300_1920.jpg" class="card-img" alt="...">
     <div class="card-img-overlay">
       <h1>Conquiste clientes</h1>
       <p class="card-text">A propaganda é a alma do negócio, então se cadastrando você garante clientes e reconhecimento de seu serviço</p>
@@ -268,7 +268,7 @@ footer .nav{
                 
                 <div class="modal-body">
                   <!--CADASTRO DE BARBEARIA-->
-                  <form class="row g-3 needs-validation" name="cadBarbearia" method="post" action="controladores/MScadastro_barbearia.php"  novalidate >
+                  <form class="row g-3 needs-validation" name="cadBarbearia" method="post" action="..\controladores\MScadastro_barbearia.php"  novalidate >
                       
                   <div class="col-md-4 position-relative">
                       <label for="nome" class="form-label">Nome</label>
@@ -437,7 +437,7 @@ footer .nav{
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
 </body>
-<?php require_once("componentes/rodape.php") ?>
+<?php require_once("../componentes/rodape.php") ?>
 
 
 </html>
