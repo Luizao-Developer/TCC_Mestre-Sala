@@ -15,10 +15,10 @@
 
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-cut"></i>  Procedimentos</a>
+                <a class="nav-link" href="..\view_barbearia\MSprocedimentos_barbearia.php"><i class="fas fa-cut"></i>  Procedimentos</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="#"><i class="fas fa-calendar-alt"></i> Serviços marcados</a>
+                <a class="nav-link" href="..\view_barbearia\MSservicomarcados_barbearia.php"><i class="fas fa-calendar-alt"></i> Serviços marcados</a>
                 </li>
 
                 
