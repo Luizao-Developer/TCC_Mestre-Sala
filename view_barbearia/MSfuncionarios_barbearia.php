@@ -264,170 +264,135 @@ if(isset($_POST['excluir'])){
               <h4>A <?=  $_SESSION['NomeBarbearia']?> possui <?= $qtd ?> funcionários</h4>
             </div>
                 --->
-                <table class="table table-dark table-hover">
-            <thead>
-                <tr>
-                <th scope="col">Codigo</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Telefone</th>
-                <th scope="col">Endereço</th>
-                <th scope="col">Data/nasçimento</th>
-                <th scope="col">Cidade</th>
-                <th scope="col">CEP</th>
-                <th scope="col">UF</th>
-                <th scope="col">Email</th>
-                <th scope="col">PIS-PASEP</th>
-                <th scope="col">Data de contratação</th>
-                <th scope="col">Data de demissão</th>
-                <th scope="col">Status</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Excluir</th>
-                </tr>
-            </thead>
-           
-            <tbody>
-            <?php
-            while($linha =mysqli_fetch_array($result)) {  ?>
-                <tr>
-                <th scope="row"><?= $linha['Codigo'] ?></th>
-                <td><?= $linha['Nome'] ?></td>
-                <td><?= $linha['Telefone'] ?></td>
-                <td><?= $linha['Endereco'] ?></td>
-                <td><?= $linha['Data_nascimento'] ?></td>
-                <td><?= $linha['Cidade'] ?></td>
-                <td><?= $linha['CEP'] ?></td>
-                <td><?= $linha['UF']  ?></td>
-                <td><?= $linha['Email']  ?></td>
-                <td><?= $linha['PIS_PASEP'] ?></td>
-                <td><?= $linha['Data_contratacao']  ?></td>
-                <td><?= $linha['Data_demissao']  ?></td>
-                <td><?= $linha['Status'] ?></td>
-                <!--Alteração e Exclusão de dados-->
-                <td>
-                    <!--Modal para a alteração dos dados-->
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa4">
-                    <i class="fas fa-pen"></i>
-                  </button>
-                
-                          <!-- Modal -->
-                          <div class="modal fade" id="exampleModa4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Alterar informações</h5>
-                                  <button type="button" class="btn-close btn-close-white"  data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                
-                
-                                <div class="modal-body">
-                                  <!--Alterar funcionario da barbearia-->
-                                  <form class="row g-3 needs-validation" name="editFuncionario_barbearia" method="post" action="../controladores/MSatualizainfo_funcionarioBarbearia.php" >
-                                  <input type="hidden" name="Codigo" id="Codigo" value="<?= $linha['Codigo'] ?>">
-                                  <div class="col-md-4 position-relative">
-                                      <label for="nome" class="form-label">Nome</label>
-                                      <input type="text" class="form-control" id="nome" name="nome" value="<?= $linha['Nome'] ?>" >
-                                      
-                                    </div>
-
-                                    <div class="col-md-4 position-relative">
-                                      <label for="nome" class="form-label">Telefone</label>
-                                      <input type="text" class="form-control" id="telefone" name="telefone" value="<?= $linha['Telefone']?>">
-                                     
-                                    </div>
-
-                                    <div class="col-md-4 position-relative">
-                                      <label for="endereco" class="form-label">Endereço</label>
-                                      <input type="text" class="form-control" id="endereco" name="endereco" value="<?= $linha['Endereco']?>">
-                                      
-                                    </div>
-
-                                    <div class="col-md-4 position-relative">
-                                      <label for="endereco" class="form-label">Email</label>
-                                      <input type="text" class="form-control" id="email" name="email" value="<?= $linha['Email']?>" >
-                                      
-                                      
-                                    </div>
-
-                                    <div class="col-md-4 position-relative">
-                                      <label for="cep" class="form-label">CEP</label>
-                                      <div class="input-group has-validation">
-                                        
-                                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep" value="<?= $linha['CEP']?>">
-                                        
-                                        
-                                      </div>
-
-                                    </div>
-
-                                    <div class="col-md-20 position-relative">
-                                      <label for="cidade" class="form-label">Cidade</label>
-                                      <input type="text" class="form-control" id="cidade" name="cidade" value="<?= $linha['Cidade']?>" >
-                                      
-                                    </div>
-                                    <div class="col-md-20 position-relative">
-                                      <label for="uf" class="form-label">UF</label>
-                                      <select class="form-select" id="uf" name="uf" >
-                                        <option selected><?= $linha['UF']?></option>
-                                        <option>...</option>
-                                      </select>
-                                      
-                                    </div>
-
-                      
-
-                                      <div class="col-md-20 position-relative">
-                                        <label for="cnpj" class="form-label">PIS-PASEP</label>
-                                        <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" value="<?= $linha['PIS_PASEP']?>">
-                                        
-                                      </div>
-
-                                          <div class="col-md-20 position-relative">
-                                          <label for="telefoneComercial" class="form-label">Data de demissão</label>
-                                          <input type="date" class="form-control" id="data_demissao" name="data_demissao" value="<?= $linha['Data_demissao']?>">
-                                         
-                                        </div>
-                                                          
-
-                                        <div class="col-md-20 position-relative">
-                                          <label for="status" class="form-label">Status</label>
-                                          <select class="form-select" id="status" name="status" >
-                                            <option selected ><?= $linha['Status']?></option>
-                                            <option>Trabalhando</option>
-                                            <option>Sob licença</option>
-                                            <option>Demitido</option>
-                                            
-                                          </select>
-                                         
-                                        </div>
-                    
-                    
-                    
-                                          <div class="col-12">
-                                            <button class="btn btn-primary" type="submit" id="alterar" name="salvar">Salvar</button>
-                                          </div>
-                                          
-                                        </form>
-                                        
-                                      </div>
-                              </td>
-                              <td>
-                                <!--Excluir usuario-->
-                                <form action="../view_barbearia/MSfuncionarios_barbearia.php" method="post" onsubmit="return confirm('Deseja excluir este funcionário?')">
-                                    <input type="hidden" name="id" value="<?= $linha['Codigo'] ?>">
-                                      <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash"></i></button>
-                                </form>
-                              
-                            
-                            
-                              </td>
-                              </tr>
-                
-                <?php } ?>   
-            </tbody>
+          
             
-            </table>
+                                  
+                          <?php
+                          while($linha =mysqli_fetch_array($result)) {  ?>
+                            <div class="card w-105" id="card_lista">
+                                <div class="card-body">
+                                  <h5 class="card-title"><?= $linha['Nome'] ?></h5>
+                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  
+                                  <!-- Button trigger modal -->
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa5">
+                                            <i class="fas fa-pen"></i>
+                                            </button>
+
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleModa5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                              <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                  <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                  </div>
+                                                  <div class="modal-body">
+                                                                  <form class="row g-3 needs-validation" name="editFuncionario_barbearia" method="post" action="../controladores/MSatualizainfo_funcionarioBarbearia.php" >
+                                                  <input type="hidden" name="Codigo" id="Codigo" value="<?= $linha['Codigo'] ?>">
+                                                  <div class="col-md-4 position-relative">
+                                                      <label for="nome" class="form-label">Nome</label>
+                                                      <input type="text" class="form-control" id="nome" name="nome" value="<?= $linha['Nome'] ?>" >
+                                                      
+                                                    </div>
+
+                                                    <div class="col-md-4 position-relative">
+                                                      <label for="nome" class="form-label">Telefone</label>
+                                                      <input type="text" class="form-control" id="telefone" name="telefone" value="<?= $linha['Telefone']?>">
+                                                    
+                                                    </div>
+
+                                                    <div class="col-md-4 position-relative">
+                                                      <label for="endereco" class="form-label">Endereço</label>
+                                                      <input type="text" class="form-control" id="endereco" name="endereco" value="<?= $linha['Endereco']?>">
+                                                      
+                                                    </div>
+
+                                                    <div class="col-md-4 position-relative">
+                                                      <label for="endereco" class="form-label">Email</label>
+                                                      <input type="text" class="form-control" id="email" name="email" value="<?= $linha['Email']?>" >
+                                                      
+                                                      
+                                                    </div>
+
+                                                    <div class="col-md-4 position-relative">
+                                                      <label for="cep" class="form-label">CEP</label>
+                                                      <div class="input-group has-validation">
+                                                        
+                                                        <input type="text" class="form-control" id="cep" aria-describedby="validationTooltipUsernamePrepend" name="cep" value="<?= $linha['CEP']?>">
+                                                        
+                                                        
+                                                      </div>
+
+                                                    </div>
+
+                                                    <div class="col-md-20 position-relative">
+                                                      <label for="cidade" class="form-label">Cidade</label>
+                                                      <input type="text" class="form-control" id="cidade" name="cidade" value="<?= $linha['Cidade']?>" >
+                                                      
+                                                    </div>
+                                                    <div class="col-md-20 position-relative">
+                                                      <label for="uf" class="form-label">UF</label>
+                                                      <select class="form-select" id="uf" name="uf" >
+                                                        <option selected><?= $linha['UF']?></option>
+                                                        <option>...</option>
+                                                      </select>
+                                                      
+                                                    </div>
+
+                                      
+
+                                                      <div class="col-md-20 position-relative">
+                                                        <label for="cnpj" class="form-label">PIS-PASEP</label>
+                                                        <input type="text" class="form-control" id="pis_pasep" name="pis_pasep" value="<?= $linha['PIS_PASEP']?>">
+                                                        
+                                                      </div>
+
+                                                          <div class="col-md-20 position-relative">
+                                                          <label for="telefoneComercial" class="form-label">Data de demissão</label>
+                                                          <input type="date" class="form-control" id="data_demissao" name="data_demissao" value="<?= $linha['Data_demissao']?>">
+                                                        
+                                                        </div>
+                                                                          
+
+                                                        <div class="col-md-20 position-relative">
+                                                          <label for="status" class="form-label">Status</label>
+                                                          <select class="form-select" id="status" name="status" >
+                                                            <option selected ><?= $linha['Status']?></option>
+                                                            <option>Trabalhando</option>
+                                                            <option>Sob licença</option>
+                                                            <option>Demitido</option>
+                                                            
+                                                          </select>
+                                                        
+                                                        </div>
+                                    
+                                    
+                                    
+                                                          <div class="col-12">
+                                                            <button class="btn btn-primary" type="submit" id="alterar" name="salvar">Salvar</button>
+                                                          </div>
+                                                          
+                                                        </form>
+                                                                  </div>
+                                                                  <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                                  </div>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            
+                                                                                  <!--Excluir usuario-->
+                                                          <form action="../view_barbearia/MSfuncionarios_barbearia.php" method="post" onsubmit="return confirm('Deseja excluir este funcionário?')">
+                                                              <input type="hidden" name="id" value="<?= $linha['Codigo'] ?>">
+                                                                <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash"></i></button>
+                                                          </form>
+                                                          
+                                </div>
+                          </div>
+                          <?php } ?>   
+                
      </div>
 </div>
     

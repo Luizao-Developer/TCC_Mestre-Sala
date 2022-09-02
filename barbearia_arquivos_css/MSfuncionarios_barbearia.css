@@ -144,3 +144,6 @@ footer .nav{
     font-size: larger;
     border-radius: 0;
 }
+#lista_funcionarios{
+    width: 200px;
+}
