@@ -18,7 +18,7 @@ $qtdFuncionarios = mysqli_num_rows($result);
 
 //Consulta sobre os funcionários que estão de licença ou afastados
 
-$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Sob licença%'";
+$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Em licença%'";
 $result2 = mysqli_query($conexao, $sqlLicenca);
 $linha2 = mysqli_fetch_array($result2);
 $qtdFuncionariosLicenca = mysqli_num_rows($result2);

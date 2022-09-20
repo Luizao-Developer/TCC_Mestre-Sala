@@ -71,7 +71,12 @@ if(isset($_POST['excluir'])){
                     <button class="btn btn-primary"><i class="fas fa-user-plus"></i></button>
                     </a>
             </div>
-          
+            <?php if(isset($_GET['mensagem'])) { ?>
+                        <div class="alert alert-success" role="alert">
+                           <h4><i class="fas fa-check"></i> <?php echo $_GET['mensagem'] ?></h4>
+                        </div>
+            <?php } ?>
+
             
             <div class="flex-container ">
             <?php while($linha = mysqli_fetch_array($result)){ ?>

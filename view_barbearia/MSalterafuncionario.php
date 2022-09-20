@@ -17,9 +17,11 @@
 
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
-$Codigo = $_POST['codigo'];
 
+$Codigo = $_POST['codigo'];
 if(isset($_POST['salvar'])){
+
+    
 
     $nome  = $_POST['nome'];
     $telefone = $_POST['telefone'];
@@ -31,7 +33,7 @@ if(isset($_POST['salvar'])){
     $status = $_POST['status'];
     $data_demissao = $_POST['data_demissao'];
 
-    $sqlAtualizaFuncionario = "update from tbfuncionarios 
+    $sqlAtualizaFuncionario = "update tbfuncionarios 
     set Telefone = '{$telefone}',
     Nome = '{$nome}',
     Endereco = '{$endereco}',
@@ -41,11 +43,15 @@ if(isset($_POST['salvar'])){
     Email = '{$email}',
     Status = '{$status}',
     data_demissao = '{$data_demissao}'
-    where Codigo = {$codigo}";
+    where Codigo = {$Codigo}";
 
-    mysqli_query($conexao, $sql);
-
+    mysqli_query($conexao, $sqlAtualizaFuncionario);
+ 
     $mensagem = "Informações de funcionario foram alteradas! ";
+    
+    header("location: MSfuncionarios_barbearia.php?mensagem={$mensagem}");
+
+    
 }
 
 $sqlFuncionario = "select * from tbfuncionarios where Codigo = {$Codigo}";
@@ -166,7 +172,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom04" class="form-label">Data de demissão</label>
-                        <input type="text" class="form-control" id="validationCustom03" name="data_demissao" value="<?= $linhaFuncionario['Data_demissao']  ?>" required>
+                        <input type="text" class="form-control" id="validationCustom03" name="data_demissao" value="<?= $linhaFuncionario['Data_demissao']  ?>">
                         <div class="valid-feedback">
                         Certo!
                         </div>
