@@ -1,7 +1,7 @@
 <?php
  require_once("../controladorBarbearia/MSsessao_barbearia.php");
  /*
-  $nome = $_POST['nome']; -
+    $nome = $_POST['nome']; -
     $telefone = $_POST['telefone']; -
     $endereco = $_POST['endereco']; -
     $email = $_POST['email']; -
@@ -11,7 +11,11 @@
     $pis_pasep = $_POST['pis_pasep'];
     $data_nascimento = $_POST['data_nascimento'];
     $data_contratacao = $_POST['data_contratacao'];
-    $status = $_POST['status']; */
+    $status = $_POST['status']; 
+    $tbBarbearia_Codigo = $_POST['codBarbearia'];
+
+*/
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +38,11 @@
     
      <div class="cadastro">
          <form class="row g-3 needs-validation" action="../controladorBarbearia/MScadFuncionário_barbearia.php" method="post" novalidate>
+             <!--Codigo da barbearia -->
+
+             <input type="hidden" name="codBarbearia" value="<?= $_SESSION['Codigo'] ?>">
+
+            <!---->
          <h1>Cadastro de funcionário</h1>
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Nome</label>

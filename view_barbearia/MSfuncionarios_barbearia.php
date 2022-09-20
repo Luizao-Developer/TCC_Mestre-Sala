@@ -6,15 +6,16 @@ require_once("../controladorBarbearia/MSsessao_barbearia.php");
  
   $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+
     //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
-  $sql  = "select * from tbfuncionarios 
-  where 1 = 1 order by Nome ";
+  $sqlFuncionarios  = "select * from tbfuncionarios 
+  where 1 = 1 order by Nome and tbBarbearia_Codigo = 14 ";
 
 
 
 
 
-  $result = mysqli_query($conexao,$sql);
+  $result = mysqli_query($conexao,$sqlFuncionarios);
   $linha = mysqli_fetch_array($result);
   $qtd = mysqli_num_rows($result);
  
@@ -60,6 +61,9 @@ if(isset($_POST['excluir'])){
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
 <div class="pg_principal container">
+  
+    
+
 
     <h1>Funcionários da barbearia: </h1>
     <!--Tabela de funcionarios-->
@@ -68,7 +72,7 @@ if(isset($_POST['excluir'])){
                     <p>Aqui é possivel cadastrar novos funcionários além de ter acesso a uma informação detalhada sobre estes de forma rápida e fácil, também é possivel fazer o controle de todos os contratados.</p>
                     <hr>
                     <a href="MScadastrarFuncionario.php" >
-                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i></button>
+                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Novo Funcionário</button>
                     </a>
             </div>
             <?php if(isset($_GET['mensagem'])) { ?>
@@ -76,7 +80,11 @@ if(isset($_POST['excluir'])){
                            <h4><i class="fas fa-check"></i> <?php echo $_GET['mensagem'] ?></h4>
                         </div>
             <?php } ?>
-
+            <?php if(isset($mensagemExclusao)) { ?>
+                        <div class="alert alert-success" role="alert">
+                          <h4><i class="fas fa-times"></i> <?= $mensagemExclusao ?></h4>
+                        </div>
+            <?php } ?>
             
             <div class="flex-container ">
             <?php while($linha = mysqli_fetch_array($result)){ ?>
