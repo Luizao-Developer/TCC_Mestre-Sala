@@ -33,7 +33,9 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         if(!isset($_SESSION)){
             session_start();
             
+            
             }
+            
             $_SESSION['CodigoBarbearia']    = $nome['CodigoBarbearia'];
             $_SESSION['CNPJ'] = $nome['CNPJ'];
             $_SESSION['NomeBarbearia']  = $nome['NomeBarbearia'];

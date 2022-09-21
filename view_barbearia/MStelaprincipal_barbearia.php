@@ -76,6 +76,9 @@ if($qtdClientes == 0){
             <div class="card-body">
                 <div class="alert alert-info" role="alert">
                         <h2>Minha barbearia: </h2>
+
+                        <h2><?php  var_dump($_SESSION)?> </h2>
+                        
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
