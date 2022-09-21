@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 09-Set-2022 às 03:10
+-- Tempo de geração: 21-Set-2022 às 01:25
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -178,8 +178,10 @@ CREATE TABLE `tbfuncionarios` (
 --
 
 INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
-(1, '43', '345t345', 'gerger', 'ergereg', 'ergerge', 'ergererg', 'regerg', 'ergerg', NULL, 'ergerge', 'ergerg', 'ergerge', NULL, 5),
-(7, 'gertgete', 'defr', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Em licença', 'retherthert', '2022-09-08', NULL, 17);
+(7, 'gertgete', 'Alfr232323edo Silv', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Trabalhando', 'retherthert', '2022-09-08', '', 14),
+(12, '42524523', 'Samuel Silveria', '23452345', '0232-02-23', '452345', '23452', '...', '23452345', NULL, 'Trabalhando', '23452345', '0323-02-23', NULL, 17),
+(13, 't', 't', 't', '0002-02-02', 't', 't', '...', 't', NULL, 'Trabalhando', 't', '0003-03-03', NULL, 17),
+(14, 't', 'Alfredo Silva', '23452345', '2022-09-12', '34563456', '23452', '...', 'mar@email.com', NULL, 'Trabalhando', '5463456', '2022-09-10', NULL, 17);
 
 -- --------------------------------------------------------
 
@@ -297,7 +299,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`

@@ -31,8 +31,10 @@ if(isset($_POST['cadastrar'])){
     mysqli_query($conexao,$sql);
 
     mysqli_close($conexao);
-
-    header("location: ../view_barbearia/MSfuncionarios_barbearia.php");
+    
+    $msgNovoFuncionario = "Novo funcionário cadastrado!";
+    
+    header("location: ../view_barbearia/MSfuncionarios_barbearia.php?msgNovoFuncionario = {$msgNovoFuncionario}");
     
 
 }
