@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21-Set-2022 às 01:25
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 23-Set-2022 às 21:16
+-- Versão do servidor: 10.4.19-MariaDB
+-- versão do PHP: 8.0.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,7 +60,7 @@ CREATE TABLE `tbagendamento` (
 --
 
 CREATE TABLE `tbbarbearia` (
-  `Codigo` int(11) NOT NULL,
+  `CodigoBarbearia` int(11) NOT NULL,
   `CNPJ` varchar(45) NOT NULL,
   `NomeBarbearia` varchar(45) NOT NULL,
   `Endereco` varchar(45) NOT NULL,
@@ -83,11 +83,7 @@ CREATE TABLE `tbbarbearia` (
 -- Extraindo dados da tabela `tbbarbearia`
 --
 
-INSERT INTO `tbbarbearia` (`Codigo`, `CNPJ`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
-(1, '[value-2]', '[value-3]', '[value-4]', '[value-5]', '[value-6]', '[value-7]', '[value-8]', '[value-9]', '[value-10]', '[value-11]', '[value-12]', 0, NULL, '', '', '2022-08-18 16:17:34'),
-(2, 'rgreg', 'ghgnfd', 'dhn', 'tteodoro1977@gmail.com', 'rgreg', 'eregerg', '$2y$10$e/NbZ0a.Nj.85xrE6rauT.h7fnlJOR7xdX1Dnj', '', 'gsergtgtg', '...', 'Em reforma', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(3, 'rgreg', 'ghgnfd', 'dhn', 'tteodoro1977@gmail.com', 'rgreg', 'eregerg', '$2y$10$5nt69NHQkBb3auQ6xbWM6uW23zgKIioYNfsi4j', '', 'gsergtgtg', '...', 'Em reforma', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(4, 'e3d3f3f3f3', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', '3f34f34f', '$2y$10$lf6IMrTW5kATYfeo9RpxyOlHdm8CgtsBtRJNKQ', '6544443', 'sao bernardo da colina', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
 (5, 'rferfwrefwerf', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', 'rfwerfwerfwerfw', '$2y$10$rG4jgsi6jrXaTF1Ylx8oceinc75mVvwmmAEojF', '6544443', 'sao bernardo da colina', '...', 'Em reforma', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
 (6, 'e3d3f3f3f3', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', '44984332260', '$2y$10$EfYnKoyIApg.VrX6I806sOI.V08/VhKK8YOiKN', '6544443', 'sao bernardo da colina', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
 (7, 'e3d3f3f3f3', 'Barbearia sao dimas', 'Rua 7 de Março', 'dimas@email.com', '23452562563', '43262356', '$2y$10$1Gmez2UOsUq93Zb9DBZMUu0Ro91SHRyO2OMg7g', '87538000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
@@ -117,7 +113,7 @@ CREATE TABLE `tbcliente` (
   `Cidade` varchar(45) NOT NULL,
   `CEP` varchar(45) DEFAULT NULL,
   `UF` varchar(45) NOT NULL,
-  `Email` varchar(45) NOT NULL,
+  `EmailCliente` varchar(45) NOT NULL,
   `Senha_de_acesso` varchar(45) NOT NULL,
   `Nome_de_usuario` varchar(45) NOT NULL,
   `Foto` int(11) DEFAULT NULL,
@@ -128,7 +124,7 @@ CREATE TABLE `tbcliente` (
 -- Extraindo dados da tabela `tbcliente`
 --
 
-INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
+INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
 (1, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 0, NULL),
 (2, '44984332260', 'sebastiao', 'rua sem fim da senhor clotilde', '2022-08-18', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$fMwa.vKddhP0pYRM6lVrpO1mOnA1ykKrDzuVUw', 'sebo', NULL, NULL),
 (3, '44984332260', 'tteodoro1977@gmail.com', 'rua sem fim da senhor clotilde', '2022-08-07', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$LDBjnz39Ktn/o6fkYs.w1e7Etor1fnwdbFCvPd', 'dhn', NULL, NULL),
@@ -178,10 +174,8 @@ CREATE TABLE `tbfuncionarios` (
 --
 
 INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
-(7, 'gertgete', 'Alfr232323edo Silv', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Trabalhando', 'retherthert', '2022-09-08', '', 14),
-(12, '42524523', 'Samuel Silveria', '23452345', '0232-02-23', '452345', '23452', '...', '23452345', NULL, 'Trabalhando', '23452345', '0323-02-23', NULL, 17),
-(13, 't', 't', 't', '0002-02-02', 't', 't', '...', 't', NULL, 'Trabalhando', 't', '0003-03-03', NULL, 17),
-(14, 't', 'Alfredo Silva', '23452345', '2022-09-12', '34563456', '23452', '...', 'mar@email.com', NULL, 'Trabalhando', '5463456', '2022-09-10', NULL, 17);
+(1, '43', '345t345', 'gerger', 'ergereg', 'ergerge', 'ergererg', 'regerg', 'ergerg', NULL, 'ergerge', 'ergerg', 'ergerge', NULL, 14),
+(7, 'gertgete', 'defr', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Em licença', 'retherthert', '2022-09-08', NULL, 14);
 
 -- --------------------------------------------------------
 
@@ -238,7 +232,7 @@ ALTER TABLE `tbagendamento`
 -- Índices para tabela `tbbarbearia`
 --
 ALTER TABLE `tbbarbearia`
-  ADD PRIMARY KEY (`Codigo`);
+  ADD PRIMARY KEY (`CodigoBarbearia`);
 
 --
 -- Índices para tabela `tbcliente`
@@ -287,7 +281,7 @@ ALTER TABLE `tbagendamento`
 -- AUTO_INCREMENT de tabela `tbbarbearia`
 --
 ALTER TABLE `tbbarbearia`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `CodigoBarbearia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `tbcliente`
@@ -299,7 +293,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`
@@ -321,7 +315,7 @@ ALTER TABLE `tbrecebimento`
 -- Limitadores para a tabela `tbadmin`
 --
 ALTER TABLE `tbadmin`
-  ADD CONSTRAINT `fk_tbAdmin_tbBarbearia1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tbAdmin_tbBarbearia1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbagendamento`
@@ -335,13 +329,13 @@ ALTER TABLE `tbagendamento`
 -- Limitadores para a tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  ADD CONSTRAINT `tbcliente_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`Codigo`);
+  ADD CONSTRAINT `tbcliente_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`);
 
 --
 -- Limitadores para a tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  ADD CONSTRAINT `fk_tbFuncionarios_tbBarbearia1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tbFuncionarios_tbBarbearia1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `tbrecebimento`

@@ -9,7 +9,7 @@ require_once("../controladorBarbearia/MSsessao_barbearia.php");
 
     //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
   $sqlFuncionarios  = "select * from tbfuncionarios 
-  where 1 = 1 order by Nome and tbBarbearia_Codigo = {$_SESSION['Codigo']} ";
+  where 1 = 1 order by Nome and tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']} ";
 
  
 
@@ -64,8 +64,7 @@ if(isset($_POST['excluir'])){
   
     
 
-   <h2><?php echo $sqlFuncionarios ?></h2>
-   <h2><?php var_dump($_SESSION) ?></h2>
+  
     <h1>Funcionários da barbearia: </h1>
     <!--Tabela de funcionarios-->
             <div class="alert alert-info" role="alert">

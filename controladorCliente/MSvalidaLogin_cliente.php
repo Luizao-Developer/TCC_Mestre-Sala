@@ -8,12 +8,16 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
     $sql = "select *
                 from tbcliente
-                where Email = '{$email}'";
+                where EmailCliente = '{$email}'";
     $resultado = mysqli_query($conexao, $sql); //Executar a sql
     
+    
+
     //Retorna o numero de registros encontrados na consulta do select
     $totalDeRegistros = mysqli_num_rows($resultado);
     
+    
+
     //Carrega o objeto nome do banco de dados.
     $nome = mysqli_fetch_array($resultado);
 
@@ -22,7 +26,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     if($totalDeRegistros == 1){
 
         //Inicia a sessão senão tiver nenhuma ativa
-        if(!isset($_SESSION)){
+        if(!isset($_SESSION['Codigo'])){
         session_start();
         }
         $_SESSION['Codigo']    = $nome['Codigo'];

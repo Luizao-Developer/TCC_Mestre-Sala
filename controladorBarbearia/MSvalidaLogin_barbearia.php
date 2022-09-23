@@ -30,7 +30,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     
 
         //Inicia a sessão senão tiver nenhuma ativa
-        if(!isset($_SESSION)){
+        if(!isset($_SESSION['CodigoBarbearia'])){
             session_start();
             
             

@@ -8,7 +8,7 @@
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 //Consulta sobre os funcionários
     $sql  = "select * from tbfuncionarios 
-    where 1 = 1  order by Nome ";
+    where 1 = 1  order by Nome and tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
 
 
 
@@ -18,7 +18,7 @@ $qtdFuncionarios = mysqli_num_rows($result);
 
 //Consulta sobre os funcionários que estão de licença ou afastados
 
-$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Em licença%'";
+$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Em licença%' and tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
 $result2 = mysqli_query($conexao, $sqlLicenca);
 $linha2 = mysqli_fetch_array($result2);
 $qtdFuncionariosLicenca = mysqli_num_rows($result2);
@@ -77,8 +77,9 @@ if($qtdClientes == 0){
                 <div class="alert alert-info" role="alert">
                         <h2>Minha barbearia: </h2>
 
-                        <h2><?php  var_dump($_SESSION)?> </h2>
-                        
+                        <?php var_dump($sql);?>
+
+                        <?php  var_dump($_SESSION);?>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
