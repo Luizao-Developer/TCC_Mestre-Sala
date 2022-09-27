@@ -40,7 +40,7 @@
          <form class="row g-3 needs-validation" action="../controladorBarbearia/MScadFuncionário_barbearia.php" method="post" novalidate>
              <!--Codigo da barbearia -->
 
-             <input type="hidden" name="codBarbearia" value="<?= $_SESSION['Codigo'] ?>">
+             <input type="hidden" name="codigoBarbearia" value="<?= $_SESSION['CodigoBarbearia'] ?>">
 
             <!---->
          <h1>Cadastro de funcionário</h1>
