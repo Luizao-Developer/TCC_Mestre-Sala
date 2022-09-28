@@ -36,6 +36,7 @@ $sql = "update tbcliente
         where Codigo = {$codigo} ";
 
     mysqli_query($conexao, $sql);
+    mysqli_close($conexao);
     $mensagem = "Informações atualizadas com sucesso";
     header("location: ../view_barbearia/MStelaprincipal_barbearia.php?mensagem = {$mensagem}");
     die();

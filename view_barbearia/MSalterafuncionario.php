@@ -1,17 +1,6 @@
 <?php
  require_once("../controladorBarbearia/MSsessao_barbearia.php");
- /*
-  $nome = $_POST['nome']; -
-    $telefone = $_POST['telefone']; -
-    $endereco = $_POST['endereco']; -
-    $email = $_POST['email']; -
-    $cep = $_POST['cep']; -
-    $cidade = $_POST['cidade']; -
-    $uf = $_POST['uf']; -
-    $pis_pasep = $_POST['pis_pasep'];
-    $data_nascimento = $_POST['data_nascimento'];
-    $data_contratacao = $_POST['data_contratacao'];
-    $status = $_POST['status']; */
+
 ?>
 <?php 
 

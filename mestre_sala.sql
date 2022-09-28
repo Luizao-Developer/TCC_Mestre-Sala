@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2022 às 21:16
+-- Tempo de geração: 28-Set-2022 às 02:15
 -- Versão do servidor: 10.4.19-MariaDB
 -- versão do PHP: 8.0.6
 
@@ -187,8 +187,19 @@ CREATE TABLE `tbprocedimento` (
   `Codigo` int(11) NOT NULL,
   `StatusProcedimento` varchar(45) NOT NULL,
   `Nome` varchar(45) NOT NULL,
-  `Tempo_estimado` varchar(45) NOT NULL
+  `Descricao` text NOT NULL,
+  `Valor` decimal(10,0) NOT NULL,
+  `Tempo_estimado` varchar(45) NOT NULL,
+  `tbBarbearia_Codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbprocedimento`
+--
+
+INSERT INTO `tbprocedimento` (`Codigo`, `StatusProcedimento`, `Nome`, `Descricao`, `Valor`, `Tempo_estimado`, `tbBarbearia_Codigo`) VALUES
+(1, 't', 't', 't', '0', '45', 14),
+(36, 'Ativo', 'Corte de Cabelo', 'Corte masculino', '20', '30 min', 14);
 
 -- --------------------------------------------------------
 
@@ -252,7 +263,8 @@ ALTER TABLE `tbfuncionarios`
 -- Índices para tabela `tbprocedimento`
 --
 ALTER TABLE `tbprocedimento`
-  ADD PRIMARY KEY (`Codigo`);
+  ADD PRIMARY KEY (`Codigo`),
+  ADD KEY `tbBarbearia_Codigo` (`tbBarbearia_Codigo`);
 
 --
 -- Índices para tabela `tbrecebimento`
@@ -299,7 +311,7 @@ ALTER TABLE `tbfuncionarios`
 -- AUTO_INCREMENT de tabela `tbprocedimento`
 --
 ALTER TABLE `tbprocedimento`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT de tabela `tbrecebimento`
@@ -336,6 +348,12 @@ ALTER TABLE `tbcliente`
 --
 ALTER TABLE `tbfuncionarios`
   ADD CONSTRAINT `fk_tbFuncionarios_tbBarbearia1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Limitadores para a tabela `tbprocedimento`
+--
+ALTER TABLE `tbprocedimento`
+  ADD CONSTRAINT `tbprocedimento_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`);
 
 --
 -- Limitadores para a tabela `tbrecebimento`

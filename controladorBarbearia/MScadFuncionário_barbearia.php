@@ -1,14 +1,9 @@
-<?php
-    require_once("MSsessao_barbearia.php");
-?>
+
 <?php
 
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-function inserirFuncionario(){
-  
-}
 
 if(isset($_POST['cadastrar'])){
 
@@ -23,7 +18,7 @@ if(isset($_POST['cadastrar'])){
     $data_nascimento = $_POST['data_nascimento'];
     $data_contratacao = $_POST['data_contratacao'];
     $status = $_POST['status'];
-    $tbBarbearia_Codigo = $_POST['codBarbearia'];
+    $tbBarbearia_Codigo = $_POST['codigoBarbearia'];
 
     $sql = "insert into tbfuncionarios(Telefone, Nome,Endereco,Data_nascimento,Cidade,CEP,UF,Email,Status,PIS_PASEP,Data_contratacao,tbBarbearia_Codigo )
     values('{$telefone}','{$nome}','{$endereco}','{$data_nascimento}','{$cidade}','{$cep}','{$uf}','{$email}','{$status}','{$pis_pasep}','{$data_contratacao}','{$tbBarbearia_Codigo}')";
