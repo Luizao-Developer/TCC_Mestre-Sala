@@ -1,7 +1,50 @@
 <?php require_once("../controladorBarbearia/MSsessao_barbearia.php") ?>
 <?php
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
 $codigo = $_POST['codigo'];
+
+if(isset($_POST['alterar'])){
+
+    $StatusProcedimento = $_POST['status'];
+    $Nome = $_POST['nome'];
+    $Descricao = $_POST['descricao'];
+    $Valor = $_POST['valor'];
+    $Tempo_estimado = $_POST['Tempo_estimado'];
+
+    /*
+    $sqlAtualizacao = "update tbprocedimento set
+    StatusProcedimento = '{$StatusProcedimento}',
+    Nome = '{$Nome}',
+    Descricao = '{$Descricao}',
+    Valor = '{$Valor}',
+    Tempo_estimado = '{$Tempo_estimado}'
+    where Codigo = {$codigo}";
+    */
+    $sqlAtualizacao =  "UPDATE tbprocedimento
+    SET StatusProcedimento='{$StatusProcedimento}',
+        Nome            ='{$Nome}',
+        Descricao       ='{$Descricao}',
+        Valor           ='{$Valor}',
+        Tempo_estimado  ='{$Tempo_estimado}'
+     WHERE Codigo = {$codigo}" ;
+
+    mysqli_query($conexao, $sqlAtualizacao);
+
+    $mensagemProcedimento = "Informações de procedimento foram atualizadas!";
+
+    header("location: MSprocedimentos_barbearia.php?mensagem = {$mensagemProcedimento}");
+
+
+}
+
+$sqlProcedimento = "SELECT * FROM tbprocedimento WHERE Codigo = {$codigo} ";
+$resultado = mysqli_query($conexao, $sqlProcedimento);
+$linha = mysqli_fetch_array($resultado);
+
+
+
+
 
 
 
@@ -29,8 +72,6 @@ $codigo = $_POST['codigo'];
 
                     <!--Cadastro de novo procedimento-->
                        <input type="hidden" name="codigo" value="<?= $_POST['Codigo'] ?>">
-                       
-                       
                         <div class="col-md-4 position-relative">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nome" value="<?=$linha['Nome'] ?>">
