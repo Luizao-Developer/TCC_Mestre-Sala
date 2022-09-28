@@ -83,7 +83,7 @@
                         <td><?= $linha['Tempo_estimado'] ?></td>
                         <td class="d-flex">
                         <form action="MSalterarProcedimento.php" method="post">
-                            <input type="hidden" name="codigo" value="<?= $linha['Codigo']?>">
+                            <input type="hidden" name="Codigo" value="<?= $linha['Codigo']?>">
                             <a href="MSalterarProcedimento.php">
                                 <button type="button" class="btn btn-primary"><i class="fas fa-pen"></i></button>
                             </a>

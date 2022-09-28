@@ -1,5 +1,11 @@
 <?php require_once("../controladorBarbearia/MSsessao_barbearia.php") ?>
+<?php
 
+$codigo = $_POST['codigo'];
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -22,7 +28,8 @@
             <form class="row g-3 needs-validation" action="" method="post" enctype="multipart/form-data">
 
                     <!--Cadastro de novo procedimento-->
-                       <input type="hidden" name="codigo" value="<?= $_POST['codigo'] ?>">
+                       <input type="hidden" name="codigo" value="<?= $_POST['Codigo'] ?>">
+                       
                        
                         <div class="col-md-4 position-relative">
                             <label for="nome" class="form-label">Nome</label>
@@ -36,11 +43,7 @@
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="descricao" class="form-label">Descrição</label>
-<<<<<<< HEAD
                             <input type="text" class="form-control" id="descricao" name="descricao" value="<?= $linha['Descricao'] ?>">
-=======
-                            <input type="text" class="form-control" id="descricao" name="descricao"  required>
->>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -50,11 +53,7 @@
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="valor" class="form-label">Valor</label>
-<<<<<<< HEAD
                             <input type="text" class="form-control" id="valor" name="valor" value="<?= $linha['Valor'] ?>">
-=======
-                            <input type="text" class="form-control" id="valor" name="valor"  required>
->>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -64,11 +63,7 @@
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="Tempo_estimado" class="form-label">Tempo Estimado</label>
-<<<<<<< HEAD
                             <input type="text" class="form-control" id="Tempo_estimado" name="Tempo_estimado" value="<?= $linha['Tempo_estimado'] ?>">
-=======
-                            <input type="text" class="form-control" id="Tempo_estimado" name="Tempo_estimado"  required>
->>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -79,16 +74,10 @@
                         <div class="col-md-4 position-relative">
                         <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" required>
-<<<<<<< HEAD
                             <option selected="" disabled="" value=""><?= $linha['StatusProcedimento'] ?></option>
                             <option>Ativo</option>
                             <option>Futuramente ativo</option>
                             <option>Inativo</option>
-=======
-                            <option selected="" disabled="" value="">Escolha</option>
-                            <option>Ativo</option>
-                            <option>Futuramente ativo</option>
->>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             </select>
                             <div class="invalid-tooltip">
                                 Por favor selecione o status do procedimento
@@ -96,11 +85,7 @@
                         </div>
                         
                         <div class="col-12">
-<<<<<<< HEAD
                             <button class="btn btn-primary" type="submit" name="alterar" id="alterar">Salvar</button>
-=======
-                            <button class="btn btn-primary" type="submit" name="cadastrar" id="cadastrar">Submit form</button>
->>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                         </div>
                         
             </form>
