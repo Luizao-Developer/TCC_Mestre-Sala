@@ -1,15 +1,5 @@
-<?php require_once("../controladorBarbearia/MSsessao_barbearia.php"); ?>
-<?php
-$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+<?php require_once("../controladorBarbearia/MSsessao_barbearia.php") ?>
 
-$codigo = $_POST['codigo'];
-if(isset($_POST['alterar'])){
-
-}
-//$sqlProcedimento = "SELECT * FROM tbprocedimento WHERE Codigo = {$codigo}";
-//$resultado = mysqli_query($conexao, $sqlProcedimento);
-//$linha = mysqli_fetch_array($resultado);
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -46,7 +36,11 @@ if(isset($_POST['alterar'])){
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="descricao" class="form-label">Descrição</label>
+<<<<<<< HEAD
                             <input type="text" class="form-control" id="descricao" name="descricao" value="<?= $linha['Descricao'] ?>">
+=======
+                            <input type="text" class="form-control" id="descricao" name="descricao"  required>
+>>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -56,7 +50,11 @@ if(isset($_POST['alterar'])){
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="valor" class="form-label">Valor</label>
+<<<<<<< HEAD
                             <input type="text" class="form-control" id="valor" name="valor" value="<?= $linha['Valor'] ?>">
+=======
+                            <input type="text" class="form-control" id="valor" name="valor"  required>
+>>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -66,7 +64,11 @@ if(isset($_POST['alterar'])){
                         </div>
                         <div class="col-md-4 position-relative">
                             <label for="Tempo_estimado" class="form-label">Tempo Estimado</label>
+<<<<<<< HEAD
                             <input type="text" class="form-control" id="Tempo_estimado" name="Tempo_estimado" value="<?= $linha['Tempo_estimado'] ?>">
+=======
+                            <input type="text" class="form-control" id="Tempo_estimado" name="Tempo_estimado"  required>
+>>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -77,10 +79,16 @@ if(isset($_POST['alterar'])){
                         <div class="col-md-4 position-relative">
                         <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" required>
+<<<<<<< HEAD
                             <option selected="" disabled="" value=""><?= $linha['StatusProcedimento'] ?></option>
                             <option>Ativo</option>
                             <option>Futuramente ativo</option>
                             <option>Inativo</option>
+=======
+                            <option selected="" disabled="" value="">Escolha</option>
+                            <option>Ativo</option>
+                            <option>Futuramente ativo</option>
+>>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                             </select>
                             <div class="invalid-tooltip">
                                 Por favor selecione o status do procedimento
@@ -88,7 +96,11 @@ if(isset($_POST['alterar'])){
                         </div>
                         
                         <div class="col-12">
+<<<<<<< HEAD
                             <button class="btn btn-primary" type="submit" name="alterar" id="alterar">Salvar</button>
+=======
+                            <button class="btn btn-primary" type="submit" name="cadastrar" id="cadastrar">Submit form</button>
+>>>>>>> a3a0564ba0242b5b51b827a23049e7e4df8e8009
                         </div>
                         
             </form>
