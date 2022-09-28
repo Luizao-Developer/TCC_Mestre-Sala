@@ -4,7 +4,7 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
 $codigo = $_POST['codigo'];
 
-if(isset($_POST['alterar'])){
+if(isset($_POST['salvar'])){
 
     $StatusProcedimento = $_POST['status'];
     $Nome = $_POST['nome'];
@@ -13,13 +13,13 @@ if(isset($_POST['alterar'])){
     $Tempo_estimado = $_POST['Tempo_estimado'];
 
    
-    $sqlAtualizacao =  "UPDATE tbprocedimento
-    SET StatusProcedimento='{$StatusProcedimento}',
+    $sqlAtualizacao =  "update tbprocedimento
+    set StatusProcedimento='{$StatusProcedimento}',
         Nome            ='{$Nome}',
         Descricao       ='{$Descricao}',
         Valor           ='{$Valor}',
         Tempo_estimado  ='{$Tempo_estimado}'
-     WHERE Codigo = {$codigo}" ;
+     where Codigo = {$codigo}" ;
 
     mysqli_query($conexao, $sqlAtualizacao);
 
@@ -118,7 +118,7 @@ $linha = mysqli_fetch_array($resultado);
                         </div>
                         
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit" name="alterar" id="alterar">Salvar</button>
+                            <button class="btn btn-primary" type="submit" name="salvar" id="alterar">Salvar</button>
                         </div>
                         
             </form>
