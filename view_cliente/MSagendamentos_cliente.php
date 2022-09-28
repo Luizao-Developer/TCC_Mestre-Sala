@@ -4,7 +4,11 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 ?>
 <?php
 
-$conexao - mysqli_connect("127.0.0.1","root","","mestre_sala");
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+$sqlAgendamento = "SELECT * FROM tbagendamento WHERE tbCliente_Codigo = {$_SESSION['Codigo']}";
+
+$buscarBanco = mysqli_query($conexao, $sqlAgendamento);
 
 
 ?>
@@ -42,6 +46,32 @@ $conexao - mysqli_connect("127.0.0.1","root","","mestre_sala");
             </a>
             </p>
         </div>
+        <!--Listagem dos agendamentos de cada cliente-->
+        <table class="table table-light  table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Serviço</th>
+                <th scope="col">Preço</th>
+                <th scope="col">Data</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Procedimento</th>
+                <th scope="col">Funcionario</th>
+                <th scope="col">Barbearia</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+            <?php while($linha = mysqli_fetch_array($buscarBanco)) { ?>
+                <tr>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr>
+            <?php } ?>
+            </tbody>
+            </table>
         
 </div>
  
