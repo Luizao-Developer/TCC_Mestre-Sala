@@ -12,15 +12,7 @@ if(isset($_POST['alterar'])){
     $Valor = $_POST['valor'];
     $Tempo_estimado = $_POST['Tempo_estimado'];
 
-    /*
-    $sqlAtualizacao = "update tbprocedimento set
-    StatusProcedimento = '{$StatusProcedimento}',
-    Nome = '{$Nome}',
-    Descricao = '{$Descricao}',
-    Valor = '{$Valor}',
-    Tempo_estimado = '{$Tempo_estimado}'
-    where Codigo = {$codigo}";
-    */
+   
     $sqlAtualizacao =  "UPDATE tbprocedimento
     SET StatusProcedimento='{$StatusProcedimento}',
         Nome            ='{$Nome}',
@@ -68,7 +60,7 @@ $linha = mysqli_fetch_array($resultado);
     </div>
     <div class="pg_principal container">
 
-            <form class="row g-3 needs-validation" action="" method="post" enctype="multipart/form-data">
+            <form class="row g-3 needs-validation" action="" method="post" >
 
                     <!--Cadastro de novo procedimento-->
                        <input type="hidden" name="codigo" value="<?= $_POST['Codigo'] ?>">
@@ -114,7 +106,7 @@ $linha = mysqli_fetch_array($resultado);
                         </div>
                         <div class="col-md-4 position-relative">
                         <label for="status" class="form-label">Status</label>
-                            <select class="form-select" id="status" name="status" required>
+                            <select class="form-select" id="status" name="status" >
                             <option selected="" disabled="" value=""><?= $linha['StatusProcedimento'] ?></option>
                             <option>Ativo</option>
                             <option>Futuramente ativo</option>
