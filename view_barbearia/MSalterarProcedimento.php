@@ -35,11 +35,6 @@ $resultado = mysqli_query($conexao, $sqlProcedimento);
 $linha = mysqli_fetch_array($resultado);
 
 
-
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -61,9 +56,8 @@ $linha = mysqli_fetch_array($resultado);
     <div class="pg_principal container">
 
             <form class="row g-3 needs-validation" action="" method="post" >
-
                     <!--Cadastro de novo procedimento-->
-                       <input type="hidden" name="codigo" value="<?= $_POST['Codigo'] ?>">
+                       <input type="hidden" name="codigo" value="<?= $_POST['codigo'] ?>">
                         <div class="col-md-4 position-relative">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nome" value="<?=$linha['Nome'] ?>">
