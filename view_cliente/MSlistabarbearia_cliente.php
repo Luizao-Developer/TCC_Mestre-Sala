@@ -80,6 +80,7 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
         </div>
 </div>
 </div>
+
  
 
 </body>

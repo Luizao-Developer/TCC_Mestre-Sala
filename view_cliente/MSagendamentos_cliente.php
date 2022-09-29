@@ -41,7 +41,7 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
             <p>Faça seu agendamento de forma rápida e ordenada</p>
             <hr>
             <p class="mb-0">
-                <a href="MSrealizarAgendamentos_cliente">
+                <a href="MSrealizarAgendamento_cliente.php">
             <button type="button" class="btn btn-primary"><i class="fas fa-cut"></i> Realizar agendamento</button>
             </a>
             </p>
