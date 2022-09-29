@@ -4,6 +4,19 @@
 
     
 ?>
+<?php
+
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+$consultaBarbearia = "SELECT * FROM tbbarbearia";
+$resultado = mysqli_query($conexao, $consultaBarbearia);
+$mostraBarbearia = mysqli_fetch_array($resultado);
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,8 +59,31 @@
 
 
         <!--Area dos cards de barbearias-->
+                        <div class="container text-center">
+                        <div class="row row-cols-3">
+                            <div class="col">
+                            <!--Card da barbearia-->
+
+                            <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                            </div>
+
+
+                            </div>  
+                        </div>
+                        </div>
+
+
+
+                    
         
 </div>
+
  
 
 </body>
