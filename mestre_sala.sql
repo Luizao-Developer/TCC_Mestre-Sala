@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Set-2022 às 02:15
--- Versão do servidor: 10.4.19-MariaDB
--- versão do PHP: 8.0.6
+-- Tempo de geração: 29-Set-2022 às 01:26
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -50,7 +50,8 @@ CREATE TABLE `tbagendamento` (
   `tbProcedimento_Codigo` int(11) NOT NULL,
   `tbFuncionarios_tbPessoa_Codigo` int(45) NOT NULL,
   `tbFuncionarios_Codigo` int(45) NOT NULL,
-  `tbCliente_Codigo` int(45) NOT NULL
+  `tbCliente_Codigo` int(45) NOT NULL,
+  `tbBarbearia_Codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -199,7 +200,7 @@ CREATE TABLE `tbprocedimento` (
 
 INSERT INTO `tbprocedimento` (`Codigo`, `StatusProcedimento`, `Nome`, `Descricao`, `Valor`, `Tempo_estimado`, `tbBarbearia_Codigo`) VALUES
 (1, 't', 't', 't', '0', '45', 14),
-(36, 'Ativo', 'Corte de Cabelo', 'Corte masculino', '20', '30 min', 14);
+(36, 'Ativo', 'Corte de Cabelo Masculino', 'Corte masculino', '20', '30 min', 14);
 
 -- --------------------------------------------------------
 
@@ -237,7 +238,8 @@ ALTER TABLE `tbagendamento`
   ADD PRIMARY KEY (`Codigo`),
   ADD KEY `fk_tbAgendamento_tbProcedimento1` (`tbProcedimento_Codigo`),
   ADD KEY `fk_tbAgendamento_tbFuncionarios1` (`tbFuncionarios_Codigo`),
-  ADD KEY `fk_tbAgendamento_tbCliente1` (`tbCliente_Codigo`);
+  ADD KEY `fk_tbAgendamento_tbCliente1` (`tbCliente_Codigo`),
+  ADD KEY `tbBarbearia_Codigo` (`tbBarbearia_Codigo`);
 
 --
 -- Índices para tabela `tbbarbearia`
@@ -335,7 +337,8 @@ ALTER TABLE `tbadmin`
 ALTER TABLE `tbagendamento`
   ADD CONSTRAINT `fk_tbAgendamento_tbCliente1` FOREIGN KEY (`tbCliente_Codigo`) REFERENCES `tbcliente` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tbAgendamento_tbFuncionarios1` FOREIGN KEY (`tbFuncionarios_Codigo`) REFERENCES `tbfuncionarios` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tbAgendamento_tbProcedimento1` FOREIGN KEY (`tbProcedimento_Codigo`) REFERENCES `tbprocedimento` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tbAgendamento_tbProcedimento1` FOREIGN KEY (`tbProcedimento_Codigo`) REFERENCES `tbprocedimento` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `tbagendamento_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`);
 
 --
 -- Limitadores para a tabela `tbcliente`

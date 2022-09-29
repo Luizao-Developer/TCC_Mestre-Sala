@@ -6,11 +6,10 @@
 body{
     background: darkred;
 }
-.card{
-    border: none;
-    margin-top: 50px;
-    margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+#card_barbearia{
+    
+    
+    
 }
 .espacamento{
     width: 100%;

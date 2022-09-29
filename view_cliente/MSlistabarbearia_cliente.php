@@ -4,6 +4,13 @@
 
     
 ?>
+<?php
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+$buscaBarbearia = "SELECT * FROM tbbarbearia";
+$resul = mysqli_query($conexao, $buscaBarbearia);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +41,10 @@
             </div>
             <div class="input-group mb-3">
                     <select class="form-select" aria-label="Default select example" name="status_barbearia">
-                        <option>Aberto</option>
-                        <option>Fechado temporariamente/tempo indeterminado</option>
-                        <option>Em reforma</option>
+                        <option value="" selected>Escolha...</option>
+                        <option value="aberto">Aberto</option>
+                        <option value="fechado">Fechado temporariamente/tempo indeterminado</option>
+                        <option value="reforma">Em reforma</option>
                     </select>
             </div>
             <div id="botao">
@@ -46,7 +54,31 @@
 
 
         <!--Area dos cards de barbearias-->
-        
+        <div class="container text-center">
+        <div class="row row-cols-3">
+            <?php while($mostraBarbearia = mysqli_fetch_array($resul)) { ?>
+            <div class="col">
+                <!--Cards de barbearias-->
+                        <div class="card" style="width: 18rem;" id="card_barbearia">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $mostraBarbearia['NomeBarbearia'] ?></h5>
+                                <p class="card-text"><?= $mostraBarbearia['Cidade'] ?></p>
+                                <p class="card-text"><?= $mostraBarbearia['Estado'] ?></p>
+                                <p class="card-text"><?= $mostraBarbearia['Endereco'] ?></p>
+                                <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
+                                <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                
+                            </div>
+                        </div>
+
+            </div>
+            <?php } ?>
+            
+        </div>
+</div>
 </div>
  
 
