@@ -79,10 +79,13 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
             </form> 
         </div>
 
+
+        <!-- Button trigger modal -->
+
         
         <!--Area dos cards de barbearias-->
         <div class="container text-center" id="area_cards">
-        <div class="row row-cols-4">
+        <div class="row row-cols-3">
             <?php while($mostraBarbearia = mysqli_fetch_array($resul)) { ?>
             <div class="col">
                 <!--Cards de barbearias-->
@@ -109,7 +112,8 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
 </div>
 
  
-
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>
 
 <?php require_once("../componentes/rodape.php") ?>

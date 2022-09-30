@@ -92,6 +92,8 @@ if(isset($_POST['excluir'])){
             <?php } ?>
             
             <div class="flex-container ">
+            <div class="container " id="area_cards">
+            <div class="row row-cols-3">
             <?php while($linha = mysqli_fetch_array($result)){ ?>
                       <div class="card" style="width: 18rem; margin: 0 50px ;">
                             <div class="card-body">
@@ -133,6 +135,11 @@ if(isset($_POST['excluir'])){
                             </div>
                       </div>
             <?php } ?>
+
+
+            </div>
+            </div>
+            
             </div>
             
             
