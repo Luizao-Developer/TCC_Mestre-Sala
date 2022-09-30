@@ -9,28 +9,35 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
     //Realizando a pesquisa por filtro
     $where = "";
+    
     if(isset($_POST['filtrar'])){
         
         if(isset($_POST['nome_barbearia'])){
-            $where .= "and NomeBarbearia like '%".$_POST['nome'] . "%' ";
+            $where .= "and NomeBarbearia like '%".$_POST['nome_barbearia'] . "%' ";
         }
         if(isset($_POST['cidade_barbearia'])){
-            $where .= "and Cidade like '%". $_POST['cidade_barbearia'] ."%'";
+            $where .= "and tbbarbearia.Cidade like '%". $_POST['cidade_barbearia'] ."%'";
         }
         if(isset($_POST['email_barbearia'])){
-            $where .= "and Email like '%". $_POST['email_barbearia'].  "%'";
+            $where .= "and tbbarbearia.Email like '%". $_POST['email_barbearia'].  "%'";
         }
         if(isset($_POST['nome_admin_barbearia'])){
-            $where .= "and nomeAdmin like '%".$_POST['nome_admin_barbearia']."%'";
+            $where .= "and tbbarbearia.nomeAdmin like '%".$_POST['nome_admin_barbearia']."%'";
         }
         if(isset($_POST['status_barbearia'])){
-            $where .= "and Status like '%".$_POST['status_barbearia']."%'";
+            $where .= "and tbbarbearia.Status like '%".$_POST['status_barbearia']."%'";
         }
+        
     }
 
+
+
+
+//Buscando a quantidade totais da barbearia
 $buscaBarbearia = "SELECT * FROM tbbarbearia WHERE 1 = 1 $where ORDER BY NomeBarbearia ASC";
 $resul = mysqli_query($conexao, $buscaBarbearia);
 $qtdBarbearias = mysqli_num_rows($resul);
+
 
 ?>
 <!DOCTYPE html>
@@ -57,11 +64,8 @@ $qtdBarbearias = mysqli_num_rows($resul);
                     <p>Veja a que mais te agrada e se torne cliente agora mesmo!</p>
                     <hr>
                     <h5>Ao todo são <?= $qtdBarbearias ?> barbearias cadastradas</h5>
+                   
                     </div>
-
-
-
-       <h1><?php echo $buscaBarbearia ?></h1>
         <!--Area de filtro-->
         <div id="filtro">
             <div class="input-group mb-3">
@@ -88,7 +92,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
                             </select>
                     </div>
                     <div id="botao">
-                        <button class="submit "><i class="fas fa-filter" name="filtrar"></i> Filtrar </button>
+                        <button type="submit " name="filtrar" id="filtrar"><i class="fas fa-filter" ></i> Filtrar </button>
                     </div>
             </form> 
         </div>

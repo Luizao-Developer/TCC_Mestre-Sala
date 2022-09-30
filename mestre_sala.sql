@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Set-2022 às 01:26
+-- Tempo de geração: 30-Set-2022 às 03:18
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -63,6 +63,7 @@ CREATE TABLE `tbagendamento` (
 CREATE TABLE `tbbarbearia` (
   `CodigoBarbearia` int(11) NOT NULL,
   `CNPJ` varchar(45) NOT NULL,
+  `nomeAdmin` varchar(100) NOT NULL,
   `NomeBarbearia` varchar(45) NOT NULL,
   `Endereco` varchar(45) NOT NULL,
   `Email` varchar(45) DEFAULT NULL,
@@ -84,20 +85,20 @@ CREATE TABLE `tbbarbearia` (
 -- Extraindo dados da tabela `tbbarbearia`
 --
 
-INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
-(5, 'rferfwrefwerf', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', 'rfwerfwerfwerfw', '$2y$10$rG4jgsi6jrXaTF1Ylx8oceinc75mVvwmmAEojF', '6544443', 'sao bernardo da colina', '...', 'Em reforma', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(6, 'e3d3f3f3f3', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', '44984332260', '$2y$10$EfYnKoyIApg.VrX6I806sOI.V08/VhKK8YOiKN', '6544443', 'sao bernardo da colina', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(7, 'e3d3f3f3f3', 'Barbearia sao dimas', 'Rua 7 de Março', 'dimas@email.com', '23452562563', '43262356', '$2y$10$1Gmez2UOsUq93Zb9DBZMUu0Ro91SHRyO2OMg7g', '87538000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(8, 'wswsw', 'dhn', 'tteodoro1977@gmail.com', 'tteodoro1977@gmail.com', 'edweqdw', 'dqwedqwed', '$2y$10$NJ67Xnn5/61zly8cL8tWVuprHIHkR5O1FFXhOR', '6544443', 'sao bernardo da colina', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(9, 's', 's', 's', 's', 's', 's', '$2y$10$7xBy4SfIqhe/5bhuo7nxJe6AJ83BJH6xHDKJca', 's', 's', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(10, 'rerfrfefe', 'Sandro', 'Rua 13 de Abril', 'sa@gmail.com', '44984332260', '2342345345', '$2y$10$BlP81Ed7v36M1k/A.kGgxO5hkU/E5PgoOaaW7o', '34567382', 'Umuarama', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(11, '3423425345', 'sao', 'sao', 'sao@email.com', '3425452345', '435245', '$2y$10$vndIk6IBJLhbimTGSnhd1O1mkvBl0CLL1rwQtU', '32434', 'saolandia', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(12, 'tgretg', 'barbearia sao jose', 'tgreg', 'regtretg', 'regtergt', 'trgergtg', '$2y$10$sko4oXecCXDXnSir3j9H0ui1rv4KADvcWL65l7', 'regtreg', 'regtregt', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(13, '32445345234534', 'Barbearia europa', 'Rua sao jasão', 'europa@email.com', '42345345', '324523452435', '$2y$10$eJ1JvfnlZkaTeasYLLeSIuXFhrp5.Lhpoisz6D', '87538000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(14, '42345345345', 'Barbearia europa', 'rua sem nada', 'eu@email.com', '44984332260', '243523452345', 'senha', '6544443', 'sao bernardo da colina', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(15, '24r5345345', 'Barbearia seu Bufalo', 'Rua tarde da noite', 'bufalo@email.com', '2423452345', '4r235435345', 'bufalo', '2435235345', 'Bufalo city', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
-(16, '21541544235', 'Barbearia zezinho', 'Rua 13 de Abril', 'ze@email.com', '4523452345', '4352435235', 'ze', '2154215423', 'Luciana', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:12:34'),
-(17, 'rewgewrg', 'erferf', 'revtrtve', '1@email.com', 'regwergwergw', 'ergwergwerg', '1', '23234', 'regregtertg', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:50:27');
+INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `nomeAdmin`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
+(5, 'rferfwrefwerf', '', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', 'rfwerfwerfwerfw', '$2y$10$rG4jgsi6jrXaTF1Ylx8oceinc75mVvwmmAEojF', '6544443', 'sao bernardo da colina', '...', 'Em reforma', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(6, 'e3d3f3f3f3', '', 'dhn', 'dhn', 'tteodoro1977@gmail.com', '44984332260', '44984332260', '$2y$10$EfYnKoyIApg.VrX6I806sOI.V08/VhKK8YOiKN', '6544443', 'sao bernardo da colina', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(7, 'e3d3f3f3f3', '', 'Barbearia sao dimas', 'Rua 7 de Março', 'dimas@email.com', '23452562563', '43262356', '$2y$10$1Gmez2UOsUq93Zb9DBZMUu0Ro91SHRyO2OMg7g', '87538000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(8, 'wswsw', '', 'dhn', 'tteodoro1977@gmail.com', 'tteodoro1977@gmail.com', 'edweqdw', 'dqwedqwed', '$2y$10$NJ67Xnn5/61zly8cL8tWVuprHIHkR5O1FFXhOR', '6544443', 'sao bernardo da colina', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(9, 's', '', 's', 's', 's', 's', 's', '$2y$10$7xBy4SfIqhe/5bhuo7nxJe6AJ83BJH6xHDKJca', 's', 's', '...', 'Fechado temporariamente/tempo indeterminado', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(10, 'rerfrfefe', '', 'Sandro', 'Rua 13 de Abril', 'sa@gmail.com', '44984332260', '2342345345', '$2y$10$BlP81Ed7v36M1k/A.kGgxO5hkU/E5PgoOaaW7o', '34567382', 'Umuarama', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(11, '3423425345', '', 'sao', 'sao', 'sao@email.com', '3425452345', '435245', '$2y$10$vndIk6IBJLhbimTGSnhd1O1mkvBl0CLL1rwQtU', '32434', 'saolandia', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(12, 'tgretg', '', 'barbearia sao jose', 'tgreg', 'regtretg', 'regtergt', 'trgergtg', '$2y$10$sko4oXecCXDXnSir3j9H0ui1rv4KADvcWL65l7', 'regtreg', 'regtregt', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(13, '32445345234534', '', 'Barbearia europa', 'Rua sao jasão', 'europa@email.com', '42345345', '324523452435', '$2y$10$eJ1JvfnlZkaTeasYLLeSIuXFhrp5.Lhpoisz6D', '87538000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(14, '42345345345', '', 'Barbearia europa', 'rua sem nada', 'eu@email.com', '44984332260', '243523452345', 'senha', '6544443', 'sao bernardo da colina', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(15, '24r5345345', '', 'Barbearia seu Bufalo', 'Rua tarde da noite', 'bufalo@email.com', '2423452345', '4r235435345', 'bufalo', '2435235345', 'Bufalo city', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 16:17:34'),
+(16, '21541544235', '', 'Barbearia zezinho', 'Rua 13 de Abril', 'ze@email.com', '4523452345', '4352435235', 'ze', '2154215423', 'Luciana', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:12:34'),
+(17, 'rewgewrg', '', 'erferf', 'revtrtve', '1@email.com', 'regwergwergw', 'ergwergwerg', '1', '23234', 'regregtertg', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-08-18 21:50:27');
 
 -- --------------------------------------------------------
 
@@ -167,16 +168,19 @@ CREATE TABLE `tbfuncionarios` (
   `PIS_PASEP` varchar(45) NOT NULL,
   `Data_contratacao` varchar(45) NOT NULL,
   `Data_demissao` varchar(45) DEFAULT NULL,
-  `tbBarbearia_Codigo` int(45) NOT NULL
+  `tbBarbearia_Codigo` int(45) NOT NULL,
+  `tbProcedimento_Codigo` int(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `tbfuncionarios`
 --
 
-INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`) VALUES
-(1, '43', '345t345', 'gerger', 'ergereg', 'ergerge', 'ergererg', 'regerg', 'ergerg', NULL, 'ergerge', 'ergerg', 'ergerge', NULL, 14),
-(7, 'gertgete', 'defr', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Em licença', 'retherthert', '2022-09-08', NULL, 14);
+INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `Status`, `PIS_PASEP`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`, `tbProcedimento_Codigo`) VALUES
+(1, '43', '345t345', 'gerger', 'ergereg', 'ergerge', 'ergererg', 'regerg', 'ergerg', NULL, 'ergerge', 'ergerg', 'ergerge', NULL, 14, 0),
+(7, 'gertgete', 'defr', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Em licença', 'retherthert', '2022-09-08', NULL, 14, 0),
+(11, 'w', 'w', 'w', '2022-08-31', 'w', 'w', '...', 'w', NULL, 'Trabalhando', 'w', '2022-09-16', NULL, 14, 0),
+(12, '243245', 'Sabidinada', 'ergw', '2022-08-29', 'wergweg', 'werg', '...', 'ewrgewrg', NULL, 'Trabalhando', 'ewrgwer', '2022-09-01', NULL, 14, 0);
 
 -- --------------------------------------------------------
 
@@ -200,7 +204,7 @@ CREATE TABLE `tbprocedimento` (
 
 INSERT INTO `tbprocedimento` (`Codigo`, `StatusProcedimento`, `Nome`, `Descricao`, `Valor`, `Tempo_estimado`, `tbBarbearia_Codigo`) VALUES
 (1, 't', 't', 't', '0', '45', 14),
-(36, 'Ativo', 'Corte de Cabelo Masculino', 'Corte masculino', '20', '30 min', 14);
+(36, '', 'Corte de Cabelo Masculino', 'Corte masculino', '20', '30 min', 14);
 
 -- --------------------------------------------------------
 
@@ -307,7 +311,7 @@ ALTER TABLE `tbcliente`
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
 --
 ALTER TABLE `tbfuncionarios`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `tbprocedimento`
