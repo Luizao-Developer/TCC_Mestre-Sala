@@ -67,6 +67,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
                    
                     </div>
         <!--Area de filtro-->
+        <hr style="color:white;">
         <div id="filtro">
             <div class="input-group mb-3">
             <form action="" class="row g-3 " method="post">
@@ -97,7 +98,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
             </form> 
         </div>
 
-
+            <hr style="color:white;">
        
 
         
