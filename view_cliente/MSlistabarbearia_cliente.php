@@ -23,10 +23,14 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
         if(isset($_POST['nome_admin_barbearia'])){
             $where .= "and nomeAdmin like '%".$_POST['nome_admin_barbearia']."%'";
         }
+        if(isset($_POST['status_barbearia'])){
+            $where .= "and Status like '%".$_POST['status_barbearia']."%'";
+        }
     }
 
-$buscaBarbearia = "SELECT * FROM tbbarbearia $where ORDER BY NomeBarbearia";
+$buscaBarbearia = "SELECT * FROM tbbarbearia WHERE 1 = 1 $where ORDER BY NomeBarbearia ASC";
 $resul = mysqli_query($conexao, $buscaBarbearia);
+$qtdBarbearias = mysqli_num_rows($resul);
 
 ?>
 <!DOCTYPE html>
@@ -48,6 +52,16 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
 </div>
 <div class="pg_principal container">
 
+                    <div class="alert alert-primary" role="alert">
+                    <h4 class="alert-heading">Lista de Barbearias</h4>
+                    <p>Veja a que mais te agrada e se torne cliente agora mesmo!</p>
+                    <hr>
+                    <h5>Ao todo são <?= $qtdBarbearias ?> barbearias cadastradas</h5>
+                    </div>
+
+
+
+       <h1><?php echo $buscaBarbearia ?></h1>
         <!--Area de filtro-->
         <div id="filtro">
             <div class="input-group mb-3">
@@ -80,7 +94,7 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
         </div>
 
 
-        <!-- Button trigger modal -->
+       
 
         
         <!--Area dos cards de barbearias-->
@@ -89,8 +103,8 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
             <?php while($mostraBarbearia = mysqli_fetch_array($resul)) { ?>
             <div class="col">
                 <!--Cards de barbearias-->
-                        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;" id="card_barbearia">
-                            <img src="..." class="card-img-top" alt="...">
+                        <div class="card " style="width: 18rem;" id="card_barbearia">
+                            <img src="../imagens/place1.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $mostraBarbearia['NomeBarbearia'] ?></h5>
                                 <p class="card-text"><?= $mostraBarbearia['Cidade'] ?></p>
@@ -98,7 +112,8 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
                                 <p class="card-text"><?= $mostraBarbearia['Endereco'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
-                                <a href="#" class="btn btn-primary">Quero ser cliente</a>
+                                <h6><?= $mostraBarbearia['Status'] ?></h6>
+                                <a href="" class="btn btn-primary">Quero ser cliente</a>
 
                                 
                             </div>

@@ -8,6 +8,7 @@ body{
 }
 #card_barbearia{
     margin: 10px 0px;
+    border: none;
 }
 .espacamento{
     width: 100%;
