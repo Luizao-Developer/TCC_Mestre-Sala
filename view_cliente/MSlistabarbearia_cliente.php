@@ -7,7 +7,25 @@
 <?php
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-$buscaBarbearia = "SELECT * FROM tbbarbearia";
+    //Realizando a pesquisa por filtro
+    $where = "";
+    if(isset($_POST['filtrar'])){
+        
+        if(isset($_POST['nome_barbearia'])){
+            $where .= "and NomeBarbearia like '%".$_POST['nome'] . "%' ";
+        }
+        if(isset($_POST['cidade_barbearia'])){
+            $where .= "and Cidade like '%". $_POST['cidade_barbearia'] ."%'";
+        }
+        if(isset($_POST['email_barbearia'])){
+            $where .= "and Email like '%". $_POST['email_barbearia'].  "%'";
+        }
+        if(isset($_POST['nome_admin_barbearia'])){
+            $where .= "and nomeAdmin like '%".$_POST['nome_admin_barbearia']."%'";
+        }
+    }
+
+$buscaBarbearia = "SELECT * FROM tbbarbearia $where ORDER BY NomeBarbearia";
 $resul = mysqli_query($conexao, $buscaBarbearia);
 
 ?>
@@ -33,33 +51,42 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
         <!--Area de filtro-->
         <div id="filtro">
             <div class="input-group mb-3">
-                
-                        <input type="text" class="form-control" name="nome_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome da barbearia">
-                        <input type="text" class="form-control" name="cidade_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Cidade">
-                        <input type="text" class="form-control" name="email_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Email da barbearia">
-                        <input type="text" class="form-control" name="nome_admin_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome Administrador">
-            </div>
-            <div class="input-group mb-3">
-                    <select class="form-select" aria-label="Default select example" name="status_barbearia">
-                        <option value="" selected>Escolha...</option>
-                        <option value="aberto">Aberto</option>
-                        <option value="fechado">Fechado temporariamente/tempo indeterminado</option>
-                        <option value="reforma">Em reforma</option>
-                    </select>
-            </div>
-            <div id="botao">
-                <button class="btn btn-warning"><i class="fas fa-filter" name="filtrar"></i> Filtrar </button>
-            </div>
+            <form action="" class="row g-3 " method="post">
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" name="nome_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome da barbearia">
+                                </div> 
+                                <div class="col-md-4">            
+                                <input type="text" class="form-control" name="cidade_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Cidade">
+                                </div>  
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" name="email_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Email da barbearia">
+                                </div>
+                                <div class="col-md-4">
+                                <input type="text" class="form-control" name="nome_admin_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome Administrador">
+                                </div>
+                            </div>
+                    <div class="mb-3 col-md-4">
+                            <select class="form-select" aria-label="Default select example" name="status_barbearia">
+                                <option value="" selected>Escolha...</option>
+                                <option value="aberto">Aberto</option>
+                                <option value="fechado">Fechado temporariamente/tempo indeterminado</option>
+                                <option value="reforma">Em reforma</option>
+                            </select>
+                    </div>
+                    <div id="botao">
+                        <button class="submit "><i class="fas fa-filter" name="filtrar"></i> Filtrar </button>
+                    </div>
+            </form> 
         </div>
 
-
+        
         <!--Area dos cards de barbearias-->
-        <div class="container text-center">
-        <div class="row row-cols-3">
+        <div class="container text-center" id="area_cards">
+        <div class="row row-cols-4">
             <?php while($mostraBarbearia = mysqli_fetch_array($resul)) { ?>
             <div class="col">
                 <!--Cards de barbearias-->
-                        <div class="card" style="width: 18rem;" id="card_barbearia">
+                        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem;" id="card_barbearia">
                             <img src="..." class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $mostraBarbearia['NomeBarbearia'] ?></h5>
@@ -68,7 +95,7 @@ $resul = mysqli_query($conexao, $buscaBarbearia);
                                 <p class="card-text"><?= $mostraBarbearia['Endereco'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                                <a href="#" class="btn btn-primary">Quero ser cliente</a>
 
                                 
                             </div>
