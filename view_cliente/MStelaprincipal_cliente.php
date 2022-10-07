@@ -39,7 +39,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 
     <!--Card de informações-->
     <div class="card" style="width: 18rem;">
-    <img src="../imagens/barber-1453064_1920.jpg" class="card-img-top" alt="...">
+    <img src="<?php echo "../upload/".$_SESSION['Foto'] ?>" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_usuario"><?= $_SESSION['Nome_de_usuario'] ?></h5>
         <p id="Nome_real"><?= $_SESSION['Nome'] ?></p>
@@ -77,7 +77,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="<?php $_SESSION['Foto'] ?>" alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="<?php echo "../upload/".$_SESSION['Foto'] ?>" alt="" srcset="" id="fotoUsuarioSistema">
                         
                     </p>
                     <p>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Out-2022 às 01:57
+-- Tempo de geração: 07-Out-2022 às 03:12
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -74,7 +74,7 @@ CREATE TABLE `tbbarbearia` (
   `Cidade` varchar(45) NOT NULL,
   `Estado` varchar(45) NOT NULL,
   `Status` varchar(45) NOT NULL,
-  `Foto` int(11) DEFAULT NULL,
+  `Foto` varchar(50) DEFAULT NULL,
   `adicional` varchar(300) DEFAULT NULL,
   `Facebook` varchar(50) DEFAULT NULL,
   `Instagram` varchar(50) DEFAULT NULL,
@@ -103,6 +103,17 @@ INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `nomeAdmin`, `NomeBarbeari
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tbbarbearias_clientes`
+--
+
+CREATE TABLE `tbbarbearias_clientes` (
+  `Codigo_Cliente` int(20) NOT NULL,
+  `Codigo_Barbearia` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tbcliente`
 --
 
@@ -118,7 +129,7 @@ CREATE TABLE `tbcliente` (
   `EmailCliente` varchar(45) NOT NULL,
   `Senha_de_acesso` varchar(45) NOT NULL,
   `Nome_de_usuario` varchar(45) NOT NULL,
-  `Foto` int(11) DEFAULT NULL,
+  `Foto` varchar(50) DEFAULT NULL,
   `tbBarbearia_Codigo` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -127,7 +138,7 @@ CREATE TABLE `tbcliente` (
 --
 
 INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
-(1, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 0, NULL),
+(1, 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', 'teste', '0', NULL),
 (2, '44984332260', 'sebastiao', 'rua sem fim da senhor clotilde', '2022-08-18', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$fMwa.vKddhP0pYRM6lVrpO1mOnA1ykKrDzuVUw', 'sebo', NULL, NULL),
 (3, '44984332260', 'tteodoro1977@gmail.com', 'rua sem fim da senhor clotilde', '2022-08-07', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$LDBjnz39Ktn/o6fkYs.w1e7Etor1fnwdbFCvPd', 'dhn', NULL, NULL),
 (4, '44984332260', 'tteodoro1977@gmail.com', 'rua sem fim da senhor clotilde', '2022-08-31', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$uAM/Wc76Gfg1mEhq78NYF.zqpeo6CH0BJka4Os', 'dhn', NULL, NULL),
@@ -143,7 +154,7 @@ INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascime
 (14, '44984332260', 'Luiz', 'rua sem fim da senhor clotilde', '2022-08-30', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', '$2y$10$eMekvx0IJmRrv9X81KMG6eXugS94e0axlhUXoE', 'Luizi', NULL, NULL),
 (15, '2435235345', 'dna@email.com', 'rua sem fim da senhor clotilde', '2022-08-24', 'sao bernardo da colina', '6544443', '...', 'dna@email.com', '123', 'dhn', NULL, NULL),
 (16, '2342345', 'Luiz', 'ferwrgwrg', '2022-08-30', 'rgergergerg', 'ergerge', '...', 'lu@email.com', 'lu', 'as', NULL, NULL),
-(17, '24323452345', 'Marcao', '32452345', '2022-08-09', 'Cidade qualquer', '23452345', '...', 'mar@email.com', 'marcao', 'Marcao', NULL, NULL),
+(17, '24323452345', 'Marcao', '32452345', '2022-08-09', 'Cidade qualquer', '23452345', '...', '', 'marcao', 'Marcao', '', NULL),
 (18, '4215342345', 'Lazaro', 'Rua de cidade', '2022-08-09', 'Douradina', '2151345', '...', 'la@email.com', 'lazaro', 'Lazaro', NULL, NULL),
 (19, '44984332260', 'egergt', 'rua sem fim da senhor clotilde', '2022-08-23', 'sao bernardo da colina', '6544443', '...', 'tteodoro1977@gmail.com', 'tegteergtegtetg', 'egtergt', NULL, NULL);
 
@@ -252,6 +263,13 @@ ALTER TABLE `tbbarbearia`
   ADD PRIMARY KEY (`CodigoBarbearia`);
 
 --
+-- Índices para tabela `tbbarbearias_clientes`
+--
+ALTER TABLE `tbbarbearias_clientes`
+  ADD KEY `Codigo_Barbearia` (`Codigo_Barbearia`),
+  ADD KEY `Codigo_Cliente` (`Codigo_Cliente`);
+
+--
 -- Índices para tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
@@ -343,6 +361,13 @@ ALTER TABLE `tbagendamento`
   ADD CONSTRAINT `fk_tbAgendamento_tbFuncionarios1` FOREIGN KEY (`tbFuncionarios_Codigo`) REFERENCES `tbfuncionarios` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tbAgendamento_tbProcedimento1` FOREIGN KEY (`tbProcedimento_Codigo`) REFERENCES `tbprocedimento` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `tbagendamento_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`);
+
+--
+-- Limitadores para a tabela `tbbarbearias_clientes`
+--
+ALTER TABLE `tbbarbearias_clientes`
+  ADD CONSTRAINT `tbbarbearias_clientes_ibfk_1` FOREIGN KEY (`Codigo_Barbearia`) REFERENCES `tbbarbearia` (`CodigoBarbearia`),
+  ADD CONSTRAINT `tbbarbearias_clientes_ibfk_2` FOREIGN KEY (`Codigo_Cliente`) REFERENCES `tbcliente` (`Codigo`);
 
 --
 -- Limitadores para a tabela `tbcliente`
