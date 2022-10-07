@@ -53,7 +53,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
                     <!-- Editar informações do card-->
             <form action="../controladorCliente/MSatualizaInfo_cliente.php" method="post" enctype="multipart/form-data">
 
-            
+
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2">
             <i class="fas fa-pen"></i>
             </button>
@@ -77,7 +77,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="/imagens/" alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="<?php $_SESSION['Foto'] ?>" alt="" srcset="" id="fotoUsuarioSistema">
                         
                     </p>
                     <p>
