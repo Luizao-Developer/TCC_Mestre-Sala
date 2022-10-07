@@ -2,10 +2,17 @@
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-
+require_once("../controladorCliente/funcoesCliente.php");
 $codigo = $_POST['Codigo'];
 if(isset($_POST['salvar'])){
-        
+    $imagem=  "";
+    if(!empty($_FILES['foto']['name'])){
+            $imagem = adicionaArquivos($_FILES['foto']['name'],$_FILES['foto']['tmp_name']);
+            
+
+    }
+
+        /*
         if(isset($_FILES['foto'])){
 
             $extensao = strtolower(substr($_FILES['foto']['name'],-4));
@@ -16,7 +23,7 @@ if(isset($_POST['salvar'])){
             move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$novo_nome);
 
         }
-    
+        */
     
 
 //Continuação do codigo
@@ -35,7 +42,7 @@ $sql = "update tbcliente
             Cidade = '{$cidade}',
             UF = {$uf},
             CEP = '{$cep}',
-            Foto = '{$novo_nome}'
+            Foto = '{$imagem}'
         where Codigo = {$codigo} ";
         
 mysqli_query($conexao, $sql);

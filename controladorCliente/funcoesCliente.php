@@ -1,7 +1,7 @@
 <?php
 
 function getProximoContadorArquivos(){
-    $arquivo = "contadorArquivos.txt";
+    $arquivo = "../contadorArquivos.txt";
 
     $handle = fopen($arquivo, 'r+'); //Abrir o arquivo
     $dados = fread($handle, 512); //Pega o conteudo do arquivo
@@ -22,7 +22,7 @@ function getProximoContadorArquivos(){
 function adicionaArquivos($nomeArquivo, $arquivoTmp){
     $ext = pathinfo($nomeArquivo, PATHINFO_EXTENSION);
     $imagem = getProximoContadorArquivos().".".$ext;
-    $caminhoDestino = "imagens/" . $imagem;
+    $caminhoDestino = "../upload/" . $imagem;
 
     move_uploaded_file($arquivoTmp,$caminhoDestino);
     return $imagem;
