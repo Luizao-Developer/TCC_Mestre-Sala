@@ -36,21 +36,22 @@ $uf = $_POST['uf'];
 $cep = $_POST['cep'];
 
 $sql = "update tbcliente 
-            set Nome_de_usuario = '{$nomeDeUsuario}', 
-            Email = '{$email}',
-            Endereco = '{$endereco}',
+            set Endereco = '{$endereco}',
             Cidade = '{$cidade}',
-            UF = {$uf},
             CEP = '{$cep}',
+            UF = {$uf},
+            EmailCliente = '{$email}',
+            Nome_de_usuario = '{$nomeDeUsuario}', 
             Foto = '{$imagem}'
         where Codigo = {$codigo} ";
         
+    
 mysqli_query($conexao, $sql);
 
 
     $mensagem = "Informações atualizadas com sucesso";
     header("location: ../view_cliente/MStelaprincipal_cliente.php?mensagem = {$mensagem}");
-    die();
+    //die();
 }
 
-mysqli_close($conexao);
+//mysqli_close($conexao);
