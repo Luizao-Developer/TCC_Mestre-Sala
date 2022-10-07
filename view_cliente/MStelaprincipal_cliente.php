@@ -2,6 +2,17 @@
 
 require_once("../controladorCliente/MSsessao_cliente.php");
 ?>
+<?php
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+
+$sqlCliente = "SELECT * FROM tbcliente WHERE Codigo = {$_SESSION['Codigo']}";
+
+$result = mysqli_query($conexao, $sqlCliente);
+$linha = mysqli_fetch_array($result);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +50,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 
     <!--Card de informações-->
     <div class="card" style="width: 18rem;">
-    <img src="<?php echo "../upload/".$_SESSION['Foto'] ?>" class="card-img-top" alt="...">
+    <img src="<?php echo "../upload/".$linha['Foto'] ?>" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_usuario"><?= $_SESSION['Nome_de_usuario'] ?></h5>
         <p id="Nome_real"><?= $_SESSION['Nome'] ?></p>

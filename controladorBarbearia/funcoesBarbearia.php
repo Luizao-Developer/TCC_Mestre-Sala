@@ -22,7 +22,7 @@ function getProximoContadorArquivos(){
 function adicionaArquivos($nomeArquivo, $arquivoTmp){
     $ext = pathinfo($nomeArquivo, PATHINFO_EXTENSION);
     $imagem = getProximoContadorArquivos().".".$ext;
-    $caminhoDestino = "imagens/" . $imagem;
+    $caminhoDestino = "../upload/" . $imagem;
 
     move_uploaded_file($arquivoTmp,$caminhoDestino);
     return $imagem;

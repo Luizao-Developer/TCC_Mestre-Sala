@@ -6,14 +6,11 @@ require_once("funcoesCliente.php");
 $codigo = $_POST['Codigo'];
 if(isset($_POST['salvar'])){
 
-    if(!empty($_FILES['foto']['Nome'])){
-        $nomeNovaImagem = adicionaArquivos($_FILES['foto']['Nome'],$_FILES['foto']['tmp_ome']);
-   
+    $imagem=  "";
+    if(!empty($_FILES['foto']['name'])){
+            $imagem = adicionaArquivos($_FILES['foto']['name'],$_FILES['foto']['tmp_name']);
+            
 
-    $sqlExtra = ", Foto = '{$nomeNovaImagem}'";
-
-    $foto = getImagemUsuario($_POST['Codigo'], $conexao);
-    excluiArquivo("arquivos\\". $foto);
     }
 
 //Continuação do codigo
