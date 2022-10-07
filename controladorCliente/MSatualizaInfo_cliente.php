@@ -1,8 +1,8 @@
 <?php
-
+require_once("../controladorCliente/funcoesCliente.php");
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-require_once("../controladorCliente/funcoesCliente.php");
+
 $codigo = $_POST['Codigo'];
 if(isset($_POST['salvar'])){
     $imagem=  "";
@@ -35,15 +35,15 @@ $cidade = $_POST['cidade'];
 $uf = $_POST['uf'];
 $cep = $_POST['cep'];
 
-$sql = "update tbcliente 
-            set Endereco = '{$endereco}',
+$sql = "UPDATE tbcliente 
+            SET Endereco = '{$endereco}',
             Cidade = '{$cidade}',
             CEP = '{$cep}',
             UF = {$uf},
             EmailCliente = '{$email}',
             Nome_de_usuario = '{$nomeDeUsuario}', 
             Foto = '{$imagem}'
-        where Codigo = {$codigo} ";
+        WHERE Codigo = {$codigo} ";
         
     
 mysqli_query($conexao, $sql);
