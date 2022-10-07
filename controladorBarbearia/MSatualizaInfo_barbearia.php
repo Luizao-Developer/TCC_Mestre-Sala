@@ -2,7 +2,7 @@
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-require_once("funcoesCliente.php");
+require_once("funcoesBarbearia.php");
 $codigo = $_POST['Codigo'];
 if(isset($_POST['salvar'])){
 
@@ -15,22 +15,36 @@ if(isset($_POST['salvar'])){
 
 //Continuação do codigo
 
-$nomeDeUsuario = $_POST['nome_de_usuario'];
-$email = $_POST['email'];
+$nomeAdmin = $_POST['nomeAdmin'];
+$nomeBarbearia = $_POST['nome_da_barbearia'];
 $endereco = $_POST['endereco'];
+$email = $_POST['email'];
 $cidade = $_POST['cidade'];
 $uf = $_POST['uf'];
 $cep = $_POST['cep'];
+$cnpj = $_POST['cnpj'];
+$telefone_comercial = $_POST['telefone_comercial'];
+$facebook = $_POST['facebook'];
+$instagram = $_POST['instagram'];
+$status = $_POST['status'];
+$telefone_pessoal = $_POST['telefone_pessoal'];
+$adicional = $_POST['adicional'];
 
-$sql = "update tbcliente 
-            set Nome_de_usuario = '{$nomeDeUsuario}', 
-            Email = '{$email}',
+$sql = "update tbbarbearia 
+            set nomeAdmin = '{$nomeDeUsuario}', 
+            NomeBarbearia = '{$nomeBarbearia}',
             Endereco = '{$endereco}',
+            Email = '{$email}',
+            Telefone_comercial = '{$telefone_comercial}',
+            CEP = '{$cep}',
             Cidade = '{$cidade}',
-            UF = {$uf},
-            CEP = '{$cep}'
-            {$sqlExtra}
-        where Codigo = {$codigo} ";
+            Estado = '{$uf}',
+            Status = '{$status}',
+            Foto = '{$imagem}',
+            adicional = '{$adicional}',
+            Facebook = '{$facebook}',
+            Instagram = '{$instagram}'
+        where CodigoBarbearia = {$codigo} ";
 
     mysqli_query($conexao, $sql);
     mysqli_close($conexao);

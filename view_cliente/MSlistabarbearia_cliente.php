@@ -109,7 +109,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
             <div class="col">
                 <!--Cards de barbearias-->
                         <div class="card " style="width: 18rem;" id="card_barbearia">
-                            <img src="../imagens/place1.jpg" class="card-img-top" alt="...">
+                            <img src="<?php  echo "../upload/" . $mostraBarbearia['Foto'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $mostraBarbearia['NomeBarbearia'] ?></h5>
                                 <p class="card-text"><?= $mostraBarbearia['Cidade'] ?></p>

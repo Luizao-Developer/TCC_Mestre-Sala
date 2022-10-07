@@ -88,7 +88,7 @@ $linha = mysqli_fetch_array($result);
                 </div>
                 <div class="modal-body">
                     <p>
-                        <img src="<?php echo "../upload/".$_SESSION['Foto'] ?>" alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="<?php echo "../upload/".$linha['Foto'] ?>" alt="" srcset="" id="fotoUsuarioSistema">
                         
                     </p>
                     <p>

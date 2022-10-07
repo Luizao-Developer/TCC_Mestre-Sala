@@ -45,6 +45,9 @@ if($qtdClientes == 0){
 }
 
 
+$sqlBarbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
+$ba = mysqli_query($conexao, $sqlBarbearia);
+$buscaBar = mysqli_fetch_array($ba);
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -94,7 +97,7 @@ if($qtdClientes == 0){
     </div>
     <!--Card de informações-->
     <div class="card position-absolute top-20 start-0" style="width: 18rem;">
-    <img src="../imagens/barber-1453064_1920.jpg" class="card-img-top" alt="...">
+    <img src="<?php echo "../upload/" . $buscaBar['Foto'] ?>" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_barberia"><i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?></h5>
         <h5 class="card-title" name="nome_barberia"> <?= $_SESSION['NomeAdmin'] ?></h5>
@@ -119,6 +122,7 @@ if($qtdClientes == 0){
             </button>
 
             <!-- Modal -->
+            <input type="hidden" name="Codigo" value="<?= $_SESSION['CodigoBarbearia'] ?>">
             <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -130,7 +134,7 @@ if($qtdClientes == 0){
    
                 <div class="modal-body">
                     <p>
-                        <img src="../imagens/" alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="../upload/ ." alt="" srcset="" id="fotoUsuarioSistema">
                         
                     </p>
                     <p>
@@ -144,6 +148,13 @@ if($qtdClientes == 0){
     
      
                     <p>
+                        <div class="rog g-3">
+                        <div class="col">
+                            <label for="">Nome do Admin</label>
+                            <input type="text" class="form-control" aria-label="First name" name="nomeAdmin" value="<?= $_SESSION['NomeBarbearia'] ?>">
+                        </div>
+                        </div>
+        
                     <div class="row g-3">
                         <div class="col">
                             <label for="">Nome da barbearia</label>
@@ -223,7 +234,7 @@ if($qtdClientes == 0){
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary" name="salvar">Save changes</button>
                 </div>
                 </div>
             </div>

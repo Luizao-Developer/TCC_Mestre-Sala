@@ -1,7 +1,7 @@
 <?php
 
 function getProximoContadorArquivos(){
-    $arquivo = "contadorArquivos.txt";
+    $arquivo = "../contadorArquivos1.txt";
 
     $handle = fopen($arquivo, 'r+'); //Abrir o arquivo
     $dados = fread($handle, 512); //Pega o conteudo do arquivo
