@@ -2,19 +2,22 @@
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-require_once("funcoesCliente.php");
+
 $codigo = $_POST['Codigo'];
 if(isset($_POST['salvar'])){
+        
+        if(isset($_FILES['foto'])){
 
-    if(!empty($_FILES['foto']['Nome'])){
-        $nomeNovaImagem = adicionaArquivos($_FILES['foto']['Nome'],$_FILES['foto']['tmp_ome']);
-   
+            $extensao = strtolower(substr($_FILES['foto']['name'],-4));
 
-    $sqlExtra = ", Foto = '{$nomeNovaImagem}'";
+            $novo_nome = md5(time()).$extensao;
+            $diretorio = "../upload/";
 
-    $foto = getImagemUsuario($_POST['Codigo'], $conexao);
-    excluiArquivo("arquivos\\". $foto);
-    }
+            move_uploaded_file($_FILES['foto']['tmp_name'],$diretorio.$novo_nome);
+
+        }
+    
+    
 
 //Continuação do codigo
 
@@ -31,13 +34,16 @@ $sql = "update tbcliente
             Endereco = '{$endereco}',
             Cidade = '{$cidade}',
             UF = {$uf},
-            CEP = '{$cep}'
-            {$sqlExtra}
+            CEP = '{$cep}',
+            Foto = '{$novo_nome}'
         where Codigo = {$codigo} ";
+        
+mysqli_query($conexao, $sql);
 
-$result =  mysqli_query($conexao, $sql);
-mysqli_close($conexao);
+
     $mensagem = "Informações atualizadas com sucesso";
     header("location: ../view_cliente/MStelaprincipal_cliente.php?mensagem = {$mensagem}");
     die();
 }
+
+mysqli_close($conexao);

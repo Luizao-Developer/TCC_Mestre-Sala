@@ -52,6 +52,8 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 
                     <!-- Editar informações do card-->
             <form action="../controladorCliente/MSatualizaInfo_cliente.php" method="post" enctype="multipart/form-data">
+
+            
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2">
             <i class="fas fa-pen"></i>
             </button>
