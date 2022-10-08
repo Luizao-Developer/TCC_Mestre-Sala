@@ -159,7 +159,7 @@ $buscaBar = mysqli_fetch_array($ba);
                         </div>
                         <div class="col">
                             <label for="">Endereço</label>
-                            <input type="email" class="form-control"  aria-label="Last name" name="endereco" value="<?= $_SESSION['Endereco'] ?>">
+                            <input type="text" class="form-control"  aria-label="Last name" name="endereco" value="<?= $_SESSION['Endereco'] ?>">
                         </div>
                     </div>
                     <div class="row g-3">
