@@ -80,9 +80,6 @@ $buscaBar = mysqli_fetch_array($ba);
                 <div class="alert alert-info" role="alert">
                         <h2>Minha barbearia: </h2>
 
-                        <?php var_dump($sql);?>
-
-                        <?php  var_dump($_SESSION);?>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
@@ -134,7 +131,7 @@ $buscaBar = mysqli_fetch_array($ba);
    
                 <div class="modal-body">
                     <p>
-                        <img src="../upload/ ." alt="" srcset="" id="fotoUsuarioSistema">
+                        <img src="<?php echo "../upload/" . $buscaBar['Foto'] ?> "class="img-thumbnail rounded-circle" alt="...">
                         
                     </p>
                     <p>
