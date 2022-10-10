@@ -50,12 +50,11 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
         <table class="table table-light  table-hover">
             <thead>
                 <tr>
+                <th scope="col">Status</th>
                 <th scope="col">Serviço</th>
                 <th scope="col">Preço</th>
                 <th scope="col">Data</th>
                 <th scope="col">Hora</th>
-                <th scope="col">Procedimento</th>
-                <th scope="col">Funcionario</th>
                 <th scope="col">Barbearia</th>
                 </tr>
             </thead>

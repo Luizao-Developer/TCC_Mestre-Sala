@@ -18,7 +18,7 @@ if(isset($_POST["cadastrar"])){
 
 
     $sql = "insert into 
-    tbcliente(Telefone,Nome,Endereco,Data_nascimento,Cidade,CEP,UF,Email,Senha_de_acesso,Nome_de_usuario) 
+    tbcliente(Telefone,Nome,Endereco,Data_nascimento,Cidade,CEP,UF,EmailCliente,Senha_de_acesso,Nome_de_usuario) 
     values('{$telefone}','{$nome}','{$endereco}','{$dataNascimento}','{$cidade}','{$cep}','{$uf}','{$email}','{$senhaDeAcesso}','{$nomeUsuario}')";
 
     var_dump($sql);

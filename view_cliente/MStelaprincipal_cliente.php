@@ -54,7 +54,7 @@ $linha = mysqli_fetch_array($result);
     <div class="card-body">
         <h5 class="card-title" name="nome_usuario"><?= $_SESSION['Nome_de_usuario'] ?></h5>
         <p id="Nome_real"><?= $_SESSION['Nome'] ?></p>
-        <p><?= $_SESSION['Email'] ?></p>
+        <p><?= $_SESSION['EmailCliente'] ?></p>
         <p class="card-text">
             
            
@@ -116,7 +116,7 @@ $linha = mysqli_fetch_array($result);
                         </div>
                         <div class="col">
                             <label for="">Email</label>
-                            <input type="email" class="form-control"  aria-label="Last name" name="email" value="<?= $_SESSION['Email'] ?>">
+                            <input type="email" class="form-control"  aria-label="Last name" name="email" value="<?= $_SESSION['EmailCliente'] ?>">
                         </div>
                     </div>
                     <div class="row g-3">

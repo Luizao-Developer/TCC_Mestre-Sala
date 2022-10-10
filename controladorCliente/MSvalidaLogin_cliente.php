@@ -37,7 +37,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         $_SESSION['Cidade'] = $nome['Cidade'];
         $_SESSION['CEP'] = $nome['CEP'];
         $_SESSION['UF'] = $nome['UF'];
-        $_SESSION['Email'] = $nome['Email'];
+        $_SESSION['EmailCliente'] = $nome['EmailCliente'];
         $_SESSION['Nome_de_usuario'] = $nome['Nome_de_usuario'];
         $_SESSION['Foto'] = $nome['Foto'];
 

@@ -29,7 +29,15 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
         }
         
     }
+  if(isset($_POST['ser_cliente'])){
+     
+      $CodigoBarbearia = $_POST['CodigoBarbearia'];
+      $CodigoCliente = $_SESSION['Codigo'];
 
+      $inserindo = "INSERT INTO tbbarbearias_clientes(Codigo_Cliente,Codigo_Barbearia) VALUES('{$CodigoCliente}','{$CodigoBarbearia}')";
+
+      mysqli_query($conexao, $inserindo);
+  }
 
 
 
@@ -118,7 +126,10 @@ $qtdBarbearias = mysqli_num_rows($resul);
                                 <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
                                 <h6><?= $mostraBarbearia['Status'] ?></h6>
-                                <a href="" class="btn btn-primary">Quero ser cliente</a>
+                                <form action="MSondesoucliente_cliente.php" method="post">
+                                    <input type="hidden" name="CodigoBarbearia" value="<?= $mostraBarbearia['CodigoBarbearia'] ?>">
+                                    <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
+                                </form>
 
                                 
                             </div>
