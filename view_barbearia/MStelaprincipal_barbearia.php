@@ -88,7 +88,7 @@ $buscaBar = mysqli_fetch_array($ba);
                     <p>
                     <i class="fas fa-file-signature"></i>  <?= $mensagemLicenca ?> funcionário(s) permanece(m) sob licença
                     </p></li>
-                    <li class="list-group-item"><h5><i class="fas fa-users"></i> Esta barbearia possui <?= $qtdClientes , " clientes" ?> </h5></li>
+                    <li class="list-group-item"><h5><i class="fas fa-users"></i> Esta barbearia possui <?= $qtdClientes , " cliente(s)" ?> </h5></li>
                     <li class="list-group-item">A third item</li>
                 </ul>
             </div>
