@@ -31,7 +31,9 @@ if($qtdFuncionariosLicenca == 0){
 
 //Consulta a quantidade de clientes que a barbearia possui
 
-$sqlClientes = "select * from tbcliente";
+$sqlClientes = "SELECT * FROM tbcliente
+                    INNER JOIN tbbarbearias_clientes 
+                    ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
 
 $resultCliente = mysqli_query($conexao, $sqlClientes);
 $qtdClientes = mysqli_num_rows($resultCliente);
@@ -69,7 +71,7 @@ $buscaBar = mysqli_fetch_array($ba);
 
 
 <!--Continuação do site-->
-<div class="espacamento" style="background-image:url(<?php echo "../upload/" . $buscaBar['Foto'] ?>); justify-content:center; background-size:cover; background-attachment:fixed; " >
+<div class="espacamento" >
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
 <div class="pg_principal ">
