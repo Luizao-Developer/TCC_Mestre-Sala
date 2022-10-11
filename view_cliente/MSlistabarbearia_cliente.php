@@ -71,7 +71,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
                     <h4 class="alert-heading">Lista de Barbearias</h4>
                     <p>Veja a que mais te agrada e se torne cliente agora mesmo!</p>
                     <hr>
-                    <h5>Ao todo são <?= $qtdBarbearias ?> barbearias cadastradas</h5>
+                    <h5>Ao todo são <?= $qtdBarbearias ?> barbearia(s) cadastrada(s)</h5>
                    
                     </div>
         <!--Area de filtro-->
