@@ -126,7 +126,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
                                 <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
                                 <h6><?= $mostraBarbearia['Status'] ?></h6>
-                                <form action="MSondesoucliente_cliente.php" method="post">
+                                <form action="MSlistabarbearia_cliente.php" method="post">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $mostraBarbearia['CodigoBarbearia'] ?>">
                                     <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
                                 </form>
