@@ -2,9 +2,21 @@
 
 require_once("../controladorCliente/MSsessao_cliente.php");
 ?>
+<?php 
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+$sql = "SELECT * FROM tbbarbearia
+            INNER JOIN tbbarbearias_clientes 
+            ON tbbarbearias_clientes.Codigo_Barbearia = tbbarbearia.CodigoBarbearia";
+
+        $consultando = mysqli_query($conexao, $sql);
+
+
+
+
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,6 +36,34 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 <div class="pg_principal container">
 
         <h1>Cliente na(s) seguinte(s) barbearia(s):</h1>
+        <div class="container text-center" id="area_cards">
+        <div class="row row-cols-3">
+             <?php while($listando = mysqli_fetch_array($consultando)){ ?>
+                <div class="col">
+                <!--Cards de barbearias-->
+                        <div class="card " style="width: 18rem;" id="card_barbearia">
+                            <img src="<?php  echo "../upload/" . $listando['Foto'] ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $listando['NomeBarbearia'] ?></h5>
+                                <p class="card-text"><?= $listando['Cidade'] ?></p>
+                                <p class="card-text"><?= $listando['Estado'] ?></p>
+                                <p class="card-text"><?= $listando['Endereco'] ?></p>
+                                <p class="card-text"><?= $listando['Telefone_comercial'] ?></p>
+                                <p class="card-text"><?= $listando['nomeAdmin'] ?></p>
+                                <h6><?= $listando['Status'] ?></h6>
+                                <form action="MSondesoucliente_cliente.php" method="post">
+                                    <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia'] ?>">
+                                    <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
+                                </form>
+
+                                
+                            </div>
+                        </div>
+
+            </div>
+            <?php } ?>
+        </div>
+        </div>
         
 </div>
  
