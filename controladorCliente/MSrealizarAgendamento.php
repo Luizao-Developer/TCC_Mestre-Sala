@@ -2,7 +2,7 @@
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-
+/*
 if(isset($_POST['realiza_agendamento'])){
     $barbearia = $_POST['barbearia'];
     $cliente = $_POST['cliente'];
@@ -16,5 +16,5 @@ if(isset($_POST['realiza_agendamento'])){
 
 
 }
-
+*/
 
