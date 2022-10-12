@@ -16,7 +16,19 @@ tbBarbearia_Codigo
 
 
 */
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+$CodigoBarbearia = $_POST['CodigoBarbearia'];
 
+$buscandoBarbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$CodigoBarbearia}";
+
+$resul = mysqli_query($conexao, $buscandoBarbearia);
+$mostrandoBarbearia = mysqli_fetch_array($resul);
+
+//Pesquisando procedimentos referente a barbearia setada
+$buscandoProcedimento = "SELECT * FROM tbprocedimento
+                        INNER JOIN tbbarbearia
+                        ON tbprocedimento.tbBarbearia_Codigo = tbbarbearia.CodigoBarbearia ";
+$consultando = mysqli_query($conexao, $buscandoProcedimento);
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +64,7 @@ tbBarbearia_Codigo-->
                 <input type="hidden" name="CodigoBarbearia" value="<?= $_POST['CodigoBarbearia']  ?>">
                 <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Barbearia</label>
-                    <input type="text" name="barbearia" class="form-control" id="inputEmail4" disabled>
+                    <input type="text" name="barbearia" class="form-control" id="inputEmail4" value="<?= $mostrandoBarbearia['NomeBarbearia'] ?>" disabled>
                    
                 </div>
                 <div class="col-md-12">
@@ -63,14 +75,15 @@ tbBarbearia_Codigo-->
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Procedimento</label>
                     <select id="inputState" name="procedimento" class="form-select" required>
-                    
-                    <option></option>
+                    <?php while($listandoProcedimento = mysqli_fetch_array($consultando)): ?>
+                    <option><?= $listandoProcedimento['Nome'] ?></option>
+                    <?php endwhile ?>
                     </select>
                     <div class="valid-feedback">
                         Certo!
                     </div>
                     <div class="invalid-feedback">
-                        O procedimento deve ser inserido!
+                        Algum procedimento deve ser inserido!
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -93,6 +106,7 @@ tbBarbearia_Codigo-->
                         É necessário que seja inserida a hora de realização do serviço
                     </div>
                 </div>
+                
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Preço</label>
                     <input type="text" name="preco" class="form-control" id="inputPassword4" disabled>
