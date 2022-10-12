@@ -86,7 +86,11 @@ CREATE TABLE `tbbarbearia` (
 --
 
 INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `nomeAdmin`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
+<<<<<<< HEAD
 (14, '42345345345', '', 'Barbearia europa', 'rua sem nada', 'eu@email.com', '44984332260', '243523452345', 'senha', '6544443', 'sao bernardo da colina', '...', 'Aberto', '1.png', 'Aqui vc é um rei', '', '', '2022-08-18 16:17:34');
+=======
+(14, '42345345345', '', 'Barbearia europa', 'rua sem nada', 'eu@email.com', '44984332260', '243523452345', 'senha', '6544443', 'sao bernardo da colina', '...', 'Aberto', '1.jpg', '', '', '', '2022-08-18 16:17:34');
+>>>>>>> 3460249a0ae1c57bc0ce98dd63fc3ed1171d583b
 
 -- --------------------------------------------------------
 
@@ -134,7 +138,11 @@ CREATE TABLE `tbcliente` (
 --
 
 INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
+<<<<<<< HEAD
 (20, '98542231', 'Jubinicio', 'rua sem nada', '2022-10-11', 'sao bernardo da colina', '6544443', '...', 'ju@gmail.com', 'ju', 'Jubinicio', '1.jpg', NULL);
+=======
+(20, '98542231', 'Jubinicio', 'Rua 7 de Abril', '2022-10-11', 'Perobal do Norte', '423542345', '...', 'ju@gmail.com', 'ju', 'Jubinicio', '1.jpg', NULL);
+>>>>>>> 3460249a0ae1c57bc0ce98dd63fc3ed1171d583b
 
 -- --------------------------------------------------------
 
