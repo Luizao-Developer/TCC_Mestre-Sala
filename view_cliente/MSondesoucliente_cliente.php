@@ -45,13 +45,10 @@ $sql = "SELECT * FROM tbbarbearia
                             <img src="<?php  echo "../upload/" . $listando['Foto'] ?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?= $listando['NomeBarbearia'] ?></h5>
-                                <p class="card-text"><?= $listando['Cidade'] ?></p>
-                                <p class="card-text"><?= $listando['Estado'] ?></p>
-                                <p class="card-text"><?= $listando['Endereco'] ?></p>
-                                <p class="card-text"><?= $listando['Telefone_comercial'] ?></p>
+                                
                                 <p class="card-text"><?= $listando['nomeAdmin'] ?></p>
                                 <h6><?= $listando['Status'] ?></h6>
-                                <form action="MSondesoucliente_cliente.php" method="post">
+                                <form action="MSrealizarAgendamento_cliente.php" method="post">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia'] ?>">
                                     <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
                                 </form>

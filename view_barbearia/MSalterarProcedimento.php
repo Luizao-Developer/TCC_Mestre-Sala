@@ -101,7 +101,7 @@ $linha = mysqli_fetch_array($resultado);
                         <div class="col-md-4 position-relative">
                         <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" >
-                            <option selected="" disabled="" value=""><?= $linha['StatusProcedimento'] ?></option>
+                            <option selected="" disabled="" value="<?= $linha['StatusProcedimento'] ?>"><?= $linha['StatusProcedimento'] ?></option>
                             <option>Ativo</option>
                             <option>Futuramente ativo</option>
                             <option>Inativo</option>

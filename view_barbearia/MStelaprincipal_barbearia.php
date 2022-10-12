@@ -88,7 +88,7 @@ $buscaBar = mysqli_fetch_array($ba);
                     <p>
                     <i class="fas fa-file-signature"></i>  <?= $mensagemLicenca ?> funcionário(s) permanece(m) sob licença
                     </p></li>
-                    <li class="list-group-item"><h5><i class="fas fa-users"></i> Esta barbearia possui <?= $qtdClientes , " clientes" ?> </h5></li>
+                    <li class="list-group-item"><h5><i class="fas fa-users"></i> Esta barbearia possui <?= $qtdClientes , " cliente(s)" ?> </h5></li>
                     <li class="list-group-item">A third item</li>
                 </ul>
             </div>
@@ -139,7 +139,7 @@ $buscaBar = mysqli_fetch_array($ba);
                     <p>
                         <label for="">Adicione ou atualize de sua barbearia</label>
                         <div class="input-group">
-                            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="foto" value="<?= $_SESSION['Foto']  ?>">
+                            <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" name="foto" value="<?php  $buscaBar['Foto'] ?> ">
                             
                         </div>
                     </p>
@@ -225,15 +225,15 @@ $buscaBar = mysqli_fetch_array($ba);
                     <div class="row g-3">
                         <div class="col">
                             <label for="floatingTextarea2">Adicionam um slogam ou frase</label>
-                            <textarea class="form-control" placeholder="Leave a comment here" name="adicional" id="floatingTextarea2" style="height: 100px"></textarea>
+                            <textarea class="form-control" placeholder="Leave a comment here" name="adicional" id="floatingTextarea2" style="height: 100px"><?= $_SESSION['adicional'] ?></textarea>
                             
                         </div>
                     </div>
                     </p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" name="salvar">Save changes</button>
+                    
+                    <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
                 </div>
                 </div>
             </div>

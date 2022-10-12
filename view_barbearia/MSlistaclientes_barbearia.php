@@ -3,6 +3,18 @@
 
   
 ?>
+<?php
+
+    $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+    $consultaClientes = "SELECT * FROM tbcliente
+                        INNER JOIN tbbarbearias_clientes
+                        ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
+    $consultandoNoBanco = mysqli_query($conexao, $consultaClientes);
+    
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -32,7 +44,31 @@
 <div class="pg_principal container">
 
     <h1>Seu(s) cliente(s):</h1>
-    
+    <table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th scope="col" width="10%">#</th>
+      <th scope="col">Cliente(s)</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telefone</th>
+   
+    </tr>
+  </thead>
+  <?php while($listando = mysqli_fetch_array($consultandoNoBanco)): ?>
+  <tbody>
+    <tr>
+      <th scope="row">
+            <img src="<?php echo "../upload/" . $listando['Foto'] ?>" alt="" srcset="" id="foto_tabela" style="width: 50px; height: 50px; border-radius: 50%;">
+      </th>
+      <td><h2><?= $listando['Nome']?></h2></td>
+      <td><h2><?= $listando['EmailCliente']?></h2></td>
+      <td><h2><?= $listando['Telefone']?></h2></td>
+     
+    </tr>
+   
+  </tbody>
+  <?php endwhile ?>
+</table>
 </div>
     
 

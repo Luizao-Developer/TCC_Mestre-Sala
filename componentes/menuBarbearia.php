@@ -20,6 +20,9 @@
                 <li class="nav-item">
                 <a class="nav-link" href="..\view_barbearia\MSservicomarcados_barbearia.php"><i class="fas fa-calendar-alt"></i> Serviços marcados</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="..\view_barbearia\MSlistaclientes_barbearia.php"><i class="fas fa-users"></i> Meus clientes</a>
+                </li>
 
                 
             </ul>

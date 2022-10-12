@@ -10,10 +10,7 @@ Servico
 Preco
 Data
 Hora
-tbCliente_Senha_de_acesso1
 tbProcedimento_Codigo
-tbFuncionarios_tbPessoa_Codigo
-tbFuncionarios_Codigo
 tbCliente_Codigo
 tbBarbearia_Codigo
 
@@ -42,49 +39,70 @@ tbBarbearia_Codigo
 </div>
 <div class="pg_principal container">
         <h1>Realizar Agendamento</h1>
-       <!--Form de realizar agendamento-->
-                    <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
+       <!--Form de realizar agendamento
+    Servico-
+Preco-
+Data-
+Hora-
+tbProcedimento_Codigo-
+
+tbBarbearia_Codigo-->
+            <form action="..\controladorCliente\MSrealizarAgendamento.php" class="row g-3 needs-validation" method="POST" novalidate>
+                <input type="hidden" name="CodigoCliente" value="<?= $_SESSION['Codigo'] ?>">
+                <input type="hidden" name="CodigoBarbearia" value="<?= $_POST['CodigoBarbearia']  ?>">
+                <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Barbearia</label>
+                    <input type="text" name="barbearia" class="form-control" id="inputEmail4" disabled>
+                   
+                </div>
+                <div class="col-md-12">
+                <label for="inputEmail4" class="form-label">Cliente</label>
+                    <input type="text" name="cliente" class="form-control" id="inputEmail4" value="<?= $_SESSION['Nome'] ?>" disabled>
+                   
                 </div>
                 <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress2" class="form-label">Address 2</label>
-                    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                    <label for="inputEmail4" class="form-label">Procedimento</label>
+                    <select id="inputState" name="procedimento" class="form-select" required>
+                    
+                    <option></option>
                     </select>
-                </div>
-                <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Check me out
-                    </label>
+                    <div class="valid-feedback">
+                        Certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        O procedimento deve ser inserido!
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Data</label>
+                    <input type="date" name="data_agendamento" class="form-control" id="inputPassword4" value="" required>
+                    <div class="valid-feedback">
+                        Certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        Insira a data do agendamento!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Hora</label>
+                    <input type="text" name="hora" class="form-control" id="inputEmail4" required>
+                    <div class="valid-feedback">
+                        Certo!
+                    </div>
+                    <div class="invalid-feedback">
+                        É necessário que seja inserida a hora de realização do serviço
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">Preço</label>
+                    <input type="text" name="preco" class="form-control" id="inputPassword4" disabled>
+                    
+                </div>
+                
+                
+                
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary" name="realiza_agendamento">Realizar agendamento</button>
                 </div>
                 </form>
         
@@ -92,6 +110,27 @@ tbBarbearia_Codigo
  
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+<script>
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (() => {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        const forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+            if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+            }, false)
+        })
+        })()
+</script>
 </body>
 
 <?php require_once("../componentes/rodape.php") ?>

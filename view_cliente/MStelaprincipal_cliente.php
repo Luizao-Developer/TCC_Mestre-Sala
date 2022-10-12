@@ -43,7 +43,7 @@ $linha = mysqli_fetch_array($result);
 
 <div id="recebeUsuario">
 <h1>Seja bem vindo <?= $_SESSION['Nome_de_usuario']   ?></h1>
-<h1> <?php var_dump($_SESSION) ?></h1>
+<p> <?php var_dump($_SESSION) ?></p>
 </div>
 
 
