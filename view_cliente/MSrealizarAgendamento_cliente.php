@@ -116,6 +116,9 @@ tbBarbearia_Codigo-->
                 
                 
                 <div class="col-12">
+                    <button type="button" class="btn btn-primary" name="confirmar_agendamento" id="confirmar_agendamento">Confirmar agendamento</button>
+                </div>
+                <div class="col-12">
                     <button type="submit" class="btn btn-primary" name="realiza_agendamento">Realizar agendamento</button>
                 </div>
                 
@@ -156,14 +159,20 @@ tbBarbearia_Codigo-->
             $("#botao").on("click",function(){
                 alert("ok")
             });
-            */
+            
            //onchange
-           $("#procedimento").change(function(){
-               alert("ok")
+           $("#procedimento :selected").change(function(){
+               console.log("deu certo")
            })
            $("#hora").change(function(){
-               alert("ok")
+            console.log("deu certo")
            })
+           */
+           $("#confirmar_agendamento").on("click",function(){
+               $.ajax({
+                   
+               })
+           });
      })
         
 </script>
