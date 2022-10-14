@@ -76,7 +76,7 @@ tbBarbearia_Codigo-->
                     <label for="inputEmail4" class="form-label">Procedimento</label>
                     <select id="inputState" name="procedimento" id="procedimento" class="form-select" required>
                     <?php while($listandoProcedimento = mysqli_fetch_array($consultando)): ?>
-                    <option><?= $listandoProcedimento['Nome'] ?></option>
+                    <option value=""><?= $listandoProcedimento['Nome'] ?></option>
                     <?php endwhile ?>
                     </select>
                     <div class="valid-feedback">
@@ -168,7 +168,8 @@ tbBarbearia_Codigo-->
             console.log("deu certo")
            })
            */
-          var procedimento = $("#procedimento:selected").val()
+          var vprocedimento = $('#procedimento').val();
+          var procedimento = $("#procedimento option:selected").text()
            $("#confirmar_agendamento").on("click",function(){
                $.ajax({
                    url: "../controladorCliente/buscandoPreco.php",
