@@ -177,7 +177,7 @@ tbBarbearia_Codigo-->
                    type: "POST",
                    dataType: "html",
                    data: "{procedimento : procedimento}",
-                   success: function(response){
+                   success: function(){
                        alert(procedimento);
                    }
 
