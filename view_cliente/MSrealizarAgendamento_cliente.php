@@ -168,12 +168,21 @@ tbBarbearia_Codigo-->
             console.log("deu certo")
            })
            */
+          var procedimento = $("#procedimento:selected").val()
            $("#confirmar_agendamento").on("click",function(){
                $.ajax({
-                   
-               })
+                   url: "../controladorCliente/buscandoPreco.php",
+                   method: 'POST',
+                   type: "POST",
+                   dataType: "html",
+                   data: "{procedimento : procedimento}",
+                   success: function(response){
+                       alert(procedimento);
+                   }
+
+               });
            });
-     })
+     });
         
 </script>
 </body>
