@@ -76,7 +76,7 @@ tbBarbearia_Codigo-->
                     <label for="inputEmail4" class="form-label">Procedimento</label>
                     <select id="inputState" name="procedimento" class="form-select" required>
                     <?php while($listandoProcedimento = mysqli_fetch_array($consultando)): ?>
-                    <option value="<?= $listandoProcedimento['Nome'] ?>"><?= $listandoProcedimento['Nome'] ?></option>
+                    <option value="<?= $listandoProcedimento['Codigo'] ?>"><?= $listandoProcedimento['Nome'] ?></option>
                     <?php endwhile ?>
                     </select>
                     <div class="valid-feedback">
@@ -189,9 +189,9 @@ tbBarbearia_Codigo-->
                $.ajax({
                     url: "../controladorCliente/buscandoPreco.php",
                     type: "POST",
-                    data: "idProcedimento = selectedValue",
+                    data: 'idProcedimento=' + selectedValue,
                     success: function(response){
-                        
+                        $("#preco").val(response);
                     }
                });
             });
