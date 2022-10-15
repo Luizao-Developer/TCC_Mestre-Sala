@@ -59,7 +59,7 @@ Hora-
 tbProcedimento_Codigo-
 
 tbBarbearia_Codigo-->
-            <form action="..\controladorCliente\MSrealizarAgendamento.php" class="row g-3 needs-validation" method="POST" novalidate>
+            <form action="../controladorCliente/MSrealizarAgendamento.php" class="row g-3 needs-validation" method="POST" novalidate>
                 <input type="hidden" name="CodigoCliente" value="<?= $_SESSION['Codigo'] ?>">
                 <input type="hidden" name="CodigoBarbearia" value="<?= $_POST['CodigoBarbearia']  ?>">
                 <div class="col-md-12">
@@ -150,36 +150,7 @@ tbBarbearia_Codigo-->
         })
         })()
      $(document).ready(function(){
-            /*
-            $("#botao").on("click",function(){
-                alert("ok")
-            });
-            
-           //onchange
-           $("#procedimento :selected").change(function(){
-               console.log("deu certo")
-           })
-           $("#hora").change(function(){
-            console.log("deu certo")
-           })
-           */
-          /*
-          var vprocedimento = $('#procedimento').val();
-          var procedimento = $("#procedimento option:selected").text()
-           $("#confirmar_agendamento").on("click",function(){
-               $.ajax({
-                   url: "../controladorCliente/buscandoPreco.php",
-                   method: 'POST',
-                   type: "POST",
-                   dataType: "html",
-                   data: "{procedimento : procedimento}",
-                   success: function(){
-                       alert(procedimento);
-                   }
-
-               });
-           });
-           */
+          
           $('#inputState').change(function () {
                 var selectedValue = $(this).val();
                 /*
