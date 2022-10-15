@@ -74,9 +74,9 @@ tbBarbearia_Codigo-->
                 </div>
                 <div class="col-md-6">
                     <label for="inputEmail4" class="form-label">Procedimento</label>
-                    <select id="inputState" name="procedimento" id="procedimento" class="form-select" required>
+                    <select id="inputState" name="procedimento" class="form-select" required>
                     <?php while($listandoProcedimento = mysqli_fetch_array($consultando)): ?>
-                    <option value=""><?= $listandoProcedimento['Nome'] ?></option>
+                    <option value="<?= $listandoProcedimento['Nome'] ?>"><?= $listandoProcedimento['Nome'] ?></option>
                     <?php endwhile ?>
                     </select>
                     <div class="valid-feedback">
@@ -109,15 +109,10 @@ tbBarbearia_Codigo-->
                 
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Preço</label>
-                    <input type="text" name="preco" class="form-control" id="inputPassword4" disabled>
+                    <input type="text" name="preco" class="form-control" id="preco" disabled>
                     
                 </div>
                 
-                
-                
-                <div class="col-12">
-                    <button type="button" class="btn btn-primary" name="confirmar_agendamento" id="confirmar_agendamento">Confirmar agendamento</button>
-                </div>
                 <div class="col-12">
                     <button type="submit" class="btn btn-primary" name="realiza_agendamento">Realizar agendamento</button>
                 </div>
@@ -168,6 +163,7 @@ tbBarbearia_Codigo-->
             console.log("deu certo")
            })
            */
+          /*
           var vprocedimento = $('#procedimento').val();
           var procedimento = $("#procedimento option:selected").text()
            $("#confirmar_agendamento").on("click",function(){
@@ -183,6 +179,22 @@ tbBarbearia_Codigo-->
 
                });
            });
+           */
+          $('#inputState').change(function () {
+                var selectedValue = $(this).val();
+                /*
+                console.log(selectedValue);
+                alert(selectedValue);
+                */
+               $.ajax({
+                    url: "../controladorCliente/buscandoPreco.php",
+                    type: "POST",
+                    data: "idProcedimento = selectedValue",
+                    success: function(response){
+                        
+                    }
+               });
+            });
      });
         
 </script>
