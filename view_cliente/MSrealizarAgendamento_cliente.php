@@ -59,17 +59,17 @@ Hora-
 tbProcedimento_Codigo-
 
 tbBarbearia_Codigo-->
-            <form action="../controladorCliente/MSrealizarAgendamento.php" class="row g-3 needs-validation" method="POST" novalidate>
+            <form action="../controladorCliente/MSrealizarAgendamento.php" method="POST" class="row g-3 needs-validation"  novalidate>
                 <input type="hidden" name="CodigoCliente" value="<?= $_SESSION['Codigo'] ?>">
                 <input type="hidden" name="CodigoBarbearia" value="<?= $_POST['CodigoBarbearia']  ?>">
                 <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Barbearia</label>
-                    <input type="text" name="barbearia" class="form-control" id="inputEmail4" value="<?= $mostrandoBarbearia['NomeBarbearia'] ?>" disabled>
+                    <input type="text" name="barbearia" class="form-control" id="inputEmail4" value="<?= $mostrandoBarbearia['NomeBarbearia'] ?>" >
                    
                 </div>
                 <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Cliente</label>
-                    <input type="text" name="cliente" class="form-control" id="inputEmail4" value="<?= $_SESSION['Nome'] ?>" disabled>
+                    <input type="text" name="cliente" class="form-control" id="inputEmail4" value="<?= $_SESSION['Nome'] ?>" >
                    
                 </div>
                 <div class="col-md-6">
@@ -109,7 +109,7 @@ tbBarbearia_Codigo-->
                 
                 <div class="col-md-6">
                     <label for="inputPassword4" class="form-label">Preço</label>
-                    <input type="text" name="preco" class="form-control" id="preco" disabled>
+                    <input type="text" name="preco" class="form-control" id="preco" >
                     
                 </div>
                 
