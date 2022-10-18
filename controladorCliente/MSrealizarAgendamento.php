@@ -21,7 +21,10 @@ if(isset($_POST['realiza_agendamento'])){
 
         $result = mysqli_query($conexao, $sql);
 
+        header("location: ../view_cliente/MSagendamentos_cliente.php");
+
         
 }
+mysqli_close($conexao);
 
 

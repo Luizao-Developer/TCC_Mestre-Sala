@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14-Out-2022 às 03:19
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 17-Out-2022 às 20:53
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,15 +44,21 @@ CREATE TABLE `tbagendamento` (
   `StatusAgendamento` varchar(45) NOT NULL,
   `Barbearia` varchar(50) NOT NULL,
   `Cliente` varchar(50) NOT NULL,
-  `Servico` varchar(45) NOT NULL,
   `Preco` double NOT NULL,
   `Data_agendamento` varchar(45) NOT NULL,
   `Hora` varchar(45) NOT NULL,
   `tbProcedimento_Codigo` int(11) NOT NULL,
-  `tbFuncionarios_Codigo` int(45) NOT NULL,
   `tbCliente_Codigo` int(45) NOT NULL,
   `tbBarbearia_Codigo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tbagendamento`
+--
+
+INSERT INTO `tbagendamento` (`Codigo`, `StatusAgendamento`, `Barbearia`, `Cliente`, `Preco`, `Data_agendamento`, `Hora`, `tbProcedimento_Codigo`, `tbCliente_Codigo`, `tbBarbearia_Codigo`) VALUES
+(1, 'Agendado', 'Barbearia europa', 'Jubinicio', 20, '2022-10-16', '56', 36, 20, 14),
+(2, 'Agendado', 'Barbearia europa', 'Jubinicio', 20, '2022-10-16', '56', 36, 20, 14);
 
 -- --------------------------------------------------------
 
@@ -230,7 +236,6 @@ ALTER TABLE `tbadmin`
 ALTER TABLE `tbagendamento`
   ADD PRIMARY KEY (`Codigo`),
   ADD KEY `fk_tbAgendamento_tbProcedimento1` (`tbProcedimento_Codigo`),
-  ADD KEY `fk_tbAgendamento_tbFuncionarios1` (`tbFuncionarios_Codigo`),
   ADD KEY `fk_tbAgendamento_tbCliente1` (`tbCliente_Codigo`),
   ADD KEY `tbBarbearia_Codigo` (`tbBarbearia_Codigo`);
 
@@ -289,7 +294,7 @@ ALTER TABLE `tbadmin`
 -- AUTO_INCREMENT de tabela `tbagendamento`
 --
 ALTER TABLE `tbagendamento`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tbbarbearia`
