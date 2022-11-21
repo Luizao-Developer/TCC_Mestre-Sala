@@ -126,7 +126,7 @@
 
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Nome de usuário</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="nomeUsuario" id="nomeUsuario" required>
+                      <input type="text" class="form-control"  name="nomeUsuario" id="nomeUsuario" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -137,7 +137,7 @@
 
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Email</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="email" id="email" required>
+                      <input type="text" class="form-control" name="email" id="email" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -148,7 +148,7 @@
 
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip01" class="form-label">Telefone</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="telefone" required>
+                      <input type="text" class="form-control"  name="telefone" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -159,7 +159,7 @@
 
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip02" class="form-label">Data/nascimento</label>
-                      <input type="date" class="form-control" id="validationTooltip02" name="dataNascimento" required>
+                      <input type="date" class="form-control"  name="dataNascimento" id="dataNascimento" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -171,7 +171,7 @@
                       <label for="validationTooltipUsername" class="form-label">Endereço</label>
                       <div class="input-group has-validation">
                         
-                        <input type="text" class="form-control" id="validationTooltipUsername" aria-describedby="validationTooltipUsernamePrepend" name="endereco" required>
+                        <input type="text" class="form-control" aria-describedby="validationTooltipUsernamePrepend" name="endereco" required>
                         <div class="valid-tooltip">
                           Certo!
                         </div>
@@ -182,7 +182,7 @@
                     </div>
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">CEP</label>
-                      <input type="number" class="form-control" id="validationTooltip03" name="cep" id="cep" onchange="buscandoCEP()" required>
+                      <input type="text" class="form-control"  name="cep" id="cep" onchange="buscandoCEP()" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -192,7 +192,7 @@
                     </div>
                       <div class="col-md-20 position-relative">
                         <label for="validationTooltip03" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="validationTooltip03" name="cidade" required>
+                        <input type="text" class="form-control" name="cidade" id="cidade" required>
                         <div class="valid-tooltip">
                           Certo!
                         </div>
@@ -203,7 +203,7 @@
                     </div>
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip04" class="form-label">UF</label>
-                      <select class="form-select" id="validationTooltip04" name="uf" required>
+                      <select class="form-select"  name="uf" required>
                         <option selected disabled value="">Choose...</option>
                         <option>...</option>
                       </select>
@@ -217,7 +217,7 @@
                     
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">Senha de acesso</label>
-                      <input type="password" class="form-control" id="validationTooltip03" name="senhaDeAcesso" required>
+                      <input type="password" class="form-control" name="senhaDeAcesso" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -259,28 +259,61 @@
   <?php require_once("../componentes/rodape.php") ?>
 
 <script>
-  function buscandoCEP(){
-    alert("egertgerth")
-   
-    var cepi = document.getElementById("cep");
-    
-    var url = "http://viacep.com.br/ws/"+ cepi + "/json/";
+  
 
-   
-    alert(url)
-    $.ajax({
-      url: url,
-      type : "GET",
-      success: function(response){
-        alert("sucesso")
-      },
-      error: function(){
-        alert("Erro ao buscar cep!")
-      }
+  //Verificando duplicidade de Nome de usuário
+  $('#nomeUsuario').change(function(){
+      var apelido = $(this).val();
       
-    })
-    
-  }
+      $.ajax({
+        url : "../controladorCliente/duplicidadeNomeUsuario.php",
+        type : 'POST',
+        data : 'apelido=' + apelido,
+        success : function(response){   //MELHORAR
+         alert(response)
+        },
+        error : function(){
+          alert("Erro ao verificar nome de usuário");
+        }
+
+      })
+  })
+
+
+  //Verificando duplicidade de Email
+ $('#email').change(function(){
+   var email = $(this).val();
+
+   $.ajax({
+     url: "../controladorCliente/duplicidadeEmail.php",
+     type: 'POST',
+     data: 'email=' + email,
+     success : function(response){          //MELHORAR
+       alert(response);
+     },
+     error: function(){
+       alert("Email ao verificar email");
+     }
+   })
+ })
+
+  //Validando data de nascimento
+  $("#dataNascimento").change(function(){
+     var dn = $(this).val();
+
+     var dataAtual = new Date();
+
+     var dataNascimento = new Date(dn);   //VERIFICAR
+
+     if(dataNascimento > dataAtual){
+        alert("Data  de nascimento inválida")
+     }
+  })
+  
+
+  //Buscando CEP  do cliente
+  
+  
 
 </script>
 <script>
