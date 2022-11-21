@@ -43,29 +43,33 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
             
         </div>
         <!--Listagem dos agendamentos de cada cliente-->
-        <table class="table table-light  table-hover">
+        <table class="table table-dark  table-hover">
             <thead>
                 <tr>
-                <th scope="col">Status</th>
-                <th scope="col">Serviço</th>
-                <th scope="col">Preço</th>
-                <th scope="col">Data</th>
-                <th scope="col">Hora</th>
-                <th scope="col">Barbearia</th>
+                <th width="5%">Status</th>
+                <th width="10%">Serviço</th>
+                <th width="5%">Preço</th>
+                <th width="5%">Data</th>
+                <th width="5%">Hora</th>
+                <th width="10%">Barbearia</th>
+                
                 </tr>
             </thead>
-            
-            <tbody>
             <?php while($linha = mysqli_fetch_array($buscarBanco)) { ?>
+            <tbody>
+           
                 <tr>
-                <th></th>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td><?=  $linha['StatusAgendamento'] ?></td>
+                <td><?=  $linha['tbProcedimento_Codigo'] ?></td>
+                <td><?=  $linha['Preco']?></td>
+                <td><?=  $linha['Data_agendamento']?></td>
+                <td><?=  $linha['Hora'] ?></td>
+                <td><?=  $linha['Barbearia'] ?></td>
                 </tr>
-                <tr>
-            <?php } ?>
+                
             </tbody>
+            <?php } ?>
+
             </table>
         
 </div>

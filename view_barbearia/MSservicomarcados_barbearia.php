@@ -2,6 +2,18 @@
 
   require_once("../controladorBarbearia/MSsessao_barbearia.php");
 ?>
+<?php
+
+$conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
+
+$sql = "SELECT * FROM tbagendamento WHERE tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
+
+$buscaBanco = mysqli_query($conexao, $sql);
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -18,7 +30,45 @@
     <div class="espacamento">
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
-<div class="pg_principal container"></div>
+<div class="pg_principal container">
+<div class="alert alert-primary" role="alert">
+            <h4 class="alert-heading">Lista de Agendamentos</h4>
+            
+            
+            
+        </div>
+        <!--Listagem dos agendamentos de cada cliente-->
+        <table class="table table-dark  table-hover">
+            <thead>
+                <tr>
+                <th width="5%">Status</th>
+                <th width="5%">Cliente</th>
+                <th width="10%">Serviço</th>
+                <th width="5%">Preço</th>
+                <th width="5%">Data</th>
+                <th width="5%">Hora</th>
+        
+                
+                </tr>
+            </thead>
+            <?php while($linha = mysqli_fetch_array($buscaBanco)) { ?>
+            <tbody>
+           
+                <tr>
+                <td><?=  $linha['StatusAgendamento'] ?></td>
+                <td><?=  $linha['Cliente'] ?></td>
+                <td><?=  $linha['tbProcedimento_Codigo'] ?></td>
+                <td><?=  $linha['Preco']?></td>
+                <td><?=  $linha['Data_agendamento']?></td>
+                <td><?=  $linha['Hora'] ?></td>
+                </tr>
+                
+            </tbody>
+            <?php } ?>
+
+            </table>
+
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
 </body>

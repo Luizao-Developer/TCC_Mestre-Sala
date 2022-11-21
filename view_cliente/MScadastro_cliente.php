@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     
     <link rel="stylesheet" href="../cliente_arquivos_css/MScadastro_cliente.css">
+    <script src="../arquivos_jsCliente/MScadastro_cliente.js"></script>
     <title>Cadastre-se</title>
 </head>
 
@@ -125,7 +126,7 @@
 
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Nome de usuário</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="nomeUsuario" required>
+                      <input type="text" class="form-control" id="validationTooltip01" name="nomeUsuario" id="nomeUsuario" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -136,7 +137,7 @@
 
                     <div class="col-md-4 position-relative">
                       <label for="validationTooltip01" class="form-label">Email</label>
-                      <input type="text" class="form-control" id="validationTooltip01" name="email" required>
+                      <input type="text" class="form-control" id="validationTooltip01" name="email" id="email" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -181,7 +182,7 @@
                     </div>
                     <div class="col-md-20 position-relative">
                       <label for="validationTooltip03" class="form-label">CEP</label>
-                      <input type="text" class="form-control" id="validationTooltip03" name="cep" required>
+                      <input type="number" class="form-control" id="validationTooltip03" name="cep" id="cep" onchange="buscandoCEP()" required>
                       <div class="valid-tooltip">
                         Certo!
                       </div>
@@ -249,16 +250,44 @@
 
 </div>
   
-    <script src="../arquivos_js/MScadastro_cliente.js"></script>
+   
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     
   </body>
   <?php require_once("../componentes/rodape.php") ?>
+
 <script>
+  function buscandoCEP(){
+    alert("egertgerth")
+   
+    var cepi = document.getElementById("cep");
+    
+    var url = "http://viacep.com.br/ws/"+ cepi + "/json/";
+
+   
+    alert(url)
+    $.ajax({
+      url: url,
+      type : "GET",
+      success: function(response){
+        alert("sucesso")
+      },
+      error: function(){
+        alert("Erro ao buscar cep!")
+      }
+      
+    })
+    
+  }
+
+</script>
+<script>
+  
   (() => {
     'use strict'
-  
+    
    
     const forms = document.querySelectorAll('.needs-validation')
   
@@ -272,6 +301,17 @@
         form.classList.add('was-validated')
       }, false)
     })
-  })()
+    
+  })
+  ()
+ 
+  
+  
+
+    
+       
+
 </script>
+
+
 </html>
