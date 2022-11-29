@@ -67,7 +67,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
 </div>
 <div class="pg_principal container">
 
-                    <div class="alert alert-primary" role="alert">
+                    <div class="alert alert-primary" role="alert" id="card_info">
                     <h4 class="alert-heading">Lista de Barbearias</h4>
                     <p>Veja a que mais te agrada e se torne cliente agora mesmo!</p>
                     <hr>
@@ -79,20 +79,20 @@ $qtdBarbearias = mysqli_num_rows($resul);
         <div id="filtro">
             <div class="input-group mb-3">
             <form action="" class="row g-3 " method="post">
-                                <div class="col-md-4">
-                                <input type="text" class="form-control" name="nome_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome da barbearia">
+                                <div class="col-md-6">
+                                <input type="text" class="form-control" name="nome_barbearia" id="nome_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome da barbearia">
                                 </div> 
-                                <div class="col-md-4">            
+                                <div class="col-md-6">            
                                 <input type="text" class="form-control" name="cidade_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Cidade">
                                 </div>  
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                 <input type="text" class="form-control" name="email_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Email da barbearia">
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-6">
                                 <input type="text" class="form-control" name="nome_admin_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome Administrador">
                                 </div>
                             </div>
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-6">
                             <select class="form-select" aria-label="Default select example" name="status_barbearia">
                                 <option value="" selected>Escolha...</option>
                                 <option value="aberto">Aberto</option>
@@ -128,7 +128,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
                                 <h6><?= $mostraBarbearia['Status'] ?></h6>
                                 <form action="MSlistabarbearia_cliente.php" method="post">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $mostraBarbearia['CodigoBarbearia'] ?>">
-                                    <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
+                                    <button type="submit" name="ser_cliente" id="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
                                 </form>
 
                                 

@@ -9,7 +9,7 @@
 
     $consultaClientes = "SELECT * FROM tbcliente
                         INNER JOIN tbbarbearias_clientes
-                        ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
+                        ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.CodigoCliente";
     $consultandoNoBanco = mysqli_query($conexao, $consultaClientes);
     
 
@@ -42,8 +42,14 @@
 
 </div>
 <div class="pg_principal container">
+      <div class="alert alert-primary" role="alert" id="alerta">
+           <h1>Seu(s) cliente(s):</h1>
+           <a href="../controladorBarbearia/gerarPDFclientes.php">
+                          <button class="btn btn-primary" id="imprimir"><i class="fas fa-file-alt"></i> Imprimir</button>
+    </a>
+       </div>
 
-    <h1>Seu(s) cliente(s):</h1>
+   
     <table class="table table-dark table-striped">
   <thead>
     <tr>

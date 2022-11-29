@@ -65,7 +65,7 @@ $linha = mysqli_fetch_array($result);
             <form action="../controladorCliente/MSatualizaInfo_cliente.php" method="post" enctype="multipart/form-data">
 
 
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa2">
+            <button type="button" class="btn btn-primary" id="info" data-bs-toggle="modal" data-bs-target="#exampleModa2">
             <i class="fas fa-pen"></i>
             </button>
             

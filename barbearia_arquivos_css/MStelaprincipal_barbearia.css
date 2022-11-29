@@ -4,13 +4,19 @@
 
 }
 body{
-    background: darkblue;
+    background: rgb(31, 30, 30);
+    
 }
 .card{
+    background: black;
     border: none;
     margin-top: 50px;
     margin-left: 10px;
     box-shadow: 1px 1px 30px 6px black;
+
+}
+.card h5{
+    color: orange;
 }
 .espacamento{
     width: 100%;
@@ -20,9 +26,53 @@ body{
 .pg_principal{
     width: 100%;
     height: 140vh;
-    background-color: darkred;
+    background-color: rgb(31, 30, 30);
     padding-top: 30px;
 }
+#info_barbearia{
+    border: solid 1px orange;
+    background: transparent;
+    color:orange;
+}
+#tabela_informacoes h5{
+    color: white;
+}
+#fecha_modal{
+    color: white;
+    font: large;
+}
+.modal-header{
+    background: black;
+    color: white;
+}
+.modal-body{
+    background: black;
+}
+.modal-body label{
+    color: whitesmoke;
+}
+.modal-body input{
+    border: none;
+    background: transparent;
+    border-bottom: solid 1px red;
+    border-radius: 0;
+    color: orange;
+}
+.modal-footer{
+    background: black;
+}
+.modal-footer #salvar{
+    padding: 10px 40px;
+    color: white;
+    background: darkred;
+    font: large;
+    border: none;
+    transition: all .2s;
+}
+.modal-footer #salvar:hover{
+    box-shadow: 1px 1px 40px 10px darkred;
+}
+
 ul a{
     border-bottom: solid transparent;
     margin: 10px 5px;

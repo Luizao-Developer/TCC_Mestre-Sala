@@ -33,7 +33,7 @@
                     <label for="floatingPassword"><i class="fas fa-key"></i> Senha</label>
                 </div>
                 <div class="links">
-                    <p><a href="">Esqueceu sua senha ?</a></p>
+                    <p><a href="esqueceuSenha.php">Esqueceu sua senha ?</a></p>
                 </div>
                 <div class="botoes">
                     <p>

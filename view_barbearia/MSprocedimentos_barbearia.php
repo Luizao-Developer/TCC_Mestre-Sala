@@ -6,7 +6,10 @@
 
 
   $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
-
+ 
+  $barbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
+  $reBar = mysqli_query($conexao, $barbearia);
+  $linhaBar = mysqli_fetch_array($reBar);
 
   $sqlProcedimento = "SELECT * FROM tbprocedimento WHERE tbBarbearia_Codigo =  {$_SESSION['CodigoBarbearia']}";
 
@@ -42,13 +45,28 @@
 </div>
 <div class="pg_principal container">
 
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-info" role="alert" id="alerta">
                     <h4 class="alert-heading">Cadastre um novo procedimento em sua barbearia</h4>
                     <p>Cadastre agora mesmo um novo procedimento que sua barbearia pode oferecer.</p>
                     <hr>
-                    <a href="MScadProcedimento.php" >
-                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Novo procedimento</button>
-                    </a>
+                    <div class="container text-left">
+                          <div class="row row-cols-auto">
+                                <div class="col">
+                                    <a href="MScadProcedimento.php" >
+                                    <button class="btn btn-primary" id="cadProcedimento"><i class="fas fa-user-plus"></i> Novo procedimento</button>
+                                    </a>
+                                </div>
+                                <div class="col">
+                                <form action="../controladorBarbearia/gerarPDFprocedimentos.php" method="post">
+                                    <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                    <button type="submit" id="imprimir" class="btn btn-primary" href="../controladorBarbearia/gerarPDFprocedimentos.php"><i class="fas fa-file-alt"></i>  Imprimir</button>
+                                </form>
+                                </div>
+                          </div>
+                          </div>
+                    
+                   
+                    
             </div>
             <?php if(isset($_GET['mensagem'])) { ?>
                         <div class="alert alert-success" role="alert">
@@ -77,7 +95,7 @@
                     <tr>
                         
                         <td><?= $linha['StatusProcedimento'] ?></td>
-                        <td><?= $linha['Nome'] ?></td>
+                        <td><?= $linha['NomeProcedimento'] ?></td>
                         <td><?= $linha['Descricao']?></td>
                         <td><?= $linha['Valor'] ?></td>
                         <td><?= $linha['Tempo_estimado'] ?></td>
@@ -89,7 +107,7 @@
                         </form>
                         <form action="MSprocedimentos_barbearia.php" method="post">
                             <input type="hidden" name="codigo" value="<?= $linha['Codigo']?>">
-                            <button type="submit" class="btn btn-danger" name="excluir"><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" onclick="alert('Deseja excluir este procedimento ?')" name="excluir"><i class="fas fa-trash-alt"></i></button>
                         </form>
                         </td>
                     </tr>

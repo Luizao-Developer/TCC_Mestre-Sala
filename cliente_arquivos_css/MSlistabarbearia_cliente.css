@@ -4,7 +4,7 @@
 
 }
 body{
-    background: darkred;
+    background: rgb(31, 30, 30);
 }
 #card_barbearia{
     margin: 10px 0px;
@@ -19,9 +19,18 @@ body{
 .pg_principal{
     width: 100%;
     padding: 20px;
-    background-color: darkred;
+    background-color: rgb(31, 30, 30);
     padding-top: 30px;
 }
+#card_info{
+    border: solid 1px orange;
+    background: transparent;
+    color: orange;
+}
+#card_info h5{
+    color: white;
+}
+
 ul a{
     border-bottom: solid transparent;
     margin: 10px 5px;
@@ -68,7 +77,27 @@ footer .nav{
     margin: 10px 10px;
     border-radius: 5px;
 }
+#botao #filtrar{
+    background: blue;
+    border: none;
+    padding: 10px 50px;
+    border-radius: 5px;
+    color: white;
+    
+}
 #area_cards{
     width: 100%;
     height: 380vh;
+}
+#card_barbearia{
+    background: black;
+    box-shadow:  1px 1px 60px 10px black;
+}
+#card_barbearia, h5 h6{
+    color: white;
+}
+#card_barbearia form #ser_cliente{
+    background-color: darkred;
+    border: none;
+    box-shadow: 1px 1px 60px 10px darkred;
 }

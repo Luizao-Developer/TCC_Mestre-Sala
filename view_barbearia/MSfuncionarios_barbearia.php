@@ -6,6 +6,10 @@ require_once("../controladorBarbearia/MSsessao_barbearia.php");
  
   $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+  //consulta barbearia para futuros codigos
+  $barbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
+  $reBar = mysqli_query($conexao, $barbearia);
+  $linhaBar = mysqli_fetch_array($reBar);
 
     //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
   $sqlFuncionarios  = "select * from tbfuncionarios 
@@ -67,13 +71,48 @@ if(isset($_POST['excluir'])){
   
     <h1>Funcionários da barbearia: </h1>
     <!--Tabela de funcionarios-->
-            <div class="alert alert-info" role="alert">
+            <div class="alert alert-info" role="alert" id="alerta">
                     <h4 class="alert-heading">Cadastre um funcionário novo agora mesmo!</h4>
                     <p>Aqui é possivel cadastrar novos funcionários além de ter acesso a uma informação detalhada sobre estes de forma rápida e fácil, também é possivel fazer o controle de todos os contratados.</p>
                     <hr>
-                    <a href="MScadastrarFuncionario.php" >
-                    <button class="btn btn-primary"><i class="fas fa-user-plus"></i> Novo Funcionário</button>
-                    </a>
+                    
+                    <div class="container text-left">
+                          <div class="row row-cols-auto">
+                            <div class="col ">
+                              
+                                    <a href="MScadastrarFuncionario.php" >
+                                      <button class="btn btn-primary" id="novo_funcionario"><i class="fas fa-user-plus"></i> Novo Funcionário</button>
+                                    </a>
+                    
+                            </div>
+                            <div class="col">
+
+                                    <div class="dropdown">
+                                        <button id="imprimir" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="fas fa-file-alt"></i> Imprimir
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          <form action="../controladorBarbearia/gerarPDFfuncionarios.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit" href="../controladorBarbearia/gerarPDFfuncionarios.php">Funcionários trabalhando</button></li>
+                                          </form>
+                                          <form action="../controladorBarbearia/gerarPDFfuncionariosParados.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit" href="../controladorBarbearia/gerarPDFfuncionariosParados.php">Funcionários em licença/Não trabalhando</button></li>
+                                          </form>
+                                        
+                                        </ul>
+                                      </div>
+                            </div>
+                            
+                          </div>
+                        </div>
+
+
+
+
+                    
+                    
             </div>
             <?php if(isset($_GET['msgNovoFuncionario'])) { ?>
                       <div class="alert alert-info" role="alert">
@@ -97,7 +136,7 @@ if(isset($_POST['excluir'])){
             <?php while($linha = mysqli_fetch_array($result)){ ?>
                       <div class="card" style="width: 18rem; margin: 0 50px ;">
                             <div class="card-body">
-                                  <div class="alert alert-info" role="alert">
+                                  <div class="alert alert-info" role="alert" id="nome_funcionario">
                                   <h5 class="card-title"><i class="fas fa-user"></i> <?= $linha['Nome'] ?></h5>
                                   </div>
                               
@@ -113,6 +152,8 @@ if(isset($_POST['excluir'])){
                               
                               <p class="card-text"></p>
                               <p class="card-text"><i class="fas fa-file-signature"></i> PIS-PASEP: <?= $linha['PIS_PASEP'] ?></p>
+                              <p class="card-text"><i class="fas fa-file-signature"></i> RG: <?= $linha['RG'] ?></p>
+                              <p class="card-text"><i class="fas fa-file-signature"></i> CPF: <?= $linha['CPF'] ?></p>
                               <p class="card-text"><i class="fas fa-sun"></i> Data de nascimento <?= $linha['Data_nascimento'] ?></p>
                               <p class="card-text">Trabalhando desde <?= $linha['Data_contratacao'] ?></p>
                               <p class="card-text"><?= $linha['Status'] ?></p>
@@ -122,13 +163,13 @@ if(isset($_POST['excluir'])){
                                 <form action="MSalterafuncionario.php" method="post">
                                   <input type="hidden" name="codigo" value= "<?= $linha['Codigo'] ?>">
                                   <a href="MSalterafuncionario.php">
-                                  <button  class="btn btn-primary" style="width:250px;"><i class="fas fa-pen"></i></button>
+                                  <button  class="btn btn-primary" style="width:250px;background:blue; border:none;"><i class="fas fa-pen"></i></button>
                                   </a>
                                   </form>
                                   <!-- Excluir -->
                                   <form action="MSfuncionarios_barbearia.php" method="post">
                                     <input type="hidden" name="Codigo" value="<?= $linha['Codigo'] ?>">
-                                        <button type="submit" style="width:250px;" class="btn btn-danger" name="excluir"><i class="fas fa-trash-alt"></i></button>
+                                        <button type="submit" style="width:250px; background:red; border:none;" class="btn btn-danger" onclick="alert('Deseja excluir este funcionário ?') "name="excluir"><i class="fas fa-trash-alt"></i></button>
                                   </form>
                               </div>
 

@@ -6,7 +6,15 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-$sqlAgendamento = "SELECT * FROM tbagendamento WHERE tbCliente_Codigo = {$_SESSION['Codigo']}";
+//$sqlAgendamento = "SELECT * FROM tbagendamento WHERE tbCliente_Codigo = {$_SESSION['Codigo']}";
+/*
+$sqlClientes = "SELECT * FROM tbcliente
+                    INNER JOIN tbbarbearias_clientes 
+                    ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
+ */
+$sqlAgendamento = "SELECT * FROM tbprocedimento
+INNER JOIN tbagendamento ON tbagendamento.tbProcedimento_Codigo = tbprocedimento.Codigo
+INNER JOIN tbcliente on tbcliente.CodigoCliente = tbagendamento.tbCliente_Codigo";
 
 $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
 
@@ -36,7 +44,7 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
 <div class="pg_principal container">
 
        <!--Informações e realização de agendamento-->
-       <div class="alert alert-primary" role="alert">
+       <div class="alert alert-primary" role="alert" id="card_info">
             <h4 class="alert-heading">Lista de Agendamentos</h4>
             
             
@@ -60,7 +68,7 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
            
                 <tr>
                 <td><?=  $linha['StatusAgendamento'] ?></td>
-                <td><?=  $linha['tbProcedimento_Codigo'] ?></td>
+                <td><?=  $linha['NomeProcedimento'] ?></td>
                 <td><?=  $linha['Preco']?></td>
                 <td><?=  $linha['Data_agendamento']?></td>
                 <td><?=  $linha['Hora'] ?></td>

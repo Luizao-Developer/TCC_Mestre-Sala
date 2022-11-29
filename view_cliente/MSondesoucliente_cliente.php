@@ -5,13 +5,31 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 <?php 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
+
+//Selecionar cliente 
+$sqlCliente = "SELECT * FROM tbcliente WHERE CodigoCliente = {$_SESSION['CodigoCliente']}";
+
+$conCliente = mysqli_query($conexao, $sqlCliente);
+$listCliente = mysqli_fetch_array($conCliente);
+
+
 $sql = "SELECT * FROM tbbarbearia
             INNER JOIN tbbarbearias_clientes 
-            ON tbbarbearias_clientes.Codigo_Barbearia = tbbarbearia.CodigoBarbearia";
+            ON tbbarbearias_clientes.Codigo_Barbearia = tbbarbearia.CodigoBarbearia ORDER BY ASC";
 
         $consultando = mysqli_query($conexao, $sql);
 
+//Excluindo barbearia da lista
+if(isset($_POST['deixar_de_ser_cliente'])){
+    $CodigoBarbearia = $_POST['CodigoBarbearia'];
+    $CodigoCliente = $_POST['CodigoCliente'];
 
+    $sqlDel = "DELETE FROM tbbarbearias_clientes 
+    WHERE Codigo_Cliente = {$CodigoCliente} AND Codigo_Barbearia = {$CodigoBarbearia}";
+
+    $resultDel = mysqli_query($conexao, $sqlDel);
+
+}
 
 
 ?>
@@ -34,8 +52,10 @@ $sql = "SELECT * FROM tbbarbearia
 
 </div>
 <div class="pg_principal container">
-
+       <div class="alert alert-primary" role="alert" id="alerta">
         <h1>Cliente na(s) seguinte(s) barbearia(s):</h1>
+           
+        </div>
         <div class="container text-center" id="area_cards">
         <div class="row row-cols-3">
              <?php while($listando = mysqli_fetch_array($consultando)){ ?>
@@ -48,9 +68,33 @@ $sql = "SELECT * FROM tbbarbearia
                                 
                                 <p class="card-text"><?= $listando['nomeAdmin'] ?></p>
                                 <h6><?= $listando['Status'] ?></h6>
+
+                                 <!--Informações sobre a barbearia-->
+                                 <form action="MSinfoBarbearia.php" method="post">
+                                    <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia'] ?>">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-info"></i> Informações</button>
+                                 </form>
+
+
+
+
+
+
+
+
+
+
+
+
+                                <hr>
                                 <form action="MSrealizarAgendamento_cliente.php" method="post">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia'] ?>">
-                                    <button type="submit" name="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
+                                    <button type="submit" name="ser_cliente" id="ser_cliente" class="btn btn-primary">Realizar agendamento</button>
+                                </form>
+                                <form action="MSondesoucliente.php">
+                                    <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia']  ?>">
+                                    <input type="hidden" name="CodigoCliente" value="<?=  $listCliente['Codigo']?>">
+                                    <button type="submit" class="btn btn-danger" name="deixar_de_ser_cliente" id="deixar_de_ser_cliente">Não ser mais cliente</button>
                                 </form>
 
                                 

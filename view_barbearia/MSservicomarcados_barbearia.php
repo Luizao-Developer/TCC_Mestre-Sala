@@ -6,11 +6,28 @@
 
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
-$sql = "SELECT * FROM tbagendamento WHERE tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
+$barbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
+$reBar = mysqli_query($conexao, $barbearia);
+$linhaBar = mysqli_fetch_array($reBar);
+
+$sql ="SELECT * FROM tbprocedimento
+INNER JOIN tbagendamento ON tbagendamento.tbProcedimento_Codigo = tbprocedimento.Codigo
+INNER JOIN tbcliente on tbcliente.CodigoCliente = tbagendamento.tbCliente_Codigo
+INNER JOIN tbbarbearia on tbbarbearia.CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
+
 
 $buscaBanco = mysqli_query($conexao, $sql);
 
 
+//botoes
+if(isset($_POST['edit_agendamento'])){
+    $codAgendamento = $_POST['codAgendamento'];
+
+    $deleteAgendamento = "DELETE FROM tbagendamento WHERE CodigoAgendamento = {$codAgendamento}";
+    $resul = mysqli_query($conexao, $deleteAgendamento);
+
+    $deletouAgendamento = "Agendamento foi deletado com sucesso!";
+}
 
 
 ?>
@@ -26,17 +43,35 @@ $buscaBanco = mysqli_query($conexao, $sql);
     <title>Mestre-Sala</title>
 </head>
 <body>
-    <?php require_once("../componentes/menuBarbearia.php"); ?>
+<?php require_once("../componentes/menuBarbearia.php"); ?>
+
     <div class="espacamento">
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
 <div class="pg_principal container">
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-primary" role="alert" id="alerta">
             <h4 class="alert-heading">Lista de Agendamentos</h4>
             
             
+            <form action="../controladorBarbearia/gerarPDFservicosMarcados.php" method="post">
+                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                    <button class="btn btn-primary" id="imprimir" type="submit"><i class="fas fa-file-alt"></i> Imprimir</button>
+
+            </form>
+            
             
         </div>
+
+        <!--Mensagem exclusão de agendamento-->
+        <?php if(isset($deletouAgendamento)): ?>
+                <div class="alert alert-primary" role="alert" id="info_del_agenda">
+                    
+                    <h3><?php echo $deletouAgendamento ?> <i class="fas fa-times"></i></h3>
+                    </div>
+        <?php endif ?>
+
+
+
         <!--Listagem dos agendamentos de cada cliente-->
         <table class="table table-dark  table-hover">
             <thead>
@@ -47,7 +82,8 @@ $buscaBanco = mysqli_query($conexao, $sql);
                 <th width="5%">Preço</th>
                 <th width="5%">Data</th>
                 <th width="5%">Hora</th>
-        
+                <th width="5%">*</th>
+                <th width="5%">*</th>
                 
                 </tr>
             </thead>
@@ -55,12 +91,85 @@ $buscaBanco = mysqli_query($conexao, $sql);
             <tbody>
            
                 <tr>
-                <td><?=  $linha['StatusAgendamento'] ?></td>
+                <td>
+                    <!--Verificando status do agendamento e fornecendo uma cor para cada tipo de situação-->
+                <?php if($linha['StatusAgendamento'] == 'Agendado'): ?>
+                    <div id="agendado" style="background:blue; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Concluido/Pago'): ?>
+                    <div id="agendado" style="background:green; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Concluido/Em débito'): ?>
+                    <div id="agendado" style="background:yellow;color:black; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Cliente faltou'): ?>
+                    <div id="agendado" style="background:red;color:white; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Cancelado'): ?>
+                    <div id="agendado" style="background:darkviolet;color:white; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+
+
+                </td>
                 <td><?=  $linha['Cliente'] ?></td>
-                <td><?=  $linha['tbProcedimento_Codigo'] ?></td>
+                <td><?=  $linha['NomeProcedimento'] ?></td>
                 <td><?=  $linha['Preco']?></td>
                 <td><?=  $linha['Data_agendamento']?></td>
                 <td><?=  $linha['Hora'] ?></td>
+
+                <!--Botão de alteração-->
+            <td>
+              
+                <button type="button" id="alter_agendamento" style="background:blue;border:none;" name="alter_agendamento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa5">
+                <i class="fas fa-pen"></i>
+                </button>
+
+                
+                
+                
+                
+                
+               
+            </td>
+            <!--Botão de exclusão de acordo o status-->
+            <td>
+            <?php if($linha['StatusAgendamento'] == 'Agendado'): ?>
+                    <form action="MSservicomarcados_barbearia.php" method="post">
+                        <input type="hidden" name="codAgendamento" value="<?= $linha['CodigoAgendamento'] ?>">
+                        <button type="submit"  style="background: red;border:none;" id="edit_agendamento" name="edit_agendamento" class="btn btn-primary" onclick="alert('Deseja excluir este agendamento ?')" data-bs-toggle="modal" disabled >
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </form>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Concluido/Em débito'): ?>
+                    <form action="MSservicomarcados_barbearia.php" method="post">
+                        <input type="hidden" name="codAgendamento" value="<?= $linha['CodigoAgendamento'] ?>">
+                        <button type="submit"  style="background: red;border:none;" id="edit_agendamento" name="edit_agendamento" class="btn btn-primary" onclick="alert('Deseja excluir este agendamento ?')" data-bs-toggle="modal" disabled>
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </form>
+                <?php endif ?>
+
+                <?php if($linha['StatusAgendamento'] != 'Agendado'){ ?>
+                    <form action="MSservicomarcados_barbearia.php" method="post">
+                        <input type="hidden" name="codAgendamento" value="<?= $linha['CodigoAgendamento'] ?>">
+                        <button type="submit" style="background: red;border:none;" id="edit_agendamento" name="edit_agendamento" class="btn btn-primary" onclick="alert('Deseja excluir este agendamento ?')" data-bs-toggle="modal" >
+                        <i class="fas fa-times"></i>
+                        </button>
+                    </form>
+                <?php } ?>
+            </td>
+                
                 </tr>
                 
             </tbody>

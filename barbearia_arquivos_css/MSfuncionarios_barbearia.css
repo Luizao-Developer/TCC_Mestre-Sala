@@ -5,7 +5,35 @@
 }
 body{
     width:100%;
-    background: darkred;
+    background: rgb(31, 30, 30);
+    
+}
+.card{
+    background: black;
+    border: none;
+    margin-top: 50px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 30px 6px black;
+}
+.card #nome_funcionario{
+    border: solid 1px orange;
+    color: orange;
+    background: transparent;
+}
+#alerta{
+    background: transparent;
+    color: orange;
+    border: solid 1px orange;
+}
+#novo_funcionario{
+    background: blue;
+    color: white;
+    border: none;
+}
+#imprimir{
+     background: blue;
+     color: white;
+     border: none;
 }
 .espacamento{
     width: 100%;
@@ -15,7 +43,7 @@ body{
 .pg_principal{
     width: 100%;
     padding: 20px;
-    background-color: darkred;
+    background-color: rgb(31, 30, 30);
     padding-top: 30px;
 }
 .pg_principal h1{

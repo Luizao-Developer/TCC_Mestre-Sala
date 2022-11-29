@@ -76,7 +76,7 @@ tbBarbearia_Codigo-->
                     <label for="inputEmail4" class="form-label">Procedimento</label>
                     <select id="inputState" name="procedimento" class="form-select" required>
                     <?php while($listandoProcedimento = mysqli_fetch_array($consultando)): ?>
-                    <option value="<?= $listandoProcedimento['Codigo'] ?>"><?= $listandoProcedimento['Nome'] ?></option>
+                    <option value="<?= $listandoProcedimento['Codigo'] ?>"><?= $listandoProcedimento['NomeProcedimento'] ?></option>
                     <?php endwhile ?>
                     </select>
                     <div class="valid-feedback">

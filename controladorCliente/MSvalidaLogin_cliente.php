@@ -23,13 +23,13 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
 
     // && password_verify($_POST['senha'], $nome['Senha_de_acesso'])
 
-    if($totalDeRegistros == 1){
+    if($totalDeRegistros == 1 ){
 
         //Inicia a sessão senão tiver nenhuma ativa
-        if(!isset($_SESSION['Codigo'])){
+        if(!isset($_SESSION['CodigoCliente'])){
         session_start();
         }
-        $_SESSION['Codigo']    = $nome['Codigo'];
+        $_SESSION['CodigoCliente']    = $nome['CodigoCliente'];
         $_SESSION['Telefone'] = $nome['Telefone'];
         $_SESSION['Nome']  = $nome['Nome'];
         $_SESSION['Endereco'] = $nome['Endereco'];
@@ -47,8 +47,8 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         die();
 
     }else{
-        $_GET = "Usuario ou senha inválidos";
-       echo "Deu ruim";
+        //$_GET = "Usuario ou senha inválidos";
+       
        $mensagem = "Email ou senha inválidos";
         header("location: ../view_cliente/MSlogin_cliente.php?mensagem={$mensagem}");
         die();

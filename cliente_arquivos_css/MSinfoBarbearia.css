@@ -1,0 +1,80 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background: rgb(31, 30, 30);
+
+}
+.card{
+    border: none;
+    background: black;
+    color: white;
+    margin-top: 50px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 40px 10px black;
+}
+.espacamento{
+    width: 100%;
+    height: 100px;
+    background-image: url(../imagens/barber-1453064_1920.jpg);
+}
+
+.pg_principal{
+    width: 100%;
+    height: 140vh;
+    background: rgb(31, 30, 30);
+
+    padding-top: 30px;
+}
+.pg_principal h1{
+    color:white;
+}
+
+ul a{
+    border-bottom: solid transparent;
+    margin: 10px 5px;
+    padding: 1em;
+    padding-left: 100px;
+    text-align: center;
+}
+ul a:hover{
+    border-bottom: solid darkred;
+    color: white;
+    transition: all .5s;
+}
+#contaBotao{
+    background: darkred;
+    border: none;
+    border-radius: 5px;
+    font-size: larger;
+
+}
+
+.card p{
+    color: gray;
+}
+
+footer .nav{
+    background: black;
+    padding: 20px;
+    color: white;
+}
+.nav li img{
+    border-radius: 50%;
+}
+#alerta{
+    border: solid 1px orange;
+    color: orange;
+    background: transparent;
+}
+#alerta h1{
+    color: orange;
+}
+.img img{
+    width: 300px;
+    height: 300px;
+    margin-left: 400px;
+    border-radius: 50%;
+}

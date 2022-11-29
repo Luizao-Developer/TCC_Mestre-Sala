@@ -33,7 +33,7 @@ if($qtdFuncionariosLicenca == 0){
 
 $sqlClientes = "SELECT * FROM tbcliente
                     INNER JOIN tbbarbearias_clientes 
-                    ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
+                    ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.CodigoCliente";
 
 $resultCliente = mysqli_query($conexao, $sqlClientes);
 $qtdClientes = mysqli_num_rows($resultCliente);
@@ -45,6 +45,11 @@ if($qtdClientes == 0){
 }else{
     $msgQtdCliente = $qtdClientes ;
 }
+
+//Consulta a quantidade de serviços marcados 
+$sqlAgendamento = "SELECT * FROM tbagendamento WHERE tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
+$reAg = mysqli_query($conexao, $sqlAgendamento);
+$quantAgendamentos = mysqli_num_rows($reAg);
 
 
 $sqlBarbearia = "SELECT * FROM tbbarbearia WHERE CodigoBarbearia = {$_SESSION['CodigoBarbearia']}";
@@ -79,18 +84,22 @@ $buscaBar = mysqli_fetch_array($ba);
     <div class="position-absolute" id="tabela_informacoes">
             <div class="card" style="width: 48rem;">
             <div class="card-body">
-                <div class="alert alert-info" role="alert">
+                <div class="alert alert-info" role="alert" id="info_barbearia">
                         <h2>Minha barbearia: </h2>
 
                 </div>
-                <ul class="list-group list-group-flush">
+                
                     <li class="list-group-item"> <h5><i class="fas fa-address-card"></i> Esta barbearia possui <?= $qtdFuncionarios ?> funcionários </h5>
+                    <hr>
                     <p>
                     <i class="fas fa-file-signature"></i>  <?= $mensagemLicenca ?> funcionário(s) permanece(m) sob licença
                     </p></li>
+                    <hr>
                     <li class="list-group-item"><h5><i class="fas fa-users"></i> Esta barbearia possui <?= $qtdClientes , " cliente(s)" ?> </h5></li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
+                     <hr>
+                    <li class="list-group-item"><h5><i class="fas fa-calendar-alt"></i> Esta barbearia possui <?= $quantAgendamentos , " serviço(s) marcado(s)" ?> </h5></li>
+                   
+                
             </div>
     </div>
     </div>
@@ -126,8 +135,8 @@ $buscaBar = mysqli_fetch_array($ba);
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Altere suas informações!</h5>
+                    <button type="button" class="btn-close" id="fecha_modal" data-bs-dismiss="modal" aria-label="Close">X</button>
                 </div>
                 <!--Forms para editar as informações-->
    
@@ -177,7 +186,7 @@ $buscaBar = mysqli_fetch_array($ba);
                     <div class="row g-3">
                         <div class="col">
                             <label for="">UF</label>
-                            <input type="text" class="form-control"  aria-label="First name" name="uf" value="<?=$_SESSION['UF'] ?>">
+                            <input type="text" class="form-control"  aria-label="First name" name="uf" value="<?=$_SESSION['Estado'] ?>">
                         </div>
                         <div class="col">
                             <label for="">CEP</label>
@@ -233,7 +242,7 @@ $buscaBar = mysqli_fetch_array($ba);
                 </div>
                 <div class="modal-footer">
                     
-                    <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
+                    <button type="submit" class="btn " id="salvar" name="salvar">Salvar</button>
                 </div>
                 </div>
             </div>

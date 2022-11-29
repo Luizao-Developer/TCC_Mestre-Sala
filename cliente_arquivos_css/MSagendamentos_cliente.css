@@ -4,7 +4,7 @@
 
 }
 body{
-    background: darkred;
+    background: rgb(31, 30, 30);
 }
 .card{
     border: none;
@@ -21,8 +21,13 @@ body{
 .pg_principal{
     width: 100%;
     height: 140vh;
-    background-color: darkred;
+    background-color: rgb(31, 30, 30);
     padding-top: 30px;
+}
+#card_info{
+    border: solid 1px orange;
+    background: transparent;
+    color: orange;
 }
 ul a{
     border-bottom: solid transparent;
