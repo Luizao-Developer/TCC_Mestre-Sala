@@ -6,7 +6,7 @@ require_once("../controladorCliente/MSsessao_cliente.php");
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
 
-$sqlCliente = "SELECT * FROM tbcliente WHERE Codigo = {$_SESSION['Codigo']}";
+$sqlCliente = "SELECT * FROM tbcliente WHERE CodigoCliente = {$_SESSION['CodigoCliente']}";
 
 $result = mysqli_query($conexao, $sqlCliente);
 $linha = mysqli_fetch_array($result);
@@ -43,7 +43,7 @@ $linha = mysqli_fetch_array($result);
 
 <div id="recebeUsuario">
 <h1>Seja bem vindo <?= $_SESSION['Nome_de_usuario']   ?></h1>
-<p> <?php var_dump($_SESSION) ?></p>
+<p> <?php var_dump($_SESSION)?></p>
 </div>
 
 

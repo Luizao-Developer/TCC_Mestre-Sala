@@ -50,3 +50,16 @@ footer .nav{
 .nav li img{
     border-radius: 50%;
 }
+ul a{
+    border-bottom: solid transparent;
+    margin: 10px 5px;
+    padding: 1em;
+    padding-left: 100px;
+    padding: 0 50px;
+    text-align: center;
+}
+ul a:hover{
+    border-bottom: solid darkred;
+    color: white;
+    transition: all .5s;
+}

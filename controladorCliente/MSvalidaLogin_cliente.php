@@ -26,7 +26,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     if($totalDeRegistros == 1 ){
 
         //Inicia a sessão senão tiver nenhuma ativa
-        if(!isset($_SESSION['CodigoCliente'])){
+        if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
         }
         $_SESSION['CodigoCliente']    = $nome['CodigoCliente'];
@@ -42,7 +42,8 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         $_SESSION['Foto'] = $nome['Foto'];
 
         
-        
+        var_dump($_SESSION);
+        die();
         header("location: ../view_cliente/MStelaprincipal_cliente.php");
         die();
 
