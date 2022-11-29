@@ -44,11 +44,12 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         
         var_dump($_SESSION);
         die();
+        
         header("location: ../view_cliente/MStelaprincipal_cliente.php");
         die();
 
     }else{
-        //$_GET = "Usuario ou senha inválidos";
+        
        
        $mensagem = "Email ou senha inválidos";
         header("location: ../view_cliente/MSlogin_cliente.php?mensagem={$mensagem}");
