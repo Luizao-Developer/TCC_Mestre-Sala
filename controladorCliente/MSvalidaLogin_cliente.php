@@ -44,7 +44,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         
         var_dump($_SESSION);
         die();
-        
+
         header("location: ../view_cliente/MStelaprincipal_cliente.php");
         die();
 

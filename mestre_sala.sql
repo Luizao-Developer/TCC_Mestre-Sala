@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 28-Nov-2022 às 14:29
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
+-- Tempo de geração: 29-Nov-2022 às 02:11
+-- Versão do servidor: 10.4.24-MariaDB
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +40,7 @@ CREATE TABLE `tbadmin` (
 --
 
 CREATE TABLE `tbagendamento` (
-  `Codigo` int(11) NOT NULL,
+  `CodigoAgendamento` int(11) NOT NULL,
   `StatusAgendamento` varchar(45) NOT NULL,
   `Barbearia` varchar(50) NOT NULL,
   `Cliente` varchar(50) NOT NULL,
@@ -56,9 +56,9 @@ CREATE TABLE `tbagendamento` (
 -- Extraindo dados da tabela `tbagendamento`
 --
 
-INSERT INTO `tbagendamento` (`Codigo`, `StatusAgendamento`, `Barbearia`, `Cliente`, `Preco`, `Data_agendamento`, `Hora`, `tbProcedimento_Codigo`, `tbCliente_Codigo`, `tbBarbearia_Codigo`) VALUES
-(1, 'Agendado', 'Barbearia europa', 'Jubinicio', 20, '2022-10-16', '56', 36, 20, 14),
-(2, 'Agendado', 'Barbearia europa', 'Jubinicio', 20, '2022-10-16', '56', 36, 20, 14);
+INSERT INTO `tbagendamento` (`CodigoAgendamento`, `StatusAgendamento`, `Barbearia`, `Cliente`, `Preco`, `Data_agendamento`, `Hora`, `tbProcedimento_Codigo`, `tbCliente_Codigo`, `tbBarbearia_Codigo`) VALUES
+(3, 'Agendado', 'Barbearia teste', 'Jubinicio', 20, '2022-11-29', 'gt', 36, 20, 14),
+(4, 'Agendado', 'Barbearia teste', 'Jubinicio', 10, '2022-11-30', '45', 39, 20, 14);
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ INSERT INTO `tbbarbearias_clientes` (`Codigo_Cliente`, `Codigo_Barbearia`, `Data
 --
 
 CREATE TABLE `tbcliente` (
-  `Codigo` int(11) NOT NULL,
+  `CodigoCliente` int(11) NOT NULL,
   `Telefone` varchar(45) NOT NULL,
   `Nome` varchar(45) NOT NULL,
   `Endereco` varchar(45) NOT NULL,
@@ -141,7 +141,7 @@ CREATE TABLE `tbcliente` (
 -- Extraindo dados da tabela `tbcliente`
 --
 
-INSERT INTO `tbcliente` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
+INSERT INTO `tbcliente` (`CodigoCliente`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
 (20, '98542231', 'Jubinicio', 'rua sem nada', '2022-10-11', 'sao bernardo da colina', '6544443', '...', 'ju@gmail.com', 'ju', 'Jubinicio', '1.jpg', NULL),
 (21, '(44) 9843-3226', 'Canal do Lu', '1239, Rua Tajuba, Jardim dos principes', '2022-11-03', 'Perobal', '87538-000', 'PR', 'luizteodorolaoct@gmail.com', 'bolsonaro22', 'Canal do Lu', NULL, NULL),
 (22, '(44) 9843-3226', 'Luiz Antonio', '1239 Rua Tajubá Jardim Independencia', '2002-02-15', 'Perobal', '87538-000', 'PR', 'tteodoro1977@gmail.com', 'luiz2002', 'Luizão', NULL, NULL);
@@ -239,7 +239,7 @@ ALTER TABLE `tbadmin`
 -- Índices para tabela `tbagendamento`
 --
 ALTER TABLE `tbagendamento`
-  ADD PRIMARY KEY (`Codigo`),
+  ADD PRIMARY KEY (`CodigoAgendamento`),
   ADD KEY `fk_tbAgendamento_tbProcedimento1` (`tbProcedimento_Codigo`),
   ADD KEY `fk_tbAgendamento_tbCliente1` (`tbCliente_Codigo`),
   ADD KEY `tbBarbearia_Codigo` (`tbBarbearia_Codigo`);
@@ -261,7 +261,7 @@ ALTER TABLE `tbbarbearias_clientes`
 -- Índices para tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  ADD PRIMARY KEY (`Codigo`),
+  ADD PRIMARY KEY (`CodigoCliente`),
   ADD KEY `tbBarbearia_Codigo` (`tbBarbearia_Codigo`);
 
 --
@@ -299,7 +299,7 @@ ALTER TABLE `tbadmin`
 -- AUTO_INCREMENT de tabela `tbagendamento`
 --
 ALTER TABLE `tbagendamento`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CodigoAgendamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tbbarbearia`
@@ -311,7 +311,7 @@ ALTER TABLE `tbbarbearia`
 -- AUTO_INCREMENT de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `CodigoCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
@@ -345,7 +345,7 @@ ALTER TABLE `tbadmin`
 -- Limitadores para a tabela `tbagendamento`
 --
 ALTER TABLE `tbagendamento`
-  ADD CONSTRAINT `fk_tbAgendamento_tbCliente1` FOREIGN KEY (`tbCliente_Codigo`) REFERENCES `tbcliente` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tbAgendamento_tbCliente1` FOREIGN KEY (`tbCliente_Codigo`) REFERENCES `tbcliente` (`CodigoCliente`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tbAgendamento_tbProcedimento1` FOREIGN KEY (`tbProcedimento_Codigo`) REFERENCES `tbprocedimento` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `tbagendamento_ibfk_1` FOREIGN KEY (`tbBarbearia_Codigo`) REFERENCES `tbbarbearia` (`CodigoBarbearia`);
 
@@ -354,7 +354,7 @@ ALTER TABLE `tbagendamento`
 --
 ALTER TABLE `tbbarbearias_clientes`
   ADD CONSTRAINT `tbbarbearias_clientes_ibfk_1` FOREIGN KEY (`Codigo_Barbearia`) REFERENCES `tbbarbearia` (`CodigoBarbearia`),
-  ADD CONSTRAINT `tbbarbearias_clientes_ibfk_2` FOREIGN KEY (`Codigo_Cliente`) REFERENCES `tbcliente` (`Codigo`);
+  ADD CONSTRAINT `tbbarbearias_clientes_ibfk_2` FOREIGN KEY (`Codigo_Cliente`) REFERENCES `tbcliente` (`CodigoCliente`);
 
 --
 -- Limitadores para a tabela `tbcliente`
@@ -378,7 +378,7 @@ ALTER TABLE `tbprocedimento`
 -- Limitadores para a tabela `tbrecebimento`
 --
 ALTER TABLE `tbrecebimento`
-  ADD CONSTRAINT `fk_tbRecebimento_tbAgendamento1` FOREIGN KEY (`tbAgendamento_Codigo`) REFERENCES `tbagendamento` (`Codigo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_tbRecebimento_tbAgendamento1` FOREIGN KEY (`tbAgendamento_Codigo`) REFERENCES `tbagendamento` (`CodigoAgendamento`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
