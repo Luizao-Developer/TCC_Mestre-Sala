@@ -22,7 +22,7 @@ $inform .= "<body>";
 $inform .= "<h2>Relatório de procedimentos que sua barbearia ofereçe</h2>";
 
 while($linha = mysqli_fetch_array($result)){
-    $inform .= "<strong>Nome: </strong>{$linha['Nome']}";
+    $inform .= "<strong>Nome: </strong>{$linha['NomeProcedimento']}";
     $inform .= " <strong>Descrição: </strong>{$linha['Descricao']} , ";
     $inform .= " <strong>Valor: </strong>{$linha['Valor']} , ";
     $inform .= " <strong>Tempo estimado: </strong>{$linha['Tempo_estimado']} , ";

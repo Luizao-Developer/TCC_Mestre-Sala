@@ -13,7 +13,8 @@ body{
     color: white;
     margin-top: 50px;
     margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+
 }
 .espacamento{
     width: 100%;
@@ -55,6 +56,15 @@ ul a{
     padding: 1em;
     padding-left: 100px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 29-Nov-2022 às 02:11
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Tempo de geração: 30-Nov-2022 às 20:34
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `tbagendamento` (
   `StatusAgendamento` varchar(45) NOT NULL,
   `Barbearia` varchar(50) NOT NULL,
   `Cliente` varchar(50) NOT NULL,
-  `Preco` double NOT NULL,
+  `Preco` decimal(10,0) NOT NULL,
   `Data_agendamento` varchar(45) NOT NULL,
   `Hora` varchar(45) NOT NULL,
   `tbProcedimento_Codigo` int(11) NOT NULL,
@@ -57,8 +57,7 @@ CREATE TABLE `tbagendamento` (
 --
 
 INSERT INTO `tbagendamento` (`CodigoAgendamento`, `StatusAgendamento`, `Barbearia`, `Cliente`, `Preco`, `Data_agendamento`, `Hora`, `tbProcedimento_Codigo`, `tbCliente_Codigo`, `tbBarbearia_Codigo`) VALUES
-(3, 'Agendado', 'Barbearia teste', 'Jubinicio', 20, '2022-11-29', 'gt', 36, 20, 14),
-(4, 'Agendado', 'Barbearia teste', 'Jubinicio', 10, '2022-11-30', '45', 39, 20, 14);
+(4, 'Agendado', 'Barbearia teste', 'Jubinicio', '10', '2022-11-30', '45', 39, 20, 14);
 
 -- --------------------------------------------------------
 
@@ -92,9 +91,8 @@ CREATE TABLE `tbbarbearia` (
 --
 
 INSERT INTO `tbbarbearia` (`CodigoBarbearia`, `CNPJ`, `nomeAdmin`, `NomeBarbearia`, `Endereco`, `Email`, `Telefone_comercial`, `Telefone_pessoal`, `Senha_de_acesso`, `CEP`, `Cidade`, `Estado`, `Status`, `Foto`, `adicional`, `Facebook`, `Instagram`, `Data_cadastro`) VALUES
-(14, '42345345345', '', 'Barbearia teste', 'rua sem nada', 'eu@email.com', '44984332260', '243523452345', 'senha', '6544443', 'sao bernardo da colina', 'estado', 'Aberto', '1.jpg', 'Aqui vc é um rei', '', '', '2022-08-18 16:17:34'),
-(18, '', '', '', 'eu@email.com', '', '', '', 'senha', '', '', '', '', NULL, NULL, NULL, NULL, '2022-11-20 08:52:01'),
-(19, '43.857.249/4284', 'Ferdinando Castro', 'Barbearia red', 'Rua 7 de setembro 1239 Jardim Independencia', 'tteodoro1977@gmail.com', '(44) 9843-2100', '(44) 9843-4221', '24', '87538-000', 'Perobal', '...', 'Aberto', NULL, NULL, NULL, NULL, '2022-11-20 10:01:11');
+(14, '42345345345', '', 'Barbearia teste', 'rua sem nada', 'eu@email.com', '(44) 9843-3226', '243523452345', 'senha', '65444-43', 'sao bernardo da colina', 'estado', 'Aberto', '1.png', 'Aqui vc é um rei', '', '', '2022-08-18 16:17:34'),
+(19, '43.857.249/4284', '', 'Barbearia red', 'Rua 7 de setembro 1239 Jardim Independencia', 'tteodoro1977@gmail.com', '(44) 9843-2100', '(44) 9843-4221', '24', '87538-000', 'Perobal', '...', 'Aberto', '1.jpg', '', '', 'redBarber', '2022-11-20 10:01:11');
 
 -- --------------------------------------------------------
 
@@ -144,7 +142,8 @@ CREATE TABLE `tbcliente` (
 INSERT INTO `tbcliente` (`CodigoCliente`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `EmailCliente`, `Senha_de_acesso`, `Nome_de_usuario`, `Foto`, `tbBarbearia_Codigo`) VALUES
 (20, '98542231', 'Jubinicio', 'rua sem nada', '2022-10-11', 'sao bernardo da colina', '6544443', '...', 'ju@gmail.com', 'ju', 'Jubinicio', '1.jpg', NULL),
 (21, '(44) 9843-3226', 'Canal do Lu', '1239, Rua Tajuba, Jardim dos principes', '2022-11-03', 'Perobal', '87538-000', 'PR', 'luizteodorolaoct@gmail.com', 'bolsonaro22', 'Canal do Lu', NULL, NULL),
-(22, '(44) 9843-3226', 'Luiz Antonio', '1239 Rua Tajubá Jardim Independencia', '2002-02-15', 'Perobal', '87538-000', 'PR', 'tteodoro1977@gmail.com', 'luiz2002', 'Luizão', NULL, NULL);
+(22, '(44) 9843-3226', 'Luiz Antonio', '1239 Rua Tajubá Jardim Independencia', '2002-02-15', 'Perobal', '87538-000', 'PR', 'tteodoro1977@gmail.com', 'luiz2002', 'Luizão', NULL, NULL),
+(23, '(44) 9834-3221', 'Luiz Silva', '1456 Rua 7 de Abril Bairro jardim das flores', '2022-11-01', 'Xambrê', '87535-000', 'PR', 'siv@gmail.com', 'luizantonio', 'silvinho', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,7 @@ CREATE TABLE `tbfuncionarios` (
   `UF` varchar(45) NOT NULL,
   `Email` varchar(45) NOT NULL,
   `Foto` mediumblob DEFAULT NULL,
-  `Status` varchar(45) NOT NULL,
+  `StatusFunc` varchar(45) NOT NULL,
   `PIS_PASEP` varchar(45) NOT NULL,
   `RG` varchar(15) NOT NULL,
   `CPF` varchar(20) NOT NULL,
@@ -177,7 +176,7 @@ CREATE TABLE `tbfuncionarios` (
 -- Extraindo dados da tabela `tbfuncionarios`
 --
 
-INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `Status`, `PIS_PASEP`, `RG`, `CPF`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`, `tbProcedimento_Codigo`) VALUES
+INSERT INTO `tbfuncionarios` (`Codigo`, `Telefone`, `Nome`, `Endereco`, `Data_nascimento`, `Cidade`, `CEP`, `UF`, `Email`, `Foto`, `StatusFunc`, `PIS_PASEP`, `RG`, `CPF`, `Data_contratacao`, `Data_demissao`, `tbBarbearia_Codigo`, `tbProcedimento_Codigo`) VALUES
 (7, 'gertgete', 'defr', 'rtherth', '2022-09-08', 'thertherthe', 'herther', '...', 'rthertherhe', NULL, 'Em licença', 'retherthert', '', '', '2022-09-08', NULL, 14, 0),
 (11, 'w', 'w', 'w', '2022-08-31', 'w', 'w', '...', 'w', NULL, 'Trabalhando', 'w', '', '', '2022-09-16', NULL, 14, 0);
 
@@ -204,7 +203,7 @@ CREATE TABLE `tbprocedimento` (
 INSERT INTO `tbprocedimento` (`Codigo`, `StatusProcedimento`, `NomeProcedimento`, `Descricao`, `Valor`, `Tempo_estimado`, `tbBarbearia_Codigo`) VALUES
 (1, 't', 't', 't', '0', '45', 14),
 (36, 'Ativo', 'Corte de Cabelo Masculino', 'Corte masculino', '20', '30 min', 14),
-(39, 'Ativo', 'Barba', 'Estilização e corte de barba', '10', '10 min', 14);
+(39, 'Ativo', 'Barba', 'Estilização e corte de barba', '21', '10 min', 14);
 
 -- --------------------------------------------------------
 
@@ -311,7 +310,7 @@ ALTER TABLE `tbbarbearia`
 -- AUTO_INCREMENT de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  MODIFY `CodigoCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `CodigoCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `tbfuncionarios`
@@ -323,7 +322,7 @@ ALTER TABLE `tbfuncionarios`
 -- AUTO_INCREMENT de tabela `tbprocedimento`
 --
 ALTER TABLE `tbprocedimento`
-  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `Codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de tabela `tbrecebimento`

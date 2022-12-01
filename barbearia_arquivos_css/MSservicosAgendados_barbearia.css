@@ -58,6 +58,15 @@ ul a{
     padding: 0 50px;
     text-align: center;
 }
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
+}
 ul a:hover{
     border-bottom: solid darkred;
     color: white;

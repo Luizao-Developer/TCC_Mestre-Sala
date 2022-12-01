@@ -18,12 +18,16 @@
     <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
     </div>
     <div class="pg_principal container">
-
-            <form action="../controladorBarbearia/MSnovoProcedimento.php" method="post" novalidate>
+        <div class="alert alert-primary" role="alert" id="alerta">
+            
+            <h2>Cadastrar novo procedimento</h2>
+         
+        </div>
+            <form class="row g-3" action="../controladorBarbearia/MSnovoProcedimento.php" method="post" id="cadastro" novalidate>
 
                     <!--Cadastro de novo procedimento-->
                        <input type="hidden" name="codigoBarbearia" value="<?= $_SESSION['CodigoBarbearia'] ?>">
-                        <div class="col-md-4 position-relative">
+                        <div class="col-md-6 ">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" class="form-control" id="nome" name="nome"  required>
                             <div class="valid-tooltip">
@@ -33,7 +37,7 @@
                                 Informe o nome do procedimento
                             </div>
                         </div>
-                        <div class="col-md-4 position-relative">
+                        <div class="col-md-6">
                             <label for="descricao" class="form-label">Descrição</label>
                             <input type="text" class="form-control" id="descricao" name="descricao"  required>
                             <div class="valid-tooltip">
@@ -43,7 +47,7 @@
                                 Informe a descrição do procedimento
                             </div>
                         </div>
-                        <div class="col-md-4 position-relative">
+                        <div class="col-md-4">
                             <label for="valor" class="form-label">Valor</label>
                             <input type="text" class="form-control" id="valor" name="valor"  required>
                             <div class="valid-tooltip">
@@ -53,7 +57,7 @@
                                 Informe o valor do procedimento
                             </div>
                         </div>
-                        <div class="col-md-4 position-relative">
+                        <div class="col-md-4">
                             <label for="Tempo_estimado" class="form-label">Tempo Estimado</label>
                             <input type="text" class="form-control" id="Tempo_estimado" name="Tempo_estimado"  required>
                             <div class="valid-tooltip">
@@ -76,7 +80,7 @@
                         </div>
                         
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit" name="cadastrar" id="cadastrar">Submit form</button>
+                            <button class="btn btn-primary" type="submit" name="cadastrar" id="cadastrar">Cadastrar</button>
                         </div>
                         
             </form>
@@ -85,7 +89,16 @@
 <script src="/arquivos_js/MScadastro_barbearia.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 </body>
     <?php require_once("../componentes/rodape.php") ?>
+<script>
+    $(document).ready(function(){
+   $("#valor").mask("00,00");
+  
+
+})
+</script>
 </html>

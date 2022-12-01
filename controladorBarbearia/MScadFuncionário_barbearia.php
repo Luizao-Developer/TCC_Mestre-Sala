@@ -31,7 +31,7 @@ if(isset($_POST['cadastrar'])){
     
     $msgNovoFuncionario = "Novo funcionário cadastrado!";
     
-    header("location: ../view_barbearia/MSfuncionarios_barbearia.php?msgNovoFuncionario = {$msgNovoFuncionario}");
+    header("location: ../view_barbearia/MSfuncionarios_barbearia.php?msgNovoFuncionario={$msgNovoFuncionario}");
     
 
 }

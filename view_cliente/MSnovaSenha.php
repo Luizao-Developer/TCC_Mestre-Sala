@@ -13,37 +13,7 @@
 </head>
 <body class="corpo">
     
-    <div class="janelaCentral">
-    <div id="logo">
-        <img src="../imagens/logo_com_fundo.png" alt="" srcset="">
-    </div>
-        <h2>Problemas para acessar sua conta ?</h2>
-        <p><h5>Insira seu email para ser enviado um link, <p>pára então redefinir sua senha e voltar a ter acesso a sua conta!</p></h5></p>
-        <p>
-            <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
-                <label for="floatingInput"><i class="fas fa-envelope"></i> Email</label>
-            </div>
-        </p>
-        <p>
-            <!-- Button trigger modal -->
-<button type="button" id="link" class="btn btn-primary">
-  Enviar link
-</button>
-
-<!-- Modal -->
-
-
-        </p>
-        <hr> 
-        <p>
-            <a href="MScadastro_cliente.php">Criar uma nova conta</a>
-        </p>
-        <hr>
-        <p>
-            <a href="MSlogin_cliente.php">Retornar ao login</a>
-        </p>
-    </div>
+    
      
 </body>
 
@@ -52,24 +22,6 @@
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
-<script>
-    
-  
-  $("#link").click(function(){
-      var email = $("#floatingInput").val();
-       //var email = "ju@gmail.com";
-      $.ajax({
-        url: "../controladorCliente/geraLinkSenha.php",
-        type : 'POST',
-        data : 'email=' + email,
-        success: function(response){
-           // $(".mensagemCodigo").append(response);
-           alert("Verifique sua caixa de emails!");
-        }
-      })
-  })
 
-
-</script>
 
     </html>

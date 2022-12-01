@@ -18,7 +18,7 @@ $qtdFuncionarios = mysqli_num_rows($result);
 
 //Consulta sobre os funcionários que estão de licença ou afastados
 
-$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and Status like 'Em licença%' and tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
+$sqlLicenca = "select * from tbfuncionarios where 1 = 1 and StatusFunc like 'Em licença%' and tbBarbearia_Codigo = {$_SESSION['CodigoBarbearia']}";
 $result2 = mysqli_query($conexao, $sqlLicenca);
 $linha2 = mysqli_fetch_array($result2);
 $qtdFuncionariosLicenca = mysqli_num_rows($result2);
@@ -108,7 +108,7 @@ $buscaBar = mysqli_fetch_array($ba);
     <img src="<?php echo "../upload/" . $buscaBar['Foto'] ?>" class="card-img-top" alt="...">
     <div class="card-body">
         <h5 class="card-title" name="nome_barberia"><i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?></h5>
-        <h5 class="card-title" name="nome_barberia"> <?= $_SESSION['NomeAdmin'] ?></h5>
+        <h5 class="card-title" name="nome_barberia"> <?= $_SESSION['nomeAdmin'] ?></h5>
 
         <p class="card-text" name="endereco"><?= $_SESSION['Endereco'] ?></p>
         <p class="card-text" name="cidade"><?= $_SESSION['Cidade'] ?></p>
@@ -190,17 +190,17 @@ $buscaBar = mysqli_fetch_array($ba);
                         </div>
                         <div class="col">
                             <label for="">CEP</label>
-                            <input type="text" class="form-control"  aria-label="Last name" name="cep" value="<?= $_SESSION['CEP'] ?>">
+                            <input type="text" class="form-control"  aria-label="Last name" name="cep" id="cep" value="<?= $_SESSION['CEP'] ?>">
                         </div>
                     </div>
                     <div class="row g-3">
                         <div class="col">
                             <label for="">CNPJ</label>
-                            <input type="text" class="form-control" name="cnpj" value="<?= $_SESSION['CNPJ'] ?>"  >
+                            <input type="text" class="form-control" name="cnpj" id="cnpj" value="<?= $_SESSION['CNPJ'] ?>"  >
                         </div>
                         <div class="col">
                             <label for="">Telefone comercial</label>
-                            <input type="text" class="form-control" name="telefone_comercial" value="<?= $_SESSION['Telefone_comercial'] ?>"  >
+                            <input type="text" class="form-control" name="telefone_comercial" id="telefoneComercial" value="<?= $_SESSION['Telefone_comercial'] ?>"  >
                         </div>
                        
                     </div>
@@ -227,7 +227,7 @@ $buscaBar = mysqli_fetch_array($ba);
                         </div>
                         <div class="col">
                             <label for="">Telefone do administrador </label>
-                            <input type="text" class="form-control" name="telefone_pessoal" value="<?= $_SESSION['Telefone_pessoal'] ?>"  >
+                            <input type="text" class="form-control" name="telefone_pessoal" id="telefonePessoal" value="<?= $_SESSION['Telefone_pessoal'] ?>"  >
                         </div>
                        
                     </div>
@@ -256,6 +256,97 @@ $buscaBar = mysqli_fetch_array($ba);
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
 </body>
 <?php require_once("../componentes/rodape.php") ?>
+<script>
+    $(document).ready(function(){
+   $("#cep").mask("00000-000");
+   $("#cnpj").mask("00.000.000/0000-00");
+   $("#telefoneComercial").mask("(00) 0000-0000");
+   $("#telefonePessoal").mask("(00) 00000-0000");
+
+})
+$("#email").change(function(){
+   var email = $(this).val();
+
+   $.ajax({
+      url: "../controladorBarbearia/duplicidadeEmail.php",
+      type: 'POST',
+      data : 'email=' + email,
+      success: function(response){
+        alert(response)
+      },
+      error: function(){
+        alert("Não foi possivel verificar email")
+      }
+   })
+})
+//Verificando duplicidade de CNPJ
+$("#cnpj").change(function(){
+   var cnpj = $(this).val();
+
+   $.ajax({
+      url: "../controladorBarbearia/duplicidadeCNPJ.php",
+      type: 'POST',
+      data : 'CNPJ=' + cnpj,
+      success: function(response){
+        alert(response)
+      },
+      error: function(){
+        alert("Não foi possivel verificar CNPJ")
+      }
+   })
+})
+//Verificando duplicidade de telefoneComercial
+$("#telefoneComercial").change(function(){
+   var telefoneComercial = $(this).val();
+
+   $.ajax({
+      url: "../controladorBarbearia/duplicidadeTelComercial.php",
+      type: 'POST',
+      data : 'telefoneComercial=' + telefoneComercial,
+      success: function(response){
+        alert(response)
+      },
+      error: function(){
+        alert("Não foi possivel verificar telefone comercial")
+      }
+   })
+})
+//Verificando duplicidade de telefonePessoal
+$("#telefonePessoal").change(function(){
+   var telefonePessoal = $(this).val();
+
+   $.ajax({
+      url: "../controladorBarbearia/duplicidadeTelPessoal.php",
+      type: 'POST',
+      data : 'telefonePessoal=' + telefonePessoal,
+      success: function(response){
+        alert(response)
+      },
+      error: function(){
+        alert("Não foi possivel verificar telefone pessoal")
+      }
+   })
+})
+$("#cep").change(function(){
+    var cep = $(this).val();
+    var url = "http://viacep.com.br/ws/"+ cep + "/json/"
+    $.ajax({
+      url:url,
+      type: 'GET',
+      success: function(response){
+         $("#uf").val( response.uf ),
+         $("#cidade").val(response.localidade);
+      },
+      error: function(){
+          alert("Erro ao buscar CEP");
+      }
+    })
+})
+
+</script>
 </html>

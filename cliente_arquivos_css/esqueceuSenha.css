@@ -38,6 +38,11 @@ body{
     background: darkred;
     color: white;
     font: large;
+    border: none;
+}
+.modal-dialog, .modal-content ,.modal-header, .modal-body{
+    background: rgb(34, 30, 30);
+    color: white;
 }
 .janelaCentral #link:hover{
     background: rgb(187, 3, 3);
@@ -55,4 +60,20 @@ body{
     transition: all .3s;
     background: orange;
     color: white;
+}
+#mensagemCodigo{
+    position: absolute;
+    color: white;
+    background: red;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    display: none;
+    left: 50%;
+    top: 30%;
+    right: -50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }

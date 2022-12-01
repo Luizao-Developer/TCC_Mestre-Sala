@@ -52,12 +52,35 @@ if(isset($_POST['edit_agendamento'])){
 <div class="alert alert-primary" role="alert" id="alerta">
             <h4 class="alert-heading">Lista de Agendamentos</h4>
             
+            <div class="dropdown">
+                        <button id="imprimir" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-file-alt"></i> Imprimir
+                                </button>
+                                    <ul class="dropdown-menu">
+                                      <form action="../controladorBarbearia/gerarPDFservicosMarcados.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit" >Serviços agendados</button></li>
+                                          </form>
+                                        <form action="../controladorBarbearia/gerarPDFservicosMarcadosCancelados.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit">Serviços cancelados</button></li>
+                                          </form>
+                                          <form action="../controladorBarbearia/gerarPDFservicosMarcadosPagos.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit">Serviços concluidos/pagos</button></li>
+                                          </form>
+                                          <form action="../controladorBarbearia/gerarPDFservicosMarcadosDebito.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit">Serviços concluidos/em débito</button></li>
+                                          </form>
+                                          <form action="../controladorBarbearia/gerarPDFservicosMarcadosFaltas.php" method="post">
+                                                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
+                                                <li><button class="dropdown-item" type="submit">Serviços cujos clientes faltaram</button></li>
+                                          </form>
+                                        </ul>
+            </div>
             
-            <form action="../controladorBarbearia/gerarPDFservicosMarcados.php" method="post">
-                <input type="hidden" name="codBarbearia" value="<?= $linhaBar['CodigoBarbearia'] ?>">
-                    <button class="btn btn-primary" id="imprimir" type="submit"><i class="fas fa-file-alt"></i> Imprimir</button>
-
-            </form>
+            
             
             
         </div>
@@ -124,16 +147,19 @@ if(isset($_POST['edit_agendamento'])){
                 <td><?=  $linha['Cliente'] ?></td>
                 <td><?=  $linha['NomeProcedimento'] ?></td>
                 <td><?=  $linha['Preco']?></td>
-                <td><?=  $linha['Data_agendamento']?></td>
+                <td><?=implode("/", array_reverse(explode("-", $linha['Data_agendamento'])))?></td>
                 <td><?=  $linha['Hora'] ?></td>
 
                 <!--Botão de alteração-->
             <td>
-              
-                <button type="button" id="alter_agendamento" style="background:blue;border:none;" name="alter_agendamento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa5">
+              <a href="MSalterarAgendamento.php">
+                <form action="MSalterarAgendamento.php" method="post">
+              <input type="hidden" name="codAgendamento" value="<?= $linha['CodigoAgendamento'] ?>">
+                <button type="submit" id="alter_agendamento" style="background:blue;border:none;" name="alter_agendamento" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModa5">
                 <i class="fas fa-pen"></i>
                 </button>
-
+                </a>
+                </form>
                 
                 
                 
@@ -160,7 +186,7 @@ if(isset($_POST['edit_agendamento'])){
                     </form>
                 <?php endif ?>
 
-                <?php if($linha['StatusAgendamento'] != 'Agendado'){ ?>
+                <?php if($linha['StatusAgendamento'] != 'Agendado' && $linha['StatusAgendamento'] != 'Concluido/Em débito' ){ ?>
                     <form action="MSservicomarcados_barbearia.php" method="post">
                         <input type="hidden" name="codAgendamento" value="<?= $linha['CodigoAgendamento'] ?>">
                         <button type="submit" style="background: red;border:none;" id="edit_agendamento" name="edit_agendamento" class="btn btn-primary" onclick="alert('Deseja excluir este agendamento ?')" data-bs-toggle="modal" >

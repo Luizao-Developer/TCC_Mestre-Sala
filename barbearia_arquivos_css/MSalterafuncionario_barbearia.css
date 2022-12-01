@@ -1,22 +1,71 @@
 *{
     margin: 0;
     padding: 0;
-    
+
 }
 body{
-    background-image: url(../imagens/barber-1453064_1920.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    
+    width:100%;
+    background: rgb(31,30,30);
 }
- input{
-    border: none;
-    border-radius: 0;
+#alerta{
+    border: solid 1px orange;
+    color: orange;
     background: transparent;
-    border-bottom: solid 2px orange;
+}
+#cadastro{
     color: white;
+}
+#cadastro input{
+    color: white;
+    border: none;
+    background: rgba(255, 255, 255, 0.212);
+}
+#cadastro #cadastrar{
+    padding: 10px 50px;
+    background: darkred;
+    color: white;
+    font: large;
+    border: none;
+    transition: all .3s;
+}
+#cadastro #cadastrar:hover{
+    box-shadow: 1px 1px 60px 10px darkred;
+}
+.espacamento{
+    width: 100%;
+    height: 100px;
+    background-image: url(../imagens/barber-1453064_1920.jpg);
+}
+.pg_principal{
+    width: 100%;
+    height: 140vh;
+    background-color: rgb(31,30,30);
+    padding-top: 30px;
+}
+.pg_principal h1{
+    color:white;
+}
+ul a{
+    border-bottom: solid transparent;
+    margin: 10px 5px;
+    padding: 1em;
+    padding-left: 100px;
+    padding: 0 50px;
+    text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
+}
+ul a:hover{
+    border-bottom: solid darkred;
+    color: white;
+    transition: all .5s;
 }
 footer .nav{
     background: black;
@@ -26,34 +75,10 @@ footer .nav{
 .nav li img{
     border-radius: 50%;
 }
-.espacamento{
-    width: 100%;
-    height: 100px;
-    
-}
-.pg_principal{
-    width: 100%;
-    height: 140vh;
-    padding-top: 30px;
-}
-.pg_principal h1{
-    color:white;
-}
-.cadastro{
-    background: black;
-    padding: 20px;
-    margin: auto;
-    
-}
-.cadastro label{
-    color: orange;
-}
-.cadastro #cadastrar{
+#contaBotao{
     background: darkred;
-    color: white;
-    padding: 10px 150px;
     border: none;
+    border-radius: 5px;
     font-size: larger;
-    border-radius: 2px;
-    
+
 }

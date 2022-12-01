@@ -13,7 +13,7 @@ $Status = $_POST['status'];
 $CodigoBarbearia = $_POST['codigoBarbearia'];
 
 $sqlProcedimento = " INSERT INTO 
-tbprocedimento( StatusProcedimento, Nome, Descricao, Valor, Tempo_estimado, tbBarbearia_Codigo)
+tbprocedimento( StatusProcedimento, NomeProcedimento, Descricao, Valor, Tempo_estimado, tbBarbearia_Codigo)
   VALUES ('{$Status}','{$Nome}','{$Descricao}','{$Valor}','{$Tempo_estimado}','{$CodigoBarbearia}')";
 
 $resultado = mysqli_query($conexao, $sqlProcedimento);
@@ -21,7 +21,8 @@ mysqli_close($conexao);
 
 $mensagem="Novo procedimento foi cadastrado!";
 
-header("Location: ../view_barbearia/MSprocedimentos_barbearia.php?mensagem = {$mensagem} ");
+header("location: ../view_barbearia/MSprocedimentos_barbearia.php?mensagem = {$mensagem} ");
 die();
 }
 
+?>

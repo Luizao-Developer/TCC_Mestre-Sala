@@ -43,7 +43,7 @@ $sql = "UPDATE tbcliente
             EmailCliente = '{$email}',
             Nome_de_usuario = '{$nomeDeUsuario}', 
             Foto = '{$imagem}'
-        WHERE Codigo = {$codigo} ";
+        WHERE CodigoCliente = {$codigo} ";
         
     
 mysqli_query($conexao, $sql);

@@ -6,7 +6,7 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
 $sql = "SELECT * FROM tbcliente
 INNER JOIN tbbarbearias_clientes
-ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.Codigo";
+ON tbbarbearias_clientes.Codigo_Cliente = tbcliente.CodigoCliente";
 
 $resultado = mysqli_query($conexao, $sql);
 

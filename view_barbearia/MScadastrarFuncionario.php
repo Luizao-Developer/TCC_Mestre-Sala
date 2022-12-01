@@ -17,19 +17,24 @@
     <title>Mestre-Sala</title>
 </head>
 <body>
+<?php require_once("../componentes/menuBarbearia.php") ?>
+
 <div class="espacamento">
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
 <div class="pg_principal container">
-    
+<div class="alert alert-primary" role="alert" id="alerta">
+<h2>Cadastro de funcionário</h2>
+
+</div>
      <div class="cadastro">
-         <form class="row g-3 needs-validation" action="../controladorBarbearia/MScadFuncionário_barbearia.php" method="post" novalidate>
+         <form class="row g-3 needs-validation" action="../controladorBarbearia/MScadFuncionário_barbearia.php" method="post" id="cadastro" novalidate>
              <!--Codigo da barbearia -->
 
              <input type="hidden" name="codigoBarbearia" value="<?= $_SESSION['CodigoBarbearia'] ?>">
 
             <!---->
-         <h1>Cadastro de funcionário</h1>
+         
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="validationCustom01" name="nome" required>
@@ -215,6 +220,11 @@
              $("#cep").mask("00000-000");
              $("#pis_pasep").mask("00000000000");
              $("#cpf").mask("000.000.000-00")
+             
+      $('#telefone').mask('(00) 00000-0000');
+      
+      
+    
     })
     //Validando data de nascimento
   $("#dataNascimento").change(function(){
@@ -228,6 +238,7 @@
         return TRUE;
      }else{
        alert("Data de nascimento inválida! ")
+       $("#dataNascimento").val("")
        return FALSE;
        
      }
@@ -245,6 +256,8 @@
       },
       error: function(){
           alert("Erro ao buscar CEP");
+          $("#cep").val("");
+          return FALSE;
       }
     })
 })

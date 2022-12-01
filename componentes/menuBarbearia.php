@@ -26,33 +26,22 @@
 
                 
             </ul>
-            <form class="d-flex" role="search">
-                
-                                   <!-- Informações da conta -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" id="contaBotao" data-bs-target="#exampleModal">
-                                   <i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?>
-                    </button>
+            
+                    <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" id="contaBotao" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                             <i class="fas fa-store-alt"></i> <?= $_SESSION['NomeBarbearia'] ?>
 
-                    <!-- Modal -->
-                    <form action="../controladorBarbearia/MSencerraSessao_barbearia.php" method="post">
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Conta</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                        <h1><?=  $_SESSION['NomeBarbearia'] ?></h1>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger" style="background:red; border:none; border-radius:5px; padding:10px 30px; font-size:larger;"><i class="fas fa-door-open"></i> Sair </button>
-                        </div>
-                        </div>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="sair_sessao" type="button"class="dropdown-item" href="../controladorBarbearia/MSencerraSessao_barbearia.php"><i class="fas fa-door-open"></i> Sair</a>
+                          
+                        </li>
+                       </ul>
                     </div>
-                    </div>
-                    </form>
-            </form>
+
+
+                                   <!-- Informações da conta -->
+                  
             </div>
         </div>
         </nav>

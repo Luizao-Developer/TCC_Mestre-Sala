@@ -67,10 +67,36 @@ $buscarBanco = mysqli_query($conexao, $sqlAgendamento);
             <tbody>
            
                 <tr>
-                <td><?=  $linha['StatusAgendamento'] ?></td>
+                <td>
+                <?php if($linha['StatusAgendamento'] == 'Agendado'): ?>
+                    <div id="agendado" style="background:blue; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Concluido/Pago'): ?>
+                    <div id="agendado" style="background:green; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Concluido/Em débito'): ?>
+                    <div id="agendado" style="background:yellow;color:black; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Cliente faltou'): ?>
+                    <div id="agendado" style="background:red;color:white; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                <?php if($linha['StatusAgendamento'] == 'Cancelado'): ?>
+                    <div id="agendado" style="background:darkviolet;color:white; padding:10px 10px; text-align:center; border-radius:5px;">
+                    <?=  $linha['StatusAgendamento'] ?> 
+                    </div>
+                <?php endif ?>
+                </td>
                 <td><?=  $linha['NomeProcedimento'] ?></td>
                 <td><?=  $linha['Preco']?></td>
-                <td><?=  $linha['Data_agendamento']?></td>
+                <td><?= implode("/", array_reverse(explode("-", $linha['Data_agendamento']))) ?></td>
                 <td><?=  $linha['Hora'] ?></td>
                 <td><?=  $linha['Barbearia'] ?></td>
                 </tr>

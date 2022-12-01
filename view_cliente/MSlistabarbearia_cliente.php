@@ -32,14 +32,17 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
   if(isset($_POST['ser_cliente'])){
      
       $CodigoBarbearia = $_POST['CodigoBarbearia'];
-      $CodigoCliente = $_SESSION['Codigo'];
+      $CodigoCliente = $_SESSION['CodigoCliente'];
 
       $inserindo = "INSERT INTO tbbarbearias_clientes(Codigo_Cliente,Codigo_Barbearia) VALUES('{$CodigoCliente}','{$CodigoBarbearia}')";
 
       mysqli_query($conexao, $inserindo);
   }
 
+$clientela = "SELECT * FROM tbbarbearias_clientes";
+$resu = mysqli_query($conexao, $clientela);
 
+$conferindo = mysqli_fetch_array($resu);
 
 //Buscando a quantidade totais da barbearia
 $buscaBarbearia = "SELECT * FROM tbbarbearia WHERE 1 = 1 $where ORDER BY NomeBarbearia ASC";
@@ -78,7 +81,7 @@ $qtdBarbearias = mysqli_num_rows($resul);
         <hr style="color:white;">
         <div id="filtro">
             <div class="input-group mb-3">
-            <form action="" class="row g-3 " method="post">
+            <form action="" class="row g-3 " method="post" id="pesquisa">
                                 <div class="col-md-6">
                                 <input type="text" class="form-control" name="nome_barbearia" id="nome_barbearia" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Nome da barbearia">
                                 </div> 
@@ -126,10 +129,13 @@ $qtdBarbearias = mysqli_num_rows($resul);
                                 <p class="card-text"><?= $mostraBarbearia['Telefone_comercial'] ?></p>
                                 <p class="card-text"><?= $mostraBarbearia['nomeAdmin'] ?></p>
                                 <h6><?= $mostraBarbearia['Status'] ?></h6>
-                                <form action="MSlistabarbearia_cliente.php" method="post">
+                               
+                                     <form action="MSlistabarbearia_cliente.php" method="post">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $mostraBarbearia['CodigoBarbearia'] ?>">
                                     <button type="submit" name="ser_cliente" id="ser_cliente" class="btn btn-primary">Quero ser cliente</button>
                                 </form>
+                                
+                                
 
                                 
                             </div>

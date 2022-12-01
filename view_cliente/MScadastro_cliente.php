@@ -271,7 +271,7 @@
 <script>
   
   $(document).ready(function(){
-      $('#telefone').mask('(00) 0000-0000');
+      $('#telefone').mask('(00) 00000-0000');
       $('#cep').mask('00000-000');
       
       });
@@ -284,10 +284,13 @@
         type : 'POST',
         data : 'apelido=' + apelido,
         success : function(response){   //MELHORAR
-         alert(response)
+         //alert(response)
+        
         },
         error : function(){
           alert("Erro ao verificar nome de usuário");
+         
+
         }
 
       })
@@ -308,6 +311,9 @@
      },
      error: function(){
        alert("Erro ao verificar email");
+       $("#email").val("");
+       return FALSE;
+
      }
    })
   
@@ -325,6 +331,7 @@
         return TRUE;
      }else{
        alert("Data de nascimento inválida! ")
+       $("#dataNascimento").val("");
        return FALSE;
        
      }
@@ -335,7 +342,7 @@
      if(senha.length < 8){
           //alert("A senha tem que haver 8 ou mais caracteres");
           $("#msgErro").append("A senha tem que haver 8 ou mais caracteres");
-          return FALSE;
+          
      }else{
       return true;
      }
@@ -346,6 +353,8 @@
      var repeteSenha = $("#repeteSenha").val();
     if(senha != repeteSenha){
       alert("Senhas são diferentes");
+      $("#repeteSenha").val("");
+      return FALSE;
     }
   })
   

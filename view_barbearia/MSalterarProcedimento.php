@@ -15,7 +15,7 @@ if(isset($_POST['salvar'])){
    
     $sqlAtualizacao =  "update tbprocedimento
     set StatusProcedimento='{$StatusProcedimento}',
-        Nome            ='{$Nome}',
+        NomeProcedimento ='{$Nome}',
         Descricao       ='{$Descricao}',
         Valor           ='{$Valor}',
         Tempo_estimado  ='{$Tempo_estimado}'
@@ -25,8 +25,8 @@ if(isset($_POST['salvar'])){
 
     $mensagemProcedimento = "Informações de procedimento foram atualizadas!";
 
-    header("location: MSprocedimentos_barbearia.php?mensagem = {$mensagemProcedimento}");
-
+    header("location: MSprocedimentos_barbearia.php?mensagemProcedimento = {$mensagemProcedimento}");
+    die();
 
 }
 
@@ -46,7 +46,7 @@ $linha = mysqli_fetch_array($resultado);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="../barbearia_arquivos_css/MSaltProcedimento.css">
-    <title>Cadastre um procedimento</title>
+    <title>Alterar procedimento</title>
 </head>
 <body>
     <?php require_once("../componentes/menuBarbearia.php") ?>
@@ -54,13 +54,15 @@ $linha = mysqli_fetch_array($resultado);
     <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
     </div>
     <div class="pg_principal container">
-
-            <form class="row g-3 needs-validation" action="" method="post" >
+    <div class="alert alert-primary" role="alert" id="alerta">
+            <h2>Alterar informações sobre um procedimento</h2>
+            </div>
+            <form class="row g-3 needs-validation" action="" method="post" id="alterar" >
                     <!--Cadastro de novo procedimento-->
                        <input type="hidden" name="codigo" value="<?= $_POST['codigo'] ?>">
                         <div class="col-md-4 position-relative">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" class="form-control" id="nome" name="nome" value="<?=$linha['Nome'] ?>">
+                            <input type="text" class="form-control" id="nome" name="nome" value="<?=$linha['NomeProcedimento'] ?>">
                             <div class="valid-tooltip">
                             Certo
                             </div>
@@ -101,7 +103,7 @@ $linha = mysqli_fetch_array($resultado);
                         <div class="col-md-4 position-relative">
                         <label for="status" class="form-label">Status</label>
                             <select class="form-select" id="status" name="status" >
-                            <option selected="" disabled="" value="<?= $linha['StatusProcedimento'] ?>"><?= $linha['StatusProcedimento'] ?></option>
+                            <option selected value="<?= $linha['StatusProcedimento'] ?>"><?= $linha['StatusProcedimento'] ?></option>
                             <option>Ativo</option>
                             <option>Futuramente ativo</option>
                             <option>Inativo</option>
@@ -112,7 +114,7 @@ $linha = mysqli_fetch_array($resultado);
                         </div>
                         
                         <div class="col-12">
-                            <button class="btn btn-primary" type="submit" name="salvar" id="alterar">Salvar</button>
+                            <button class="btn btn-primary" type="submit" name="salvar" id="salvar">Salvar</button>
                         </div>
                         
             </form>
@@ -121,7 +123,16 @@ $linha = mysqli_fetch_array($resultado);
 <script src="/arquivos_js/MScadastro_barbearia.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 </body>
     <?php require_once("../componentes/rodape.php") ?>
+<script>
+    $(document).ready(function(){
+   $("#valor").mask("00,00");
+  
+
+})
+</script>
 </html>

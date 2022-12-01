@@ -4,56 +4,68 @@
 
 }
 body{
-    background: darkred;
+    width:100%;
+    background: rgb(31,30,30);
 }
-.card{
+#alerta{
+    border: solid 1px orange;
+    color: orange;
+    background: transparent;
+}
+#agendar{
+    color: white;
+}
+#agendar input{
+    color: white;
     border: none;
-    margin-top: 50px;
-    margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+    background: rgba(255, 255, 255, 0.212);
+}
+#agendar #realiza_agendamento{
+    padding: 10px 50px;
+    background: darkred;
+    color: white;
+    font: large;
+    border: none;
+    transition: all .3s;
+}
+#agendar #realiza_agendamento:hover{
+    box-shadow: 1px 1px 60px 10px darkred;
 }
 .espacamento{
     width: 100%;
     height: 100px;
     background-image: url(../imagens/barber-1453064_1920.jpg);
 }
-
 .pg_principal{
     width: 100%;
     height: 140vh;
-    background-color: darkred;
+    background-color: rgb(31,30,30);
     padding-top: 30px;
+}
+.pg_principal h1{
+    color:white;
 }
 ul a{
     border-bottom: solid transparent;
     margin: 10px 5px;
     padding: 1em;
     padding-left: 100px;
+    padding: 0 50px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;
     color: white;
     transition: all .5s;
-}
-#contaBotao{
-    background: darkred;
-    border: none;
-    border-radius: 5px;
-    font-size: larger;
-
-}
-#recebeUsuario{
-    color: white;
-}
-.card p{
-    color: gray;
-}
-#fotoUsuarioSistema{
-    border: solid 1px black;
-    padding: 70px 70px;
-    margin-left: 35%;
-    border-radius: 50%;
 }
 footer .nav{
     background: black;
@@ -63,10 +75,10 @@ footer .nav{
 .nav li img{
     border-radius: 50%;
 }
-#filtro{
-    padding-bottom:20px;
-}
-#filtro input{
-    margin: 10px 10px;
+#contaBotao{
+    background: darkred;
+    border: none;
     border-radius: 5px;
+    font-size: larger;
+
 }

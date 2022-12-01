@@ -42,6 +42,16 @@ body{
     font-size: larger;
 
 }
+#alterou_procedimento{
+    background: green;
+    display: none;
+}
+#alerta_exclusão{
+    background: red;
+    color: white;
+    border: none;
+    display: none;
+}
 footer .nav{
     background: black;
     padding: 20px;
@@ -57,6 +67,15 @@ ul a{
     padding-left: 100px;
     padding: 0 50px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

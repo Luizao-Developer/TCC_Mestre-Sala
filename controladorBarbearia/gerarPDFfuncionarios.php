@@ -8,7 +8,7 @@ $CodBarbearia = $_POST['codBarbearia'];
 
 //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
 $sqlFuncionarios  = "select * from tbfuncionarios 
-where 1 = 1 order by Nome and Status like 'Trabalhando%' and  tbBarbearia_Codigo = {$CodBarbearia} ";
+where 1 = 1  and StatusFunc like '%Trab%' and  tbBarbearia_Codigo = {$CodBarbearia} order by Nome";
 
 
 
@@ -44,7 +44,7 @@ while($linha = mysqli_fetch_array($result)){
     $inform .= " <strong>CPF: </strong> {$linha['CPF']} ,";
     $inform .= " <strong>Data contratação: </strong> {$linha['Data_contratacao']} ,";
     $inform .= " <strong>Telefone: </strong> {$linha['Telefone']} ,";
-    $inform .= " <strong>Status: </strong> {$linha['Status']} ,";
+    $inform .= " <strong>Status: </strong> {$linha['StatusFunc']} ,";
     $inform .= "<hr>";
 }
 

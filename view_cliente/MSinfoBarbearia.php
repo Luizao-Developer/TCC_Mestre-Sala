@@ -31,16 +31,40 @@ $listando = mysqli_fetch_array($resultado);
 </div>
 <div class="img">
     <img src="<?php  echo "../upload/" . $listando['Foto'] ?>" alt="" srcset="">
-</div>
+    <div class="container text-center" id="botoes_redes_sociais">
+        <div class="row">
+            <?php if($listando['Email'] != NULL) {?>
+            <div class="col">
+            <a href="https://mail.google.com/mail/u/0/?<?= $listando['Email'] ?>">
+            <button id="email"><i class="fas fa-envelope"></i></button>
+            </a>    
+        </div>
+            <?php } ?>
+            <?php if($listando['Facebook'] != NULL){ ?>
+            <div class="col">
+            <a href="https://pt-br.facebook.com/people/<?= $listando['Facebook']  ?>">
+            <button id="face"><i class="fab fa-facebook-f"></i></button>
+            </a>
+        </div>
+            <?php } ?>
+            <?php if($listando['Instagram'] != NULL) {?>
+            <div class="col">
+            <a href="https://www.instagram.com/<?= $listando['Instagram'] ?>/">
+            <button id="insta"><i class="fab fa-instagram"></i></button>
+            </a>
+        </div>
+            <?php } ?>
+        </div>
+        </div>
+    </div>
         <div class="card">
             <div class="card-body">
 
-                    <h2><i class="fas fa-map-marker-alt"></i>  <?= $listando['Endereco'] ?> - <?= $listando['Cidade'] ?> - <?= $listando['Estado'] ?> - <?= $listando['CEP'] ?></h2>
-                    <h2>CNPJ: <?= $listando['CNPJ'] ?></h2>
-                    <h2>Contatos - Telefone Comercial = <?= $listando['Telefone_comercial'] ?>, Telefone pessoal = <?= $listando['Telefone_pessoal']?></h2>
-                    <h2><?= $listando['Email'] ?> - <?= $listando['Facebook'] ?> - <?= $listando['Instagram'] ?></h2>
-                    <h2><?= $listando['Status'] ?></h2>
-                    <h2>Proprietario <?= $listando['nomeAdmin'] ?></h2>
+                    <h5><i class="fas fa-map-marker-alt"></i> :  <?= $listando['Endereco'] ?> - <?= $listando['Cidade'] ?> - <?= $listando['Estado'] ?> - <?= $listando['CEP'] ?></h5>
+                    <h5>CNPJ: <?= $listando['CNPJ'] ?></h5>
+                    <h5> <i class="fas fa-phone-alt"></i> Comercial : <?= $listando['Telefone_comercial'] ?>, <i class="fas fa-mobile"></i> : <?= $listando['Telefone_pessoal']?></h5>
+                    <h5>Status: <?= $listando['Status'] ?></h5>
+                    <h5>Proprietario: <?= $listando['nomeAdmin'] ?></h5>
                         </div>
         </div>
 </div>

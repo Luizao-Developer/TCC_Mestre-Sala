@@ -16,6 +16,7 @@ tbBarbearia_Codigo
 
 
 */
+
 $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 $CodigoBarbearia = $_POST['CodigoBarbearia'];
 
@@ -30,7 +31,18 @@ $buscandoProcedimento = "SELECT * FROM tbprocedimento
                         ON tbprocedimento.tbBarbearia_Codigo = tbbarbearia.CodigoBarbearia ";
 $consultando = mysqli_query($conexao, $buscandoProcedimento);
 
+
+
+//Selecionando a hora dos agendamentos
+/*
+$sqlHora = "SELECT Hora FROM tbagendamento 
+INNER JOIN tbbarbearia on tbbarbearia.CodigoBarbearia = {$CodigoBarbearia};
+INNER JOIN tbagendamento.tbBarbearia_Codigo = {$CodigoBarbearia}";
+
+$buscaHora = mysqli_query($conexao, $sqlHora);
+*/
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,7 +62,9 @@ $consultando = mysqli_query($conexao, $buscandoProcedimento);
 
 </div>
 <div class="pg_principal container">
-        <h1>Realizar Agendamento</h1>
+<div class="alert alert-primary" role="alert" id="alerta">
+  <h2>Realizar agendamento</h2>
+</div>
        <!--Form de realizar agendamento
     Servico-
 Preco-
@@ -59,8 +73,8 @@ Hora-
 tbProcedimento_Codigo-
 
 tbBarbearia_Codigo-->
-            <form action="../controladorCliente/MSrealizarAgendamento.php" method="POST" class="row g-3 needs-validation"  novalidate>
-                <input type="hidden" name="CodigoCliente" value="<?= $_SESSION['Codigo'] ?>">
+            <form action="../controladorCliente/MSrealizarAgendamento.php" id="agendar" method="POST" class="row g-3 needs-validation"  novalidate>
+                <input type="hidden" name="CodigoCliente" value="<?= $_SESSION['CodigoCliente'] ?>">
                 <input type="hidden" name="CodigoBarbearia" value="<?= $_POST['CodigoBarbearia']  ?>">
                 <div class="col-md-12">
                 <label for="inputEmail4" class="form-label">Barbearia</label>
@@ -97,8 +111,25 @@ tbBarbearia_Codigo-->
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Hora</label>
-                    <input type="text" name="hora" id="hora" class="form-control" id="inputEmail4" required>
+                    <label for="hora" class="form-label">Hora</label>
+                        <select class="form-select" name="hora" id="hora" aria-label="Default select example" required>
+                           
+                            <option selected>Open this select menu</option>
+                            <option value="1">08:00</option>
+                            <option value="2">08:30</option>
+                            <option value="3">09:00</option>
+                            <option value="3">09:30</option>
+                            <option value="3">10:00</option>
+                            <option value="3">10:30</option>
+                            <option value="3">11:30</option>
+                            <option value="3">12:00</option>
+                            <option value="3">13:30</option>
+                            <option value="3">14:00</option>
+                            <option value="3">14:30</option>
+                            <option value="3">15:00</option>
+                            <option value="3">15:30</option>
+                            </select>
+                            
                     <div class="valid-feedback">
                         Certo!
                     </div>
@@ -114,7 +145,7 @@ tbBarbearia_Codigo-->
                 </div>
                 
                 <div class="col-12">
-                    <button type="submit" class="btn btn-primary" name="realiza_agendamento">Realizar agendamento</button>
+                    <button type="submit" class="btn btn-primary" id="realiza_agendamento" name="realiza_agendamento">Realizar agendamento</button>
                 </div>
                 
                 </form>

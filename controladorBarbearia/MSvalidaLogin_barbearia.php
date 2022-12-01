@@ -1,4 +1,4 @@
-//tbbarbearia
+
 <?php
 if(isset($_POST['email']) && isset($_POST['senha'])){
 
@@ -23,7 +23,7 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     //Carrega o objeto nome do banco de dados.
     $nome = mysqli_fetch_array($resultado);
 
-    var_dump($nome);
+    
     //&& password_verify($_POST['senha'], $nome['Senha_de_acesso'])
     if($totalDeRegistros == 1 ){
 
@@ -36,7 +36,11 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
             
             
             }
-            
+            /*
+            if(!isset($_SESSION)){
+                session_start();
+                }
+                */
             $_SESSION['CodigoBarbearia']    = $nome['CodigoBarbearia'];
             $_SESSION['CNPJ'] = $nome['CNPJ'];
             $_SESSION['nomeAdmin'] = $nome['nomeAdmin'];
@@ -54,12 +58,8 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
             $_SESSION['Facebook'] = $nome['Facebook'];
             $_SESSION['Instagram'] = $nome['Instagram'];
     
-            var_dump($_SESSION);
-            die();
-            
-            header("Location: ../view_barbearia/MStelaprincipal_barbearia.php"); 
-            die();
-
+            header("Location: ../view_barbearia/MStelaprincipal_barbearia.php");
+           die();
     }else{
       
         $mensagem = "Email ou senha inválidos";

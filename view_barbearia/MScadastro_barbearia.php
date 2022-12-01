@@ -335,9 +335,13 @@ $("#email").change(function(){
       data : 'email=' + email,
       success: function(response){
         alert(response)
+        $("#email").val("");
+        return FALSE;
       },
       error: function(){
-        alert("Não foi possivel verificar email")
+        alert("Não foi possivel verificar email");
+        return FALSE;
+
       }
    })
 })
@@ -353,7 +357,10 @@ $("#cnpj").change(function(){
         alert(response)
       },
       error: function(){
-        alert("Não foi possivel verificar CNPJ")
+        alert("Não foi possivel verificar CNPJ");
+        $("#cnpj").val("");
+        return FALSE;
+
       }
    })
 })
@@ -367,9 +374,13 @@ $("#telefoneComercial").change(function(){
       data : 'telefoneComercial=' + telefoneComercial,
       success: function(response){
         alert(response)
+        $("#telefoneComercial").val("");
+        
       },
       error: function(){
-        alert("Não foi possivel verificar telefone comercial")
+        alert("Não foi possivel verificar telefone comercial");
+        
+
       }
    })
 })
@@ -383,9 +394,12 @@ $("#telefonePessoal").change(function(){
       data : 'telefonePessoal=' + telefonePessoal,
       success: function(response){
         alert(response)
+        $("#telefonePessoal").val("");
+       
       },
       error: function(){
         alert("Não foi possivel verificar telefone pessoal")
+        
       }
    })
 })
@@ -395,6 +409,7 @@ $("#telefonePessoal").change(function(){
      if(senha.length < 8){
           //alert("A senha tem que haver 8 ou mais caracteres");
           $("#msgErro").append("A senha tem que haver 8 ou mais caracteres");
+
           return FALSE;
      }else{
       return true;
@@ -406,6 +421,7 @@ $("#telefonePessoal").change(function(){
      var repeteSenha = $("#repeteSenha").val();
     if(senha != repeteSenha){
       alert("Senhas são diferentes");
+      return FALSE;
     }
   })
 //Buscar CEP
@@ -421,6 +437,8 @@ $("#cep").change(function(){
       },
       error: function(){
           alert("Erro ao buscar CEP");
+          $("#cep").val("");
+          return FALSE;
       }
     })
 })

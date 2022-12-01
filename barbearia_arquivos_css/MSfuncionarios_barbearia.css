@@ -13,7 +13,8 @@ body{
     border: none;
     margin-top: 50px;
     margin-left: 10px;
-    box-shadow: 1px 1px 30px 6px black;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+
 }
 .card #nome_funcionario{
     border: solid 1px orange;
@@ -56,6 +57,15 @@ ul a{
     padding-left: 100px;
     padding: 0 50px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

@@ -13,7 +13,65 @@ body{
     color: white;
     margin-top: 50px;
     margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+
+}
+#botoes_redes_sociais{
+    width: 300px;
+    padding: 30px;
+    background: black;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+#botoes_redes_sociais #email{
+    padding: 15px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 1px red;
+    text-align: center;
+    font: large;
+    font-size: 25px;
+    background: transparent;
+    color: red;
+}
+#botoes_redes_sociais #email:hover{
+    transition: all .3s;
+    background: red;
+    color: white;
+}
+#botoes_redes_sociais #face{
+    padding: 15px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 1px blue;
+    text-align: center;
+    font: large;
+    font-size: 25px;
+    background: transparent;
+    color: blue;
+}
+#botoes_redes_sociais #face:hover{
+    transition: all .3s;
+    background: blue;
+    color: white;
+}
+#botoes_redes_sociais #insta{
+    padding: 15px;
+    width: 60px;
+    border-radius: 50%;
+    border: solid 1px violet;
+    text-align: center;
+    font: large;
+    font-size: 25px;
+    background: transparent;
+    color: violet;
+}
+#botoes_redes_sociais #insta:hover{
+    transition: all .3s;
+    background: violet;
+    color: white;
 }
 .espacamento{
     width: 100%;
@@ -38,6 +96,15 @@ ul a{
     padding: 1em;
     padding-left: 100px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

@@ -5,7 +5,31 @@
 }
 body{
     width:100%;
+    background: rgb(31,30,30);
+}
+#alerta{
+    border: solid 1px orange;
+    color: orange;
+    background: transparent;
+}
+#cadastro{
+    color: white;
+}
+#cadastro input{
+    color: white;
+    border: none;
+    background: rgba(255, 255, 255, 0.212);
+}
+#cadastro #cadastrar{
+    padding: 10px 50px;
     background: darkred;
+    color: white;
+    font: large;
+    border: none;
+    transition: all .3s;
+}
+#cadastro #cadastrar:hover{
+    box-shadow: 1px 1px 60px 10px darkred;
 }
 .espacamento{
     width: 100%;
@@ -15,7 +39,7 @@ body{
 .pg_principal{
     width: 100%;
     height: 140vh;
-    background-color: darkred;
+    background-color: rgb(31,30,30);
     padding-top: 30px;
 }
 .pg_principal h1{
@@ -28,6 +52,15 @@ ul a{
     padding-left: 100px;
     padding: 0 50px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

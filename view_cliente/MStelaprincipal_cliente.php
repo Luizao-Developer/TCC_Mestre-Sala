@@ -43,7 +43,7 @@ $linha = mysqli_fetch_array($result);
 
 <div id="recebeUsuario">
 <h1>Seja bem vindo <?= $_SESSION['Nome_de_usuario']   ?></h1>
-<p> <?php var_dump($_SESSION)?></p>
+
 </div>
 
 
@@ -76,14 +76,14 @@ $linha = mysqli_fetch_array($result);
             <?php } ?>
             <!-- Modal -->
             
-            <input type="hidden" name="Codigo" value="<?= $_SESSION['Codigo'] ?>">
+            <input type="hidden" name="Codigo" value="<?= $_SESSION['CodigoCliente'] ?>">
             <div class="modal fade" id="exampleModa2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Faça a edição de suas informações</h5>
                                 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">rfefrfX</button>
                     
                 </div>
                 <div class="modal-body">
@@ -125,24 +125,54 @@ $linha = mysqli_fetch_array($result);
                             <input type="text" class="form-control"  aria-label="First name" name="endereco" value="<?= $_SESSION['Endereco'] ?>">
                         </div>
                         <div class="col">
-                            <label for="">Cidade</label>
-                            <input type="text" class="form-control"  aria-label="Last name" name="cidade" value="<?=  $_SESSION['Cidade'] ?>">
+                            <label for="">CEP</label>
+                            <input type="text" class="form-control"  aria-label="Last name" name="cep" id="cep" value="<?= $_SESSION['CEP'] ?>">
                         </div>
+                        
                     </div>
                     <div class="row g-3">
-                        <div class="col">
-                            <label for="">UF</label>
-                            <input type="text" class="form-control"  aria-label="First name" name="uf" value="<?=$_SESSION['UF'] ?>">
+                    <div class="col">
+                            <label for="">Cidade</label>
+                            <input type="text" class="form-control"  aria-label="Last name" name="cidade" id="cidade" value="<?=  $_SESSION['Cidade'] ?>">
                         </div>
                         <div class="col">
-                            <label for="">CEP</label>
-                            <input type="text" class="form-control"  aria-label="Last name" name="cep" value="<?= $_SESSION['CEP'] ?>">
-                        </div>
+                        <label for="validationTooltip04" class="form-label">UF</label>
+                      <select class="form-select"  name="uf" id="uf" required>
+                        <option selected disabled value="">UF(Unidade Federativa - Estados)...</option>
+                                <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
+                      </select></div>
+                        
                     </div>
                     <div class="row g-3">
                         <div class="col">
                             <label for="">Telefone</label>
-                            <input type="text" class="form-control" name="telefone" value="<?= $_SESSION['Telefone'] ?>"  >
+                            <input type="text" class="form-control" name="telefone" id="telefone" value="<?= $_SESSION['Telefone'] ?>"  >
                         </div>
                        
                     </div>
@@ -151,7 +181,7 @@ $linha = mysqli_fetch_array($result);
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary" name="salvar">Salvar</button>
+                    <button type="submit" class="btn btn-primary" id="salvar" name="salvar">Salvar</button>
                 </div>
                 </div>
             </div>
@@ -166,7 +196,51 @@ $linha = mysqli_fetch_array($result);
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
 <script src="../arquivos_js/MStelaprincipal_cliente.js"></script>
 </body>
 <?php require_once("../componentes/rodape.php") ?>
+<script>
+$(document).ready(function(){
+      $('#telefone').mask('(00) 00000-0000');
+      $('#cep').mask('00000-000');
+      
+      });
+
+$('#email').change(function(){
+  
+  var email = $(this).val();
+   
+  $.ajax({
+    url: "../controladorCliente/duplicidadeEmail.php",
+    type: 'POST',
+    data: 'email=' + email,
+    success : function(response){          //MELHORAR
+      alert(response);
+    },
+    error: function(){
+      alert("Erro ao verificar email");
+    }
+  })
+ 
+})
+$("#cep").change(function(){
+    var cep = $(this).val();
+    var url = "http://viacep.com.br/ws/"+ cep + "/json/"
+    $.ajax({
+      url:url,
+      type: 'GET',
+      success: function(response){
+         $("#uf").val( response.uf ),
+         $("#cidade").val(response.localidade);
+      },
+      error: function(){
+          alert("Erro ao buscar CEP");
+      }
+    })
+})
+
+</script>
 </html>

@@ -74,7 +74,7 @@
                         </div>
             <?php } ?>
             <?php if(isset($mensagemExclusao)) { ?>
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success" role="alert" id="alerta_exclusão">
                           <h4><i class="fas fa-times"></i> <?= $mensagemExclusao ?></h4>
                         </div>
             <?php } ?>
@@ -102,12 +102,12 @@
                         <td class="d-flex">
                         <form action="MSalterarProcedimento.php" method="post">
                             <input type="hidden" name="codigo" value="<?= $linha['Codigo']?>">
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-pen"></i></button>
+                                <button type="submit" style="background: blue;border:none;" class="btn btn-primary"><i class="fas fa-pen"></i></button>
                             
                         </form>
                         <form action="MSprocedimentos_barbearia.php" method="post">
                             <input type="hidden" name="codigo" value="<?= $linha['Codigo']?>">
-                            <button type="submit" class="btn btn-danger" onclick="alert('Deseja excluir este procedimento ?')" name="excluir"><i class="fas fa-trash-alt"></i></button>
+                            <button type="submit" class="btn btn-danger" style="background: red;border:none;margin:0px 10px" onclick="alert('Deseja excluir este procedimento ?')" name="excluir"><i class="fas fa-trash-alt"></i></button>
                         </form>
                         </td>
                     </tr>

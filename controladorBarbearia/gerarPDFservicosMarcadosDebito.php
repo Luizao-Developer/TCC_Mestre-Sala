@@ -6,7 +6,7 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 
 $codBarbearia = $_POST['codBarbearia'];
 $sql = "SELECT * FROM tbprocedimento 
-INNER JOIN tbagendamento ON StatusAgendamento LIKE '%Age%' AND tbagendamento.tbProcedimento_Codigo = tbprocedimento.Codigo
+INNER JOIN tbagendamento ON StatusAgendamento LIKE '%Débito%' AND tbagendamento.tbProcedimento_Codigo = tbprocedimento.Codigo
 INNER JOIN tbcliente on tbcliente.CodigoCliente = tbagendamento.tbCliente_Codigo 
 INNER JOIN tbbarbearia on tbbarbearia.CodigoBarbearia = {$codBarbearia}";
 

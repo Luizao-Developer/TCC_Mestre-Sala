@@ -9,6 +9,8 @@ body{
 #card_barbearia{
     margin: 10px 0px;
     border: none;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+
 }
 .espacamento{
     width: 100%;
@@ -30,7 +32,12 @@ body{
 #card_info h5{
     color: white;
 }
+#pesquisa input{
+    color: white;
+    border: none;
+    background: rgba(255, 255, 255, 0.212);
 
+}
 ul a{
     border-bottom: solid transparent;
     margin: 10px 5px;
@@ -83,7 +90,11 @@ footer .nav{
     padding: 10px 50px;
     border-radius: 5px;
     color: white;
+    transition: all .3s;
     
+}
+#botao #filtrar:hover{
+    background: rgb(36, 36, 240);
 }
 #area_cards{
     width: 100%;

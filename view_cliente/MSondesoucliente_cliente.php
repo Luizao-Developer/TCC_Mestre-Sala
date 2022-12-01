@@ -15,7 +15,7 @@ $listCliente = mysqli_fetch_array($conCliente);
 
 $sql = "SELECT * FROM tbbarbearia
             INNER JOIN tbbarbearias_clientes 
-            ON tbbarbearias_clientes.Codigo_Barbearia = tbbarbearia.CodigoBarbearia ORDER BY ASC";
+            ON tbbarbearias_clientes.Codigo_Barbearia = tbbarbearia.CodigoBarbearia";
 
         $consultando = mysqli_query($conexao, $sql);
 
@@ -91,9 +91,9 @@ if(isset($_POST['deixar_de_ser_cliente'])){
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia'] ?>">
                                     <button type="submit" name="ser_cliente" id="ser_cliente" class="btn btn-primary">Realizar agendamento</button>
                                 </form>
-                                <form action="MSondesoucliente.php">
+                                <form action="../controladorBarbearia/MSexcluirCliente.php">
                                     <input type="hidden" name="CodigoBarbearia" value="<?= $listando['CodigoBarbearia']  ?>">
-                                    <input type="hidden" name="CodigoCliente" value="<?=  $listCliente['Codigo']?>">
+                                    <input type="hidden" name="CodigoCliente" value="<?=  $listCliente['CodigoCliente']?>">
                                     <button type="submit" class="btn btn-danger" name="deixar_de_ser_cliente" id="deixar_de_ser_cliente">Não ser mais cliente</button>
                                 </form>
 

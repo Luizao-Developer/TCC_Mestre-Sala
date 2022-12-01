@@ -25,13 +25,14 @@
                     <?php  } ?>
                 
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" required>
+                <input type="email" class="form-control" id="floatingInput" name="email_cliente" placeholder="Email" required>
                 <label for="floatingInput"><i class="fas fa-envelope"></i> Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Senha" required>
+                <input type="password" class="form-control" id="floatingPassword" name="senha_cliente" placeholder="Senha" required>
                 <label for="floatingPassword"><i class="fas fa-key"></i> Senha</label>
             </div>
+            <input type="hidden" name="sessao" value="1">
             <div class="links">
                 <p><a href="esqueceuSenha.php">Esqueceu sua senha ?</a></p>
             </div>

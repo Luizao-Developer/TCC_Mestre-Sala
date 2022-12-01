@@ -129,11 +129,13 @@ if(isset($_POST['excluir'])){
                           <h4><i class="fas fa-times"></i> <?= $mensagemExclusao ?></h4>
                         </div>
             <?php } ?>
-            
             <div class="flex-container ">
+
             <div class="container " id="area_cards">
+
             <div class="row row-cols-3">
             <?php while($linha = mysqli_fetch_array($result)){ ?>
+            
                       <div class="card" style="width: 18rem; margin: 0 50px ;">
                             <div class="card-body">
                                   <div class="alert alert-info" role="alert" id="nome_funcionario">
@@ -154,9 +156,9 @@ if(isset($_POST['excluir'])){
                               <p class="card-text"><i class="fas fa-file-signature"></i> PIS-PASEP: <?= $linha['PIS_PASEP'] ?></p>
                               <p class="card-text"><i class="fas fa-file-signature"></i> RG: <?= $linha['RG'] ?></p>
                               <p class="card-text"><i class="fas fa-file-signature"></i> CPF: <?= $linha['CPF'] ?></p>
-                              <p class="card-text"><i class="fas fa-sun"></i> Data de nascimento <?= $linha['Data_nascimento'] ?></p>
-                              <p class="card-text">Trabalhando desde <?= $linha['Data_contratacao'] ?></p>
-                              <p class="card-text"><?= $linha['Status'] ?></p>
+                              <p class="card-text"><i class="fas fa-sun"></i> Data de nascimento <?= implode("/", array_reverse(explode("-", $linha['Data_nascimento']))) ?></p>
+                              <p class="card-text">Trabalhando desde <?= implode("/", array_reverse(explode("-", $linha['Data_contratacao']))) ?></p>
+                              <p class="card-text"><?= $linha['StatusFunc'] ?></p>
 
                               <!--Alterar-->
                               <div class="d-grid gap-2" id="grupo_botoes">
@@ -175,10 +177,12 @@ if(isset($_POST['excluir'])){
 
                             </div>
                       </div>
-            <?php } ?>
+                      <?php } ?>
+            
 
 
             </div>
+
             </div>
             
             </div>

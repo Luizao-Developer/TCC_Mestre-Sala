@@ -12,7 +12,8 @@ body{
     border: none;
     margin-top: 50px;
     margin-left: 10px;
-    box-shadow: 1px 1px 40px 10px black;
+    box-shadow: 1px 1px 30px 6px rgb(53, 53, 53);
+
 }
 .espacamento{
     width: 100%;
@@ -26,12 +27,50 @@ body{
     background-color: rgb(31, 30, 30);
     padding-top: 30px;
 }
+.modal-header{
+    background: black;
+    color: white;
+}
+.modal-body{
+    background: black;
+}
+.modal-body label{
+    color: whitesmoke;
+}
+.modal-body input{
+    color: white;
+    border: none;
+    background: rgba(255, 255, 255, 0.212);
+}
+.modal-footer{
+    background: black;
+}
+.modal-footer #salvar{
+    padding: 10px 40px;
+    color: white;
+    background: darkred;
+    font: large;
+    border: none;
+    transition: all .2s;
+}
+.modal-footer #salvar:hover{
+    box-shadow: 1px 1px 40px 10px darkred;
+}
 ul a{
     border-bottom: solid transparent;
     margin: 10px 5px;
     padding: 1em;
     padding-left: 100px;
     text-align: center;
+}
+#sair_sessao{
+    border: none;
+    margin: auto;
+}
+#sair_sessao:hover{
+    border: none;
+    margin: auto;
+
 }
 ul a:hover{
     border-bottom: solid darkred;

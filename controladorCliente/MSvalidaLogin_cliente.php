@@ -1,15 +1,23 @@
 <?php
-if(isset($_POST['email']) && isset($_POST['senha'])){
+
+
+   
+
+    if(isset($_POST['email_cliente']) && isset($_POST['senha_cliente'])){
 
     //receber os dados do email e da senha;
-    $email = addslashes($_POST['email']);
-    $senha = addslashes($_POST['senha']);
+    $email = addslashes($_POST['email_cliente']);
+    $senha = addslashes($_POST['senha_cliente']);
+ 
+
+    
+
 
     $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
-    $sql = "select *
+    $sqlCliente = "select *
                 from tbcliente
                 where EmailCliente = '{$email}'";
-    $resultado = mysqli_query($conexao, $sql); //Executar a sql
+    $resultado = mysqli_query($conexao, $sqlCliente); //Executar a sql
     
     
 
@@ -21,14 +29,23 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
     //Carrega o objeto nome do banco de dados.
     $nome = mysqli_fetch_array($resultado);
 
-    // && password_verify($_POST['senha'], $nome['Senha_de_acesso'])
+   
+    // && password_verify($nome['Senha_de_acesso'] ,$_POST['senha'])
 
     if($totalDeRegistros == 1 ){
 
         //Inicia a sessão senão tiver nenhuma ativa
+        
         if(session_status() !== PHP_SESSION_ACTIVE){
         session_start();
         }
+        
+        
+        /*
+        if(!isset($_SESSION)){
+            session_start();
+            }
+        */
         $_SESSION['CodigoCliente']    = $nome['CodigoCliente'];
         $_SESSION['Telefone'] = $nome['Telefone'];
         $_SESSION['Nome']  = $nome['Nome'];
@@ -40,13 +57,11 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         $_SESSION['EmailCliente'] = $nome['EmailCliente'];
         $_SESSION['Nome_de_usuario'] = $nome['Nome_de_usuario'];
         $_SESSION['Foto'] = $nome['Foto'];
-
         
-        var_dump($_SESSION);
-        die();
-
-        header("location: ../view_cliente/MStelaprincipal_cliente.php");
-        die();
+        
+        
+       header("location: ../view_cliente/MStelaprincipal_cliente.php");
+       die();
 
     }else{
         
@@ -56,4 +71,5 @@ if(isset($_POST['email']) && isset($_POST['senha'])){
         die();
     }
 }
+
 ?>

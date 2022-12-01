@@ -30,7 +30,7 @@ if(isset($_POST['salvar'])){
     CEP = '{$cep}',
     UF = '{$uf}',
     Email = '{$email}',
-    Status = '{$status}',
+    StatusFunc = '{$status}',
     data_demissao = '{$data_demissao}'
     where Codigo = {$Codigo}";
 
@@ -61,15 +61,19 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
     <title>Mestre-Sala</title>
 </head>
 <body>
+<?php require_once("../componentes/menuBarbearia.php") ?>
+
 <div class="espacamento">
 <h1 style="color:white;"><?= $_SESSION['NomeBarbearia'] ?></h1>
 </div>
 <div class="pg_principal container">
-    
+<div class="alert alert-primary" role="alert" id="alerta">
+<h2>Alteração de funcionario</h2>
+</div>
      <div class="cadastro">
-         <form class="row g-3 needs-validation" action="" method="post" novalidate>
+         <form class="row g-3 needs-validation" action="" method="post" id="cadastro" novalidate>
          <input type="hidden" name="codigo" value="<?= $_POST['codigo'] ?>">
-         <h1>Alteração de funcionario</h1>
+         
                     <div class="col-md-4">
                         <label for="validationCustom01" class="form-label">Nome</label>
                         <input type="text" class="form-control" id="validationCustom01" name="nome" value="<?= $linhaFuncionario['Nome'] ?>" required>
@@ -82,7 +86,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Telefone</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="telefone" value="<?= $linhaFuncionario['Telefone']  ?>" required>
+                        <input type="text" class="form-control" id="validationCustom02" name="telefone" placeholder="(00) 00000-0000"  value="<?= $linhaFuncionario['Telefone']  ?>" required>
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -92,7 +96,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Email</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="email" value="<?= $linhaFuncionario['Email']  ?>" required>
+                        <input type="text" class="form-control" id="validationCustom03" name="email" value="<?= $linhaFuncionario['Email']  ?>" required>
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -102,7 +106,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">Endereço</label>
-                        <input type="text" class="form-control" id="validationCustom02" name="endereco" value="<?= $linhaFuncionario['Endereco']  ?>" required>
+                        <input type="text" class="form-control" id="validationCustom04" name="endereco" value="<?= $linhaFuncionario['Endereco']  ?>" required>
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -112,7 +116,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom02" class="form-label">CEP</label>
-                        <input type="text" class="form-control" id="validationCustom02" value="<?= $linhaFuncionario['CEP'] ?>" name="cep" required>
+                        <input type="text" class="form-control" id="validationCustom05" placeholder="00000-000" value="<?= $linhaFuncionario['CEP'] ?>" name="cep" id="cep" required>
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -120,7 +124,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom03" class="form-label">Cidade</label>
-                        <input type="text" class="form-control" id="validationCustom03" name="cidade" value="<?= $linhaFuncionario['Cidade']  ?>" required>
+                        <input type="text" class="form-control" id="validationCustom06" name="cidade" value="<?= $linhaFuncionario['Cidade']  ?>" required>
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -130,9 +134,35 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom04" class="form-label">UF</label>
-                        <select class="form-select" id="validationCustom04" name="uf" required>
+                        <select class="form-select" id="validationCustom07" name="uf" required>
                         <option selected disabled value=""><?= $linhaFuncionario['UF'] ?></option>
-                        <option>...</option>
+                        <option value="AC">Acre</option>
+                                <option value="AL">Alagoas</option>
+                                <option value="AP">Amapá</option>
+                                <option value="AM">Amazonas</option>
+                                <option value="BA">Bahia</option>
+                                <option value="CE">Ceará</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="ES">Espírito Santo</option>
+                                <option value="GO">Goiás</option>
+                                <option value="MA">Maranhão</option>
+                                <option value="MT">Mato Grosso</option>
+                                <option value="MS">Mato Grosso do Sul</option>
+                                <option value="MG">Minas Gerais</option>
+                                <option value="PA">Pará</option>
+                                <option value="PB">Paraíba</option>
+                                <option value="PR">Paraná</option>
+                                <option value="PE">Pernambuco</option>
+                                <option value="PI">Piauí</option>
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="RN">Rio Grande do Norte</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option value="RO">Rondônia</option>
+                                <option value="RR">Roraima</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="SP">São Paulo</option>
+                                <option value="SE">Sergipe</option>
+                                <option value="TO">Tocantins</option>
                         </select>
                         <div class="valid-feedback">
                         Certo!
@@ -146,8 +176,8 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     
                     <div class="col-md-4">
                         <label for="validationCustom04" class="form-label">Status</label>
-                        <select class="form-select" id="validationCustom04" name="status" required>
-                        <option selected disabled value=""><?= $linhaFuncionario['Status'] ?></option>
+                        <select class="form-select" id="validationCustom08" name="status" required>
+                        <option selected disabled value=""><?= $linhaFuncionario['StatusFunc'] ?></option>
                         <option>Trabalhando</option>
                         <option>Demitido</option>
                         <option>Em licença</option>
@@ -161,7 +191,7 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
                     </div>
                     <div class="col-md-4">
                         <label for="validationCustom04" class="form-label">Data de demissão</label>
-                        <input type="text" class="form-control" id="validationCustom03" name="data_demissao" value="<?= $linhaFuncionario['Data_demissao']  ?>">
+                        <input type="text" class="form-control" id="validationCustom09" name="data_demissao" value="<?= $linhaFuncionario['Data_demissao']  ?>">
                         <div class="valid-feedback">
                         Certo!
                         </div>
@@ -175,8 +205,38 @@ $linhaFuncionario = mysqli_fetch_array($resultFuncionario);
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-</body>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+</body>  
 <?php require_once("../componentes/rodape.php") ?>
+<script>
+    $(document).ready(function(){
+             $("validationCustom05").mask("00000-000");
+           
+             
+      $('#validationCustom02').mask('(00) 00000-0000');
+      
+      
+    
+    })
+    //Buscando CEP  do cliente
+  $("#validationCustom05").change(function(){
+    var cep = $(this).val();
+    var url = "http://viacep.com.br/ws/"+ cep + "/json/"
+    $.ajax({
+      url:url,
+      type: 'GET',
+      success: function(response){
+         $("#validationCustom07").val( response.uf ),
+         $("#validationCustom06").val(response.localidade);
+      },
+      error: function(){
+          alert("Erro ao buscar CEP");
+      }
+    })
+})
+</script>
 <script>
                 // Example starter JavaScript for disabling form submissions if there are invalid fields
             (() => {

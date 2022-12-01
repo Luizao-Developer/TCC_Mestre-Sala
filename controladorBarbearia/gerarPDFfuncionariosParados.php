@@ -7,7 +7,7 @@ $conexao = mysqli_connect("127.0.0.1","root","","mestre_sala");
 $CodBarbearia = $_POST['codBarbearia'];
 
 //Esta consulta tem a função de mostrar os funcionários de uma respectiva barbearia, sem mostrar uma lista gigante para todas as barbearias cadastradas
-$sqlFuncionarios = "select * from tbfuncionarios where 1 = 1 order by Nome and Status like 'Em licença%' and tbBarbearia_Codigo = {$CodBarbearia}";
+$sqlFuncionarios = "select * from tbfuncionarios where 1 = 1  and StatusFunc like '%Em%' and tbBarbearia_Codigo = {$CodBarbearia} order by Nome";
 
 
 
@@ -41,7 +41,7 @@ while($linha = mysqli_fetch_array($result)){
     $inform .= " <strong>PIS-PASEP: </strong> {$linha['PIS_PASEP']} ,";
     $inform .= " <strong>Data contratação: </strong> {$linha['Data_contratacao']} ,";
     $inform .= " <strong>Telefone: </strong> {$linha['Telefone']} ,";
-    $inform .= " <strong>Status: </strong> {$linha['Status']} ,";
+    $inform .= " <strong>Status: </strong> {$linha['StatusFunc']} ,";
     $inform .= "<hr>";
 }
 
